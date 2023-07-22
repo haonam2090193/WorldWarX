@@ -11,6 +11,8 @@ public class RaycastWeapon : MonoBehaviour
     public float bulletSpeed = 1000f;
     public float bulletDrop = 0f;
     public ParticleSystem[] muzzleFlash;
+    public float[] spreads;
+
     public ParticleSystem hitEffect;
     public TrailRenderer tracerEffect;
 
@@ -27,7 +29,7 @@ public class RaycastWeapon : MonoBehaviour
     private RaycastHit hitInfo;
     private float accumulatedTime;
     private float maxLifetime = 3f;
-
+    public int ammoPer1Shot;
     private void Awake()
     {
         weaponRecoil = GetComponent<WeaponRecoil>();
@@ -106,7 +108,7 @@ public class RaycastWeapon : MonoBehaviour
             return;
         }
 
-        ammoCount--;
+        ammoCount-=ammoPer1Shot;
 
         if (ListenerManager.HasInstance)
         {
@@ -117,13 +119,19 @@ public class RaycastWeapon : MonoBehaviour
         {
             item.Emit(1);
         }
+        for (int i = 0; i < ammoPer1Shot; i++)
+        {
+            float xSpread = Random.Range(spreads[0], spreads[1]);
+            float ySpread = Random.Range(spreads[2], spreads[3]);
+            Vector3 randomSpread = new Vector3(xSpread, ySpread, 0);
+            Vector3 velocity = ((target - raycastOrigin.position).normalized + randomSpread) * bulletSpeed;
 
-        Vector3 velocity = (target - raycastOrigin.position).normalized * bulletSpeed;
+            var bullet = ObjectPool.Instance.GetPooledObject();
+            bullet.Active(raycastOrigin.position, velocity);
 
-        var bullet = ObjectPool.Instance.GetPooledObject();
-        bullet.Active(raycastOrigin.position, velocity);
-
-        weaponRecoil.GenerateRecoil(weaponName);
+            weaponRecoil.GenerateRecoil(weaponName);
+        }
+   
     }
 
     private Vector3 GetPosition(Bullet bullet)

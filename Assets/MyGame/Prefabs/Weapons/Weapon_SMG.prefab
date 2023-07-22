@@ -24116,8 +24116,7 @@ MonoBehaviour:
   muzzleFlash:
   - {fileID: 8688915325143509855}
   - {fileID: 7299192155453114166}
-  hitEffect: {fileID: 2134995897945455150, guid: be6c50304a9fc447eaadb99135c119db,
-    type: 3}
+  hitEffect: {fileID: 8509489935453798438}
   tracerEffect: {fileID: 5301066863683065312, guid: cf292f0a12e0e4660b80155cdda2b3d2,
     type: 3}
   raycastOrigin: {fileID: 3610610017180785918}
@@ -29171,6 +29170,10 @@ PrefabInstance:
     - target: {fileID: 1212372749938494, guid: afd0cd28e4b40bb449b457334f1217a8, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212372749938494, guid: afd0cd28e4b40bb449b457334f1217a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1265691032866056, guid: afd0cd28e4b40bb449b457334f1217a8, type: 3}
       propertyPath: m_Layer
