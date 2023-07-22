@@ -12247,6 +12247,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon_SMG
       objectReference: {fileID: 0}
+    - target: {fileID: 5257056441650270257, guid: 982668932f8c2e44f81da1959d017575,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 982668932f8c2e44f81da1959d017575, type: 3}
 --- !u!4 &7809831278757671832
