@@ -14,3 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTime: 1
   maxDistance: 1
+  maxHealth: 100
+  blinkDuration: 0.1
+  dieForce: 10
+  maxSight: 5
+  timeDestroyAI: 3
+  jumpHeight: 3
+  gravity: 20
+  stepDown: 0.1
+  airControl: 2.5
+  jumpDamp: 0.5
+  groundSpeed: 1.2
+  pushPower: 2
+  turnSpeed: 15
+  defaultRecoil: 1
+  aimRecoil: 0.3
+  timeDestroyDroppedMagazine: 5
+  maxCroissHairTargetDistance: 100
+  maxBulletPoolSize: 100
+  loadingOverLapTime: 1

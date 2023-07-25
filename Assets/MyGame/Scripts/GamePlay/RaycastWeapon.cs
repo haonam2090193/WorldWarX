@@ -23,16 +23,18 @@ public class RaycastWeapon : MonoBehaviour
 
     public int ammoCount;
     public int totalAmmo;
-    public float damage = 10f;
+    public float damage;
+    public int ammoPerShot;
 
     private Ray ray;
     private RaycastHit hitInfo;
     private float accumulatedTime;
     private float maxLifetime = 3f;
-    public int ammoPer1Shot;
+
     private void Awake()
     {
         weaponRecoil = GetComponent<WeaponRecoil>();
+
     }
 
     public void StartFiring()
@@ -108,7 +110,7 @@ public class RaycastWeapon : MonoBehaviour
             return;
         }
 
-        ammoCount-=ammoPer1Shot;
+        ammoCount -= ammoPerShot;
 
         if (ListenerManager.HasInstance)
         {
@@ -119,7 +121,7 @@ public class RaycastWeapon : MonoBehaviour
         {
             item.Emit(1);
         }
-        for (int i = 0; i < ammoPer1Shot; i++)
+        for (int i = 0; i < ammoPerShot; i++)
         {
             float xSpread = Random.Range(spreads[0], spreads[1]);
             float ySpread = Random.Range(spreads[2], spreads[3]);
