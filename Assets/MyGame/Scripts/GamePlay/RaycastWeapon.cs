@@ -5,9 +5,10 @@ using UnityEngine;
 public class RaycastWeapon : MonoBehaviour
 {
     public WeaponSlot weaponSlot;
+
     public string weaponName;
     public bool isFiring = false;
-    public int fireRate = 25;
+    public float fireRate = 25;
     public float bulletSpeed = 1000f;
     public float bulletDrop = 0f;
     public ParticleSystem[] muzzleFlash;
@@ -59,8 +60,6 @@ public class RaycastWeapon : MonoBehaviour
             UpdateFiring(deltaTime, target);
         }
 
-        accumulatedTime += deltaTime;
-
         UpdateBullets(deltaTime);
     }
 
@@ -110,7 +109,7 @@ public class RaycastWeapon : MonoBehaviour
             return;
         }
 
-        ammoCount -= ammoPerShot;
+        ammoCount --;     
 
         if (ListenerManager.HasInstance)
         {

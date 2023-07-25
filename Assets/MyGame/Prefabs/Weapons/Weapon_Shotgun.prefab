@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1314645587260444398}
   - component: {fileID: 1302985818594091620}
   - component: {fileID: 1342278575880073334}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_Wep_Shotgun_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 1321583074694175618}
   - component: {fileID: 1310965496994986954}
   - component: {fileID: 1302213019539878920}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_Wep_Shotgun_Trigger_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 1317393155260798818}
   - component: {fileID: 1310686901341616128}
   - component: {fileID: 1303101035048604628}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_Wep_Shotgun_Slide_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29179,7 +29179,7 @@ GameObject:
   - component: {fileID: 4204243994753246708}
   - component: {fileID: 4204243994753246709}
   - component: {fileID: 4204243994753246698}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Weapon_Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29193,7 +29193,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4204243994753246696}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -29219,7 +29219,7 @@ MonoBehaviour:
   rigController: {fileID: 0}
   recoilModifier: 1
   recoilPattern:
-  - {x: 0, y: 1}
+  - {x: 0, y: 0}
   duration: 0.1
 --- !u!114 &4204243994753246709
 MonoBehaviour:
@@ -29236,7 +29236,7 @@ MonoBehaviour:
   weaponSlot: 0
   weaponName: shotgun
   isFiring: 0
-  fireRate: 1
+  fireRate: 0.7
   bulletSpeed: 750
   bulletDrop: 0
   muzzleFlash:
@@ -29254,10 +29254,10 @@ MonoBehaviour:
   raycastDestination: {fileID: 0}
   weaponRecoil: {fileID: 0}
   magazine: {fileID: 4204243994753246696}
-  ammoCount: 64
-  totalAmmo: 64
+  ammoCount: 8
+  totalAmmo: 8
   damage: 10
-  ammoPerShot: 8
+  ammoPerShot: 12
 --- !u!114 &4204243994753246698
 MonoBehaviour:
   m_ObjectHideFlags: 0

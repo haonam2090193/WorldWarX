@@ -19374,6 +19374,7 @@ MonoBehaviour:
   muzzleFlash:
   - {fileID: 8906851917497626322}
   - {fileID: 4587037321443273022}
+  spreads: []
   hitEffect: {fileID: 3329401084067000259}
   tracerEffect: {fileID: 0}
   raycastOrigin: {fileID: 3816721940440114033}
@@ -19383,6 +19384,7 @@ MonoBehaviour:
   ammoCount: 100
   totalAmmo: 100
   damage: 11
+  ammoPerShot: 1
 --- !u!114 &258089270749940654
 MonoBehaviour:
   m_ObjectHideFlags: 0

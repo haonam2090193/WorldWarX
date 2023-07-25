@@ -28958,6 +28958,7 @@ MonoBehaviour:
   muzzleFlash:
   - {fileID: 8227528519844208928}
   - {fileID: 8227808573485425030}
+  spreads: []
   hitEffect: {fileID: 2134995897945455150}
   tracerEffect: {fileID: 5301066863683065312, guid: cf292f0a12e0e4660b80155cdda2b3d2,
     type: 3}
@@ -28968,6 +28969,7 @@ MonoBehaviour:
   ammoCount: 15
   totalAmmo: 15
   damage: 10
+  ammoPerShot: 1
 --- !u!114 &-5712687851035014815
 MonoBehaviour:
   m_ObjectHideFlags: 0

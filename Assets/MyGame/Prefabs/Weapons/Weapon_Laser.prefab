@@ -29273,7 +29273,7 @@ MonoBehaviour:
   ammoCount: 30
   totalAmmo: 30
   damage: 10
-  ammoPer1Shot: 1
+  ammoPerShot: 1
 --- !u!114 &-1130363084662318865
 MonoBehaviour:
   m_ObjectHideFlags: 0
