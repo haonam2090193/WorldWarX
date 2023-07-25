@@ -30,6 +30,6 @@ MonoBehaviour:
   defaultRecoil: 1
   aimRecoil: 0.3
   timeDestroyDroppedMagazine: 5
-  maxCroissHairTargetDistance: 10
+  maxCroissHairTargetDistance: 100
   maxBulletPoolSize: 100
   loadingOverLapTime: 1
