@@ -56,8 +56,8 @@ public class WeaponRecoil : MonoBehaviour
     {
         if (time > 0)
         {
-            characterAiming.yAxis.Value -= (((verticalRecoil / 10) * Time.deltaTime) / duration) * recoilModifier;
-            characterAiming.xAxis.Value += (((horizontalRecoil / 10) * Time.deltaTime) / duration) * recoilModifier;
+            characterAiming.yAxis.Value -= (((verticalRecoil / 10) * Time.deltaTime) / duration * recoilModifier);
+            characterAiming.xAxis.Value -= (((horizontalRecoil / 10) * Time.deltaTime) / duration * recoilModifier);
             time -= Time.deltaTime;
         }
     }

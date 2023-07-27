@@ -22,7 +22,6 @@ public class AiDeathState : AiState
         agent.ragdoll.ActiveRagdoll();
         direction.y = 1f;
         agent.ragdoll.ApplyForce(direction * dieForce, rigidbody);
-        agent.healthBar.Deactive();
         agent.health.DestroyWhenDeath();
     }
 

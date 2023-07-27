@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315093762037808874}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.17539978, z: 0.32600003}
+  m_LocalPosition: {x: 0, y: -0.131, z: 0.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29219,7 +29219,7 @@ MonoBehaviour:
   rigController: {fileID: 0}
   recoilModifier: 1
   recoilPattern:
-  - {x: 0, y: 0}
+  - {x: 5, y: 0}
   duration: 0.1
 --- !u!114 &4204243994753246709
 MonoBehaviour:
@@ -29236,7 +29236,7 @@ MonoBehaviour:
   weaponSlot: 0
   weaponName: shotgun
   isFiring: 0
-  fireRate: 0.7
+  fireRate: 4
   bulletSpeed: 750
   bulletDrop: 0
   muzzleFlash:
