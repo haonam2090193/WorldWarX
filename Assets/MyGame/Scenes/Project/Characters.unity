@@ -5037,8 +5037,9 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652579026604}
   - component: {fileID: 2051998845}
-  - component: {fileID: 919132148036602904}
   - component: {fileID: 919132148036602903}
+  - component: {fileID: 919132148036602905}
+  - component: {fileID: 919132148036602906}
   m_Layer: 0
   m_Name: SK_TP_CH_Default
   m_TagString: Untagged
@@ -5053,12 +5054,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148036602902}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9ecb72e57ebf514eb07c4456eb23cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!143 &919132148036602904
+--- !u!114 &919132148036602905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148036602902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f5f87fb5d108b4ebc4135425e061cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!143 &919132148036602906
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5075,7 +5088,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.9, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1007777170557408937
 GameObject:
   m_ObjectHideFlags: 0
