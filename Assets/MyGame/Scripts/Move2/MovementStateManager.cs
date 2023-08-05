@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MovementStateManager : MonoBehaviour
 {
-    public float speed = 3f;
+    public float currentSpeed;
+    public float walkSpeed = 3f, runSpeed = 5f, crouchSpeed = 1.8f;
     [HideInInspector]
     public Vector3 direction;
     float hzInput, verInput;
@@ -51,7 +52,7 @@ public class MovementStateManager : MonoBehaviour
         hzInput = Input.GetAxis("Horizontal");
         verInput = Input.GetAxis("Vertical");
         direction = transform.forward * verInput + transform.right * hzInput;
-        characterController.Move(direction.normalized * speed * Time.deltaTime);
+        characterController.Move(direction.normalized * currentSpeed * Time.deltaTime);
     }
     bool IsGrounded()
     {
