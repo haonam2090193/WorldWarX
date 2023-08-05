@@ -1,24 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class TestAnimation : MonoBehaviour
 {
-    private Vector2 userInput;
-    private Animator animator;
-    void Start()
+    private CharacterController characterController;
+    float moveSpeed;
+    float inputX, inputY;
+    Animator animator;
+
+    private void Start()
     {
         animator = GetComponent<Animator>();
+        characterController = GetComponent<CharacterController>();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        userInput.x = Input.GetAxis("Horizontal");
-        userInput.y = Input.GetAxis("Vertical");
+        inputX = Input.GetAxis("Vertical");
+        inputY = Input.GetAxis("Horizontal");
 
-        animator.SetFloat("InputX", userInput.x);
-        animator.SetFloat("InputY", userInput.y);
+        animator.SetFloat("InputX", inputX);
+        animator.SetFloat("InputY", inputY);
 
+        Vector3 moveDiration = transform.forward * inputX + transform.right * inputY;
+        characterController.Move(moveDiration * moveSpeed * Time.deltaTime);
     }
 }
