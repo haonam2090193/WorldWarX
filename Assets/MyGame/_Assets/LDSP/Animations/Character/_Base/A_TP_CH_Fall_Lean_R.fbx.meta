@@ -20,23 +20,9 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
-      copied configuration does not match position in animation file:\n\t'thigh_l'
-      : position error = 8449.489258 mm\n\t'calf_l' : position error = 39368.433594
-      mm\n\t'foot_l' : position error = 37171.839844 mm\n\t'ball_l' : position error
-      = 18124.021484 mm\n\t'thigh_r' : position error = 8449.472656 mm\n\t'calf_r'
-      : position error = 39369.125000 mm\n\t'foot_r' : position error = 37172.257813
-      mm\n\t'ball_r' : position error = 18123.853516 mm\n"
+    rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Scene' has import animation warnings that might
-      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
-      retargeting quality.\n\t'ring_01_l' has translation animation that will be
-      discarded.\n\t'ring_03_l' has translation animation that will be discarded.\n\t'thumb_02_l'
-      has translation animation that will be discarded.\n\t'clavicle_r' has translation
-      animation that will be discarded.\n\t'lowerarm_r' has translation animation
-      that will be discarded.\n\t'index_02_r' has translation animation that will
-      be discarded.\n\t'ring_02_r' has translation animation that will be discarded.\n\t'thumb_03_r'
-      has translation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -498,7 +484,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1

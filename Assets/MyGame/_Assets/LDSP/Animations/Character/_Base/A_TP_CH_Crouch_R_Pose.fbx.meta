@@ -20,13 +20,7 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
-      copied configuration does not match position in animation file:\n\t'thigh_l'
-      : position error = 8449.497070 mm\n\t'calf_l' : position error = 39368.445313
-      mm\n\t'foot_l' : position error = 37171.875000 mm\n\t'ball_l' : position error
-      = 18124.009766 mm\n\t'thigh_r' : position error = 8449.458008 mm\n\t'calf_r'
-      : position error = 39369.269531 mm\n\t'foot_r' : position error = 37172.062500
-      mm\n\t'ball_r' : position error = 18123.896484 mm\n"
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -491,7 +485,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
