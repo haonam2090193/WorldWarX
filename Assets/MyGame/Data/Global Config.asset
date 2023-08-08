@@ -32,4 +32,5 @@ MonoBehaviour:
   timeDestroyDroppedMagazine: 5
   maxCroissHairTargetDistance: 100
   maxBulletPoolSize: 100
+  maxEnemyPoolSize: 30
   loadingOverLapTime: 1

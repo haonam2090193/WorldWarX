@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AiIdleState : AiState
 {
-    private Vector3 playerDirection;
+
+    public Vector3 playerDirection;
     private float maxSightDistance;
 
     public AiStateID GetID()
@@ -40,7 +41,7 @@ public class AiIdleState : AiState
 
         float dotProduct = Vector3.Dot(playerDirection, agentDirection);
 
-        if(dotProduct >= 0)
+        if(dotProduct >= 0) //co nghia la nhan vat da bi phat hien
         {
             agent.stateMachine.ChangeState(AiStateID.ChasePlayer);
         }

@@ -8,6 +8,7 @@ public class AiChasePlayerState : AiState
     private float timer = 0f;
     private float maxDistance;
     private float maxTime;
+    private float distance;
 
     public AiStateID GetID()
     {
@@ -21,6 +22,7 @@ public class AiChasePlayerState : AiState
             maxDistance = DataManager.Instance.GlobalConfig.maxDistance;
             maxTime = DataManager.Instance.GlobalConfig.maxTime;
         }
+        distance = Vector3.Distance(agent.transform.position, agent.playerTransform.position);
     }
 
     public void Update(AiAgent agent)
@@ -50,8 +52,11 @@ public class AiChasePlayerState : AiState
             }
             timer = maxTime;
         }
+        if(distance <= 2f)
+        {
+            agent.stateMachine.ChangeState(AiStateID.Attack);
+        }
     }
-
     public void Exit(AiAgent agent)
     {
         

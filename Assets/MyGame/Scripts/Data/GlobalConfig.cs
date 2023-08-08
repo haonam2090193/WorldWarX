@@ -30,6 +30,8 @@ public class GlobalConfig : ScriptableObject
     public int maxBulletPoolSize = 30;
     public int maxEnemyPoolSize = 30;
 
+    [Header("Player Stats")]
+    public int maxHeath = 100;
 
     [Header("UI")]
     public float loadingOverLapTime = 1f;

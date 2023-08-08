@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HitBox : MonoBehaviour
 {
-    public Health health;
+    public AiHealth health;
     public Rigidbody rb;
 
     public void OnHit(RaycastWeapon weapon, Vector3 direction)
