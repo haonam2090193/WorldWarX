@@ -3122,7 +3122,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!64 &1066475436
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3187,9 +3186,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066475435}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
-=======
->>>>>>> 20230720_Character
---- !u!4 &1066475439
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3293,14 +3289,9 @@ PrefabInstance:
     - target: {fileID: 13700000, guid: f6d93d298c291ed488f806db88e98379, type: 3}
       propertyPath: m_Materials.Array.data[5]
       value: 
-<<<<<<< HEAD
-      objectReference: {fileID: 2100000, guid: 9c1fe7841c19bae40af8ce82e67734db, type: 2}
-    m_RemovedComponents: []
-=======
       objectReference: {fileID: 2100000, guid: 1692ec8856b134cb99b90e77c94acc7a, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: f6d93d298c291ed488f806db88e98379, type: 3}
->>>>>>> 20230720_Character
   m_SourcePrefab: {fileID: 100100000, guid: f6d93d298c291ed488f806db88e98379, type: 3}
 --- !u!1 &1164297076
 GameObject:
