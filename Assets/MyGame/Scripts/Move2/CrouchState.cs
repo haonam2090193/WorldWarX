@@ -16,7 +16,7 @@ public class CrouchState : MovementBaseState
             if (movement.direction.magnitude < 0.1f) ExitState(movement, movement.Idle);
             else ExitState(movement, movement.Walk);        
         }
-        
+        movement.currentSpeed = movement.crouchSpeed;
     }
     void ExitState(MovementStateManager movement, MovementBaseState state)
     {

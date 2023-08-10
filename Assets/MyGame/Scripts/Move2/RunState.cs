@@ -12,6 +12,8 @@ public class RunState : MovementBaseState
     {
         if (Input.GetKeyUp(KeyCode.LeftShift)) ExitState(movement, movement.Walk);
         else if (movement.direction.magnitude < 0.1f) ExitState(movement, movement.Idle);
+        movement.currentSpeed = movement.runSpeed;
+
     }
     void ExitState(MovementStateManager movement, MovementBaseState state)
     {
