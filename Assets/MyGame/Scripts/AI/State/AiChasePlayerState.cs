@@ -8,6 +8,7 @@ public class AiChasePlayerState : AiState
     private float timer = 0f;
     private float maxDistance;
     private float maxTime;
+    AiAttack aiAttack;
     private float distance;
 
     public AiStateID GetID()

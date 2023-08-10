@@ -31,7 +31,7 @@ public class AiHealth : MonoBehaviour
     {
         currentHealth -= amount;     
         if (currentHealth <= 0f)
-        {
+        {   
             Die(direction, rigidbody);
         }
         StartCoroutine(EnemyFlash());

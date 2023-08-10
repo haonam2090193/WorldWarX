@@ -17,7 +17,7 @@ public class AiAttackState : AiState
     }
     public void Update(AiAgent agent)
     {
-       
+        agent.transform.LookAt(agent.playerTransform.position);
     }
     public void Exit(AiAgent agent)
     {

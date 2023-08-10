@@ -5,7 +5,7 @@ using UnityEngine;
 public class AiAttack : MonoBehaviour
 {
     private Animator animator;
-    private float distance;
+    public float distance;
     private AiHealth health;
     private AiAgent agent;
     private void Awake()
@@ -15,7 +15,7 @@ public class AiAttack : MonoBehaviour
     }
     private void Update()
     {
-        distance = Vector3.Distance(this.transform.position, agent.playerTransform.position);
+       distance = Vector3.Distance(this.transform.position, agent.playerTransform.position);
         Debug.Log(distance);
         DealDamage();
     }
@@ -24,6 +24,7 @@ public class AiAttack : MonoBehaviour
         if(distance <= 2f)
         {
             animator.SetBool("IsAttack", true);
+            //agent.stateMachine.ChangeState(AiStateID.ChasePlayer);
         }
         else animator.SetBool("IsAttack", false);
 
