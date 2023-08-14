@@ -11,6 +11,7 @@ public class AiChasePlayerState : AiState
     AiAttack aiAttack;
     private float distance;
 
+
     public AiStateID GetID()
     {
         return AiStateID.ChasePlayer;
@@ -18,6 +19,7 @@ public class AiChasePlayerState : AiState
 
     public void Enter(AiAgent agent)
     {
+        Debug.Log("ChasePlayer");
         if (DataManager.HasInstance)
         {
             maxDistance = DataManager.Instance.GlobalConfig.maxDistance;
@@ -53,10 +55,14 @@ public class AiChasePlayerState : AiState
             }
             timer = maxTime;
         }
-        if(distance <= 2f)
+       /* if(distance <= 2f)
         {
             agent.stateMachine.ChangeState(AiStateID.Attack);
         }
+        else
+        {
+            agent.stateMachine.ChangeState(AiStateID.ChasePlayer);
+        }*/
     }
     public void Exit(AiAgent agent)
     {

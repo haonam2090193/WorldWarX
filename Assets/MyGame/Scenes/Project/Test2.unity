@@ -264,7 +264,13 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'pinky_03_l'\n\tTransform 'clavicle_r'\n\tTransform
+    'ring_03_r'\n\tTransform 'ring_01_r'\n\tTransform 'index_01_l'\n\tTransform 'index_03_l'\n\tTransform
+    'index_03_r'\n\tTransform 'index_01_r'\n\tTransform 'hand_r'\n\tTransform 'ring_02_r'\n\tand
+    more ...\n\tFrom animation clip 'A_TP_CH_Jog_F'\n\tFrom animation clip 'Scene'\n\tFrom
+    animation clip 'Scene'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0

@@ -15,6 +15,7 @@ public class AiDeathState : AiState
 
     public void Enter(AiAgent agent)
     {
+        Debug.Log("DeathState");
         if (DataManager.HasInstance)
         {
             dieForce = DataManager.Instance.GlobalConfig.dieForce;
