@@ -16,7 +16,6 @@ public class AiAttack : MonoBehaviour
     private void Update()
     {
        distance = Vector3.Distance(this.transform.position, agent.playerTransform.position);
-     //   Debug.Log(distance);
       //  DealDamage();
     }
     public void DealDamage(float amount)

@@ -7,7 +7,7 @@ public class AiDeathState : AiState
     private float dieForce;
     public Vector3 direction;
     public Rigidbody rigidbody;
-
+    AiAgent aiAgent;
     public AiStateID GetID()
     {
         return AiStateID.Death;
@@ -15,23 +15,26 @@ public class AiDeathState : AiState
 
     public void Enter(AiAgent agent)
     {
+        aiAgent = agent;
+
         Debug.Log("DeathState");
+
         if (DataManager.HasInstance)
         {
             dieForce = DataManager.Instance.GlobalConfig.dieForce;
         }
-        agent.ragdoll.ActiveRagdoll();
+        aiAgent.ragdoll.ActiveRagdoll();
         direction.y = 1f;
-        agent.ragdoll.ApplyForce(direction * dieForce, rigidbody);
-        agent.health.DestroyWhenDeath();
+        aiAgent.ragdoll.ApplyForce(direction * dieForce, rigidbody);
+        aiAgent.health.DestroyWhenDeath();
     }
 
-    public void Exit(AiAgent agent)
+    public void Exit()
     {
         
     }
 
-    public void Update(AiAgent agent)
+    public void Update()
     {
         
     }

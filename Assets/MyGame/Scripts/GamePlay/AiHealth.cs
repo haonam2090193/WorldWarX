@@ -6,7 +6,7 @@ public class AiHealth : MonoBehaviour
 {
     private float maxHealth;
     private float blinkDuration;
-    private float currentHealth;
+    public float currentHealth;
     private Ragdoll ragdoll;
     private SkinnedMeshRenderer skinnedMeshRenderer;
     private AiAgent aiAgent;

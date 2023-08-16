@@ -7,7 +7,7 @@ public class AiIdleState : AiState
 
     public Vector3 playerDirection;
     private float maxSightDistance;
-    AiAttack aiAttack;
+    AiAgent aiAgent;
     public AiStateID GetID()
     {
         return AiStateID.Idle;
@@ -16,28 +16,34 @@ public class AiIdleState : AiState
     public void Enter(AiAgent agent)
     {
         Debug.Log("Idle");
-
+        aiAgent = agent;
         if (DataManager.HasInstance)
         {
             maxSightDistance = DataManager.Instance.GlobalConfig.maxSight;
         }
     }
 
-    public void Exit(AiAgent agent)  
+    public void Exit()  
     {
     
     }
 
-    public void Update(AiAgent agent)
+    public void Update()
     {
 
-        playerDirection = agent.playerTransform.position - agent.transform.position;
-        if(playerDirection.magnitude > maxSightDistance)
+
+        playerDirection = aiAgent.playerTransform.position - aiAgent.transform.position;
+        if(aiAgent.health.currentHealth < 100)
+        {
+            aiAgent.stateMachine.ChangeState(AiStateID.ChasePlayer);
+
+        }
+        if (playerDirection.magnitude > maxSightDistance)
         {
             return;
         }
 
-        Vector3 agentDirection = agent.transform.forward;
+        Vector3 agentDirection = aiAgent.transform.forward;
 
         playerDirection.Normalize();
 
@@ -45,7 +51,7 @@ public class AiIdleState : AiState
 
         if(dotProduct >= 0) //co nghia la nhan vat da bi phat hien
         {
-            agent.stateMachine.ChangeState(AiStateID.ChasePlayer);
+            aiAgent.stateMachine.ChangeState(AiStateID.ChasePlayer);
         }
     }
 }

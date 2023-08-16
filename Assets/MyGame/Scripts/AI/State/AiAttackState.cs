@@ -5,33 +5,29 @@ using UnityEngine;
 public class AiAttackState : AiState
 {
     private float damage;
-    private AiAttack aiAttack;
+    AiAgent aiAgent;
+   
     public AiStateID GetID()
     {
         return AiStateID.Attack;
     }
-
     public void Enter(AiAgent agent)
     {
+        aiAgent = agent;
         Debug.Log("Attack");
-
         damage = DataManager.Instance.GlobalConfig.damage;
     }
-    public void Update(AiAgent agent)
+    public void Update()
     {
-        agent.transform.LookAt(agent.playerTransform);
-        Debug.Log(aiAttack.distance);
-       /* if ( <= 2)
+        aiAgent.transform.LookAt(aiAgent.playerTransform);
+        aiAgent.animator.SetBool("IsAttack", true);
+       if (aiAgent.aiAttack.distance > 2)
         {
-            aiAttack.animator.SetBool("IsAttack", true);
-            aiAttack.DealDamage(10);
+            aiAgent.stateMachine.ChangeState(AiStateID.ChasePlayer);
+            aiAgent.animator.SetBool("IsAttack", false);
         }
-        else if(distance > 2)
-        {
-            agent.stateMachine.ChangeState(AiStateID.ChasePlayer);
-        }*/
     }
-    public void Exit(AiAgent agent)
+    public void Exit()
     {
         
     }

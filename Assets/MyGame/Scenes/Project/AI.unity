@@ -4485,6 +4485,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8443532143051004709, guid: 3008d55e6a90f75499bbb4a1a85644ca,
         type: 3}
+      propertyPath: initState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443532143051004709, guid: 3008d55e6a90f75499bbb4a1a85644ca,
+        type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 3461443291546116936}

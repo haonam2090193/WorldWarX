@@ -8,9 +8,7 @@ public class AiChasePlayerState : AiState
     private float timer = 0f;
     private float maxDistance;
     private float maxTime;
-    AiAttack aiAttack;
-    private float distance;
-
+    private AiAgent aiAgent;
 
     public AiStateID GetID()
     {
@@ -19,52 +17,54 @@ public class AiChasePlayerState : AiState
 
     public void Enter(AiAgent agent)
     {
+        aiAgent = agent;
+
         Debug.Log("ChasePlayer");
+        this.aiAgent = agent;
         if (DataManager.HasInstance)
         {
             maxDistance = DataManager.Instance.GlobalConfig.maxDistance;
             maxTime = DataManager.Instance.GlobalConfig.maxTime;
         }
-        distance = Vector3.Distance(agent.transform.position, agent.playerTransform.position);
     }
 
-    public void Update(AiAgent agent)
+    public void Update()
     {
-        if (!agent.navMeshAgent.enabled)
+        if (!aiAgent.navMeshAgent.enabled)
         {
             return;
         }
 
         timer -= Time.deltaTime;
 
-        if (!agent.navMeshAgent.hasPath)
+        if (!aiAgent.navMeshAgent.hasPath)
         {
-            agent.navMeshAgent.destination = agent.playerTransform.position;
+            aiAgent.navMeshAgent.destination = aiAgent.playerTransform.position;
         }
 
         if (timer < 0f)
         {
-            Vector3 direction = agent.playerTransform.position - agent.navMeshAgent.destination;
+            Vector3 direction = aiAgent.playerTransform.position - aiAgent.navMeshAgent.destination;
             direction.y = 0;
             if (direction.sqrMagnitude > maxDistance * maxDistance)
             {
-                if (agent.navMeshAgent.pathStatus != NavMeshPathStatus.PathPartial)
+                if (aiAgent.navMeshAgent.pathStatus != NavMeshPathStatus.PathPartial)
                 {
-                    agent.navMeshAgent.destination = agent.playerTransform.position;
+                    aiAgent.navMeshAgent.destination = aiAgent.playerTransform.position;
                 }
             }
             timer = maxTime;
         }
-       /* if(distance <= 2f)
+        if (aiAgent.aiAttack.distance <= 2f)
         {
-            agent.stateMachine.ChangeState(AiStateID.Attack);
+            aiAgent.stateMachine.ChangeState(AiStateID.Attack);
         }
-        else
+       /* else
         {
             agent.stateMachine.ChangeState(AiStateID.ChasePlayer);
         }*/
     }
-    public void Exit(AiAgent agent)
+    public void Exit()
     {
         
     }
