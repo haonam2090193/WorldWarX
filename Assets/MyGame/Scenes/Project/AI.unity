@@ -1480,26 +1480,6 @@ Transform:
   m_Father: {fileID: 1597205262}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &560824446 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8443532143051004710, guid: 3008d55e6a90f75499bbb4a1a85644ca,
-    type: 3}
-  m_PrefabInstance: {fileID: 764313749774360962}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &560824454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560824446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e76d5d4a775ae204bbcc41d41ddfc392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  distance: 0
 --- !u!1 &565586336
 GameObject:
   m_ObjectHideFlags: 0
@@ -3169,7 +3149,7 @@ TerrainCollider:
   m_GameObject: {fileID: 1374977687}
   m_Material: {fileID: 0}
   m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: b1fa89d8339b0854a997e9c53f07d15b, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: d8e258b5911887449b075102d7805308, type: 2}
   m_EnableTreeColliders: 1
 --- !u!218 &1374977689
 Terrain:
@@ -3180,7 +3160,7 @@ Terrain:
   m_GameObject: {fileID: 1374977687}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: b1fa89d8339b0854a997e9c53f07d15b, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: d8e258b5911887449b075102d7805308, type: 2}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -4473,21 +4453,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8394071612700194960, guid: 3008d55e6a90f75499bbb4a1a85644ca,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8443532143051004708, guid: 3008d55e6a90f75499bbb4a1a85644ca,
-        type: 3}
-      propertyPath: m_StoppingDistance
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8443532143051004709, guid: 3008d55e6a90f75499bbb4a1a85644ca,
-        type: 3}
-      propertyPath: initState
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8443532143051004709, guid: 3008d55e6a90f75499bbb4a1a85644ca,
         type: 3}
       propertyPath: playerTransform
@@ -4497,11 +4462,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8443532143051004710, guid: 3008d55e6a90f75499bbb4a1a85644ca,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8446861016522870008, guid: 3008d55e6a90f75499bbb4a1a85644ca,
         type: 3}
