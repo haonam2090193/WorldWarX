@@ -39,8 +39,8 @@ public class CharacterAiming : MonoBehaviour
 
     private void Update()
     {
-       // var weapon = activeWeapon.GetActiveWeapon();
-       /* if (weapon)
+        var weapon = activeWeapon.GetActiveWeapon();
+        if (weapon)
         {
             if (activeWeapon.canFire)
             {
@@ -48,7 +48,7 @@ public class CharacterAiming : MonoBehaviour
                 animator.SetBool(isAimingParam, isAiming);
                 weapon.weaponRecoil.recoilModifier = isAiming ? aimRecoil : defaultRecoil;
             } 
-        }*/
+        }
     }
 
     void FixedUpdate()

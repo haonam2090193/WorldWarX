@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class AiHealth : MonoBehaviour
 {
     private float maxHealth;
     private float blinkDuration;
-    private float currentHealth;
+    public float currentHealth;
     private Ragdoll ragdoll;
-    private UIHealthBar healthBar;
     private SkinnedMeshRenderer skinnedMeshRenderer;
     private AiAgent aiAgent;
     private float timeDestroyAI;
@@ -23,7 +22,6 @@ public class Health : MonoBehaviour
         }
         currentHealth = maxHealth;
         ragdoll = GetComponent<Ragdoll>();
-        healthBar = GetComponentInChildren<UIHealthBar>();
         aiAgent = GetComponent<AiAgent>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         SetUp();
@@ -31,13 +29,9 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float amount, Vector3 direction, Rigidbody rigidbody)
     {
-        currentHealth -= amount;
-        if (healthBar != null)
-        {
-            healthBar.SetHealthBarPercentage(currentHealth / maxHealth);
-        }
+        currentHealth -= amount;     
         if (currentHealth <= 0f)
-        {
+        {   
             Die(direction, rigidbody);
         }
         StartCoroutine(EnemyFlash());

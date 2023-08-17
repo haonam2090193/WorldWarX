@@ -12,10 +12,12 @@ public class AiLocomotion : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-    }
 
+    }
+    
     void Update()
     {
+        
         if (navMeshAgent.hasPath)
         {
             animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);

@@ -116,7 +116,7 @@ public class TestCharacterLocomotion : MonoBehaviour
     {
         rootMotion += animator.deltaPosition;
     }
-
+     
     private void Jump()
     {
         if (!isJumping)

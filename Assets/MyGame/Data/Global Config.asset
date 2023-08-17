@@ -19,6 +19,7 @@ MonoBehaviour:
   dieForce: 10
   maxSight: 5
   timeDestroyAI: 3
+  damage: 10.7
   jumpHeight: 3
   gravity: 20
   stepDown: 0.1
@@ -32,4 +33,6 @@ MonoBehaviour:
   timeDestroyDroppedMagazine: 5
   maxCroissHairTargetDistance: 100
   maxBulletPoolSize: 100
+  maxEnemyPoolSize: 30
+  maxHeath: 100
   loadingOverLapTime: 1

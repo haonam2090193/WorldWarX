@@ -13,6 +13,7 @@ public class GlobalConfig : ScriptableObject
     public float dieForce = 10f;
     public float maxSight = 5f;
     public float timeDestroyAI = 3f;
+    public float damage = 10.7f;
 
     [Header("Player")]
     public float jumpHeight = 3f;
@@ -30,6 +31,8 @@ public class GlobalConfig : ScriptableObject
     public int maxBulletPoolSize = 30;
     public int maxEnemyPoolSize = 30;
 
+    [Header("Player Stats")]
+    public int maxHeath = 100;
 
     [Header("UI")]
     public float loadingOverLapTime = 1f;
