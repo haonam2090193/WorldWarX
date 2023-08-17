@@ -5,15 +5,22 @@ using UnityEngine.AI;
 
 public class AiAgent : MonoBehaviour
 {
-    public NavMeshAgent navMeshAgent;
-    public Ragdoll ragdoll;
     public Transform playerTransform;
-    public Animator animator;
-
-    public AiStateMachine stateMachine;
     public AiStateID initState;
+
+    [HideInInspector]
+    public NavMeshAgent navMeshAgent;
+    [HideInInspector]
+    public Animator animator;
+    [HideInInspector]
+    public Ragdoll ragdoll;
+    [HideInInspector]
+    public AiStateMachine stateMachine;
+    [HideInInspector]
     public AiHealth health;
+    [HideInInspector]
     public AiAttack aiAttack;
+    [HideInInspector]
     public HitBox hitBox;
 
     void Start()
@@ -27,9 +34,9 @@ public class AiAgent : MonoBehaviour
         ragdoll = GetComponent<Ragdoll>();
         animator = GetComponent<Animator>();
         aiAttack = GetComponent<AiAttack>();
-
         hitBox = GetComponent<HitBox>();
         stateMachine = new AiStateMachine(this);
+
         stateMachine.RegisterState(new AiChasePlayerState());
         stateMachine.RegisterState(new AiDeathState());
         stateMachine.RegisterState(new AiIdleState());
