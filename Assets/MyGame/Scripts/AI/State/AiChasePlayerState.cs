@@ -57,6 +57,7 @@ public class AiChasePlayerState : AiState
         }
         if (aiAgent.health.distance <= 2f)
         {
+            aiAgent.health.canAttack = true;
             aiAgent.stateMachine.ChangeState(AiStateID.Attack);
         }
        /* else

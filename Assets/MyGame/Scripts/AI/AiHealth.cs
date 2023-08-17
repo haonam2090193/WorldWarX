@@ -5,7 +5,7 @@ using UnityEngine;
 public class AiHealth : MonoBehaviour
 {
     [Header("AI")]
-    private float maxHealth;
+    public float maxHealth;
     private float blinkDuration;
     public float currentHealth;
     public float distance;
@@ -18,6 +18,8 @@ public class AiHealth : MonoBehaviour
     private AiAgent aiAgent;
     private float timeDestroyAI;
 
+    public bool canAttack = false;
+    
     [Header("Player")]
     public PlayerHeath playerHeath;
 
@@ -30,9 +32,13 @@ public class AiHealth : MonoBehaviour
             blinkDuration = DataManager.Instance.GlobalConfig.blinkDuration;
             timeDestroyAI = DataManager.Instance.GlobalConfig.timeDestroyAI;
         }
+        currentHealth = maxHealth;
+        if(playerHeath == null)
+        {
+            playerHeath = GetComponent<PlayerHeath>();
+        }
         agent = GetComponentInParent<AiAgent>();
         animator = GetComponentInParent<Animator>();
-        currentHealth = maxHealth;
         ragdoll = GetComponent<Ragdoll>();
         aiAgent = GetComponent<AiAgent>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
@@ -42,6 +48,7 @@ public class AiHealth : MonoBehaviour
     {
         distance = Vector3.Distance(agent.transform.position, agent.playerTransform.position);
     }
+
     public void TakeDamage(float amount, Vector3 direction, Rigidbody rigidbody)
     {
         currentHealth -= amount;     

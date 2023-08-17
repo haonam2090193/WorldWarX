@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a68931818c0244dabdbd8491998d23d, type: 3}
   m_Name: Global Config
   m_EditorClassIdentifier: 
+  maxHealth: 10
   maxTime: 1
   maxDistance: 1
-  maxHealth: 10
   blinkDuration: 0.1
   dieForce: 10
   maxSight: 5
@@ -34,5 +34,4 @@ MonoBehaviour:
   maxCroissHairTargetDistance: 100
   maxBulletPoolSize: 100
   maxEnemyPoolSize: 30
-  maxHeath: 100
   loadingOverLapTime: 1

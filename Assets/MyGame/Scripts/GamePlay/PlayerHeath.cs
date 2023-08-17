@@ -5,15 +5,21 @@ using UnityEngine;
 public class PlayerHeath : MonoBehaviour
 {
     public float currentHealth;
-    private float maxHeath;
-
+    private float maxHealth;
+    public Vector3 direction;
     private PlayerRagdoll playerRagdoll;
+    private Rigidbody rigidbody;
+
     private void Awake()
     {
         playerRagdoll = GetComponent<PlayerRagdoll>();
-
-        maxHeath = DataManager.Instance.GlobalConfig.maxHealth;
-        currentHealth = maxHeath;
+        if (DataManager.HasInstance)
+        {
+            maxHealth = DataManager.Instance.GlobalConfig.maxHealth;
+        }
+        
+        rigidbody = GetComponent<Rigidbody>();
+        currentHealth = maxHealth;
     }
     private void Update()
     {
@@ -23,16 +29,11 @@ public class PlayerHeath : MonoBehaviour
              Die();
         }
     }
-   /* public void TakeDamage(float amount)
-    {
-        currentHealth -= amount;
-       
-    }*/
     private void Die()
     {
 
         playerRagdoll.ActiveRagdoll();
-        Destroy(this.gameObject, 5);        
-       
+        playerRagdoll.ApplyForce(direction, rigidbody);
+        Destroy(this.gameObject, 5);
     }
 }

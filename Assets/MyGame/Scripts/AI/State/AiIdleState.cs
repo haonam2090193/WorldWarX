@@ -30,13 +30,11 @@ public class AiIdleState : AiState
 
     public void Update()
     {
-
-
         playerDirection = aiAgent.playerTransform.position - aiAgent.transform.position;
-        if(aiAgent.health.currentHealth < 100)
+
+        if(aiAgent.health.currentHealth < aiAgent.health.maxHealth)
         {
             aiAgent.stateMachine.ChangeState(AiStateID.ChasePlayer);
-
         }
         if (playerDirection.magnitude > maxSightDistance)
         {

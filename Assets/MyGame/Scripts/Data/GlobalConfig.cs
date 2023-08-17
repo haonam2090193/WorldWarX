@@ -5,10 +5,13 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class GlobalConfig : ScriptableObject
 {
+
+    [Header("Global")]
+    public float maxHealth = 10f;
+
     [Header("AI")]
     public float maxTime = 1f;
     public float maxDistance = 1f;
-    public float maxHealth = 100f;
     public float blinkDuration = 0.1f;
     public float dieForce = 10f;
     public float maxSight = 5f;
@@ -30,9 +33,6 @@ public class GlobalConfig : ScriptableObject
     public float maxCroissHairTargetDistance = 100f;
     public int maxBulletPoolSize = 30;
     public int maxEnemyPoolSize = 30;
-
-    [Header("Player Stats")]
-    public int maxHeath = 100;
 
     [Header("UI")]
     public float loadingOverLapTime = 1f;
