@@ -11,10 +11,16 @@ public class PlayerHeath : MonoBehaviour
         currentHealth = maxHeath;
         maxHeath = DataManager.Instance.GlobalConfig.maxHealth;
     }
-
-   public void TakeDamage(float amount)
+    public void TakeDamage(float amount)
     {
         currentHealth -= amount;
-        
+        if(currentHealth >= 0)
+        {
+            Die();
+        }
+    }
+    private void Die()
+    {
+        Destroy(this.gameObject, 5);
     }
 }
