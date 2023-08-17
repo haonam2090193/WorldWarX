@@ -6,8 +6,12 @@ public class PlayerHeath : MonoBehaviour
 {
     public float currentHealth;
     private float maxHeath;
+
+    private PlayerRagdoll playerRagdoll;
     private void Awake()
     {
+        playerRagdoll = GetComponent<PlayerRagdoll>();
+
         maxHeath = DataManager.Instance.GlobalConfig.maxHealth;
         currentHealth = maxHeath;
     }
@@ -16,7 +20,7 @@ public class PlayerHeath : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Player Dead");
-            // Die();
+             Die();
         }
     }
    /* public void TakeDamage(float amount)
@@ -26,6 +30,9 @@ public class PlayerHeath : MonoBehaviour
     }*/
     private void Die()
     {
-        Destroy(this.gameObject, 5);
+
+        playerRagdoll.ActiveRagdoll();
+        Destroy(this.gameObject, 5);        
+       
     }
 }

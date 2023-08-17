@@ -14,10 +14,7 @@ public class PlayerRagdoll : MonoBehaviour
         rigidBodies = GetComponentsInChildren<Rigidbody>();
         characterController = GetComponent<CharacterController>();
 
-        // DeactiveRagdoll();
-        ActiveRagdoll();
-
-
+         DeactiveRagdoll();
     }
 
     public void DeactiveRagdoll()
