@@ -21,12 +21,16 @@ public class AiAttackState : AiState
     {
         aiAgent.transform.LookAt(aiAgent.playerTransform);
         aiAgent.animator.SetBool("IsAttack", true);
-       if (aiAgent.aiAttack.distance > 2)
+
+       // aiAgent.health.DealDamage(damage);
+
+       if (aiAgent.health.distance > 2)
         {
             aiAgent.stateMachine.ChangeState(AiStateID.ChasePlayer);
             aiAgent.animator.SetBool("IsAttack", false);
         }
     }
+    
     public void Exit()
     {
         

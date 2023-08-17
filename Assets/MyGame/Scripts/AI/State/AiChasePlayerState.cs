@@ -55,7 +55,7 @@ public class AiChasePlayerState : AiState
             }
             timer = maxTime;
         }
-        if (aiAgent.aiAttack.distance <= 2f)
+        if (aiAgent.health.distance <= 2f)
         {
             aiAgent.stateMachine.ChangeState(AiStateID.Attack);
         }

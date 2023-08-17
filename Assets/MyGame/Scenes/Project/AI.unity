@@ -4463,6 +4463,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8443532143051004714, guid: 3008d55e6a90f75499bbb4a1a85644ca,
+        type: 3}
+      propertyPath: playerHeath
+      value: 
+      objectReference: {fileID: 3554047207617400434}
     - target: {fileID: 8446861016522870008, guid: 3008d55e6a90f75499bbb4a1a85644ca,
         type: 3}
       propertyPath: m_RootOrder
@@ -6132,6 +6137,7 @@ GameObject:
   - component: {fileID: 3554047207617400428}
   - component: {fileID: 3554047207617400427}
   - component: {fileID: 3554047207617400433}
+  - component: {fileID: 3554047207617400434}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -8487,6 +8493,19 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
   tracer: {fileID: 0}
+--- !u!114 &3554047207617400434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3460299761810919804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c207b43ffe68d8449965cac58c8f1d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 100
 --- !u!137 &3593899191371563136
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

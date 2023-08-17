@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class AiHealth : MonoBehaviour
 {
+    [Header("AI")]
     private float maxHealth;
     private float blinkDuration;
     public float currentHealth;
+    public float distance;
+    public Animator animator;
+
+    private AiHealth health;
+    private AiAgent agent;
     private Ragdoll ragdoll;
     private SkinnedMeshRenderer skinnedMeshRenderer;
     private AiAgent aiAgent;
     private float timeDestroyAI;
+
+    [Header("Player")]
+    public PlayerHeath playerHeath;
+
 
     void Start()
     {
@@ -20,13 +30,18 @@ public class AiHealth : MonoBehaviour
             blinkDuration = DataManager.Instance.GlobalConfig.blinkDuration;
             timeDestroyAI = DataManager.Instance.GlobalConfig.timeDestroyAI;
         }
+        agent = GetComponentInParent<AiAgent>();
+        animator = GetComponentInParent<Animator>();
         currentHealth = maxHealth;
         ragdoll = GetComponent<Ragdoll>();
         aiAgent = GetComponent<AiAgent>();
         skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         SetUp();
     }
-
+    private void Update()
+    {
+        distance = Vector3.Distance(agent.transform.position, agent.playerTransform.position);
+    }
     public void TakeDamage(float amount, Vector3 direction, Rigidbody rigidbody)
     {
         currentHealth -= amount;     
@@ -67,5 +82,9 @@ public class AiHealth : MonoBehaviour
     public void DestroyWhenDeath()
     {
         Destroy(this.gameObject, timeDestroyAI);
+    }
+    public void DealDamage()
+    {   
+        playerHeath.currentHealth -= DataManager.Instance.GlobalConfig.damage;
     }
 }

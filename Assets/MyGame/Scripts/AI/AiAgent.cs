@@ -18,8 +18,7 @@ public class AiAgent : MonoBehaviour
     public AiStateMachine stateMachine;
     [HideInInspector]
     public AiHealth health;
-    [HideInInspector]
-    public AiAttack aiAttack;
+    
     [HideInInspector]
     public HitBox hitBox;
 
@@ -33,7 +32,6 @@ public class AiAgent : MonoBehaviour
         health = GetComponent<AiHealth>();
         ragdoll = GetComponent<Ragdoll>();
         animator = GetComponent<Animator>();
-        aiAttack = GetComponent<AiAttack>();
         hitBox = GetComponent<HitBox>();
         stateMachine = new AiStateMachine(this);
 
