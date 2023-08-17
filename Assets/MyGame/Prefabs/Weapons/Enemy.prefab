@@ -2326,7 +2326,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8443390293741740196}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.04
   m_Height: 0.339474
@@ -3429,7 +3429,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   ragdoll: {fileID: 8443532143051004715}
   health: {fileID: 8443532143051004714}
-  aiAttack: {fileID: 0}
   hitBox: {fileID: 0}
 --- !u!1 &8443539897745572360
 GameObject:
@@ -6168,7 +6167,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8444119754475297642}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.05
   m_Height: 0.33947462
