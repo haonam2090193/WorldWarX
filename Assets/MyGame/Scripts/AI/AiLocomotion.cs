@@ -26,11 +26,5 @@ public class AiLocomotion : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);
         }  
-
-        if(Input.GetMouseButton(0)) 
-            {
-            animator.SetFloat("Speed", 3.5f);
-
-        }
     }
 }
