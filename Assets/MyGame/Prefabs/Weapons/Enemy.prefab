@@ -61,51 +61,6 @@ Transform:
   m_Father: {fileID: 8446861016522870008}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6632232714818838795
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7393489967868524069}
-  - component: {fileID: 2543299039158117324}
-  m_Layer: 0
-  m_Name: Hit Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7393489967868524069
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6632232714818838795}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.146, y: 0.012, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8447010717643555838}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &2543299039158117324
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6632232714818838795}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.08
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8442714275036069424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,7 +1628,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8443250044634308346}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.06
   m_Height: 0.49058226
@@ -3349,7 +3304,6 @@ GameObject:
   - component: {fileID: 8443532143051004715}
   - component: {fileID: 8443532143051004714}
   - component: {fileID: 8443532143051004709}
-  - component: {fileID: 560824454}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -3454,6 +3408,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
+  distance: 0
+  animator: {fileID: 0}
+  playerHeath: {fileID: 0}
 --- !u!114 &8443532143051004709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3474,20 +3431,6 @@ MonoBehaviour:
   health: {fileID: 8443532143051004714}
   aiAttack: {fileID: 0}
   hitBox: {fileID: 0}
---- !u!114 &560824454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8443532143051004710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e76d5d4a775ae204bbcc41d41ddfc392, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  distance: 0
 --- !u!1 &8443539897745572360
 GameObject:
   m_ObjectHideFlags: 0
@@ -3519,7 +3462,6 @@ Transform:
   - {fileID: 8447033008449070642}
   - {fileID: 8441624747683742180}
   - {fileID: 8446581561601367036}
-  - {fileID: 7393489967868524069}
   m_Father: {fileID: 8441889045059522132}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4518,7 +4460,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8443766260697286468}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.05
   m_Height: 0.49058568

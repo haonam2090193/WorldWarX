@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class PlayerHeath : MonoBehaviour
 {
-    private float currentHealth;
+    public float currentHealth;
     private float maxHeath;
     private void Awake()
     {
-        currentHealth = maxHeath;
         maxHeath = DataManager.Instance.GlobalConfig.maxHealth;
+        currentHealth = maxHeath;
     }
-    public void TakeDamage(float amount)
+    private void Update()
     {
-        currentHealth -= amount;
-        if(currentHealth >= 0)
+        if (currentHealth <= 0)
         {
-            Die();
+            Debug.Log("Player Dead");
+            // Die();
         }
     }
+   /* public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+       
+    }*/
     private void Die()
     {
         Destroy(this.gameObject, 5);
