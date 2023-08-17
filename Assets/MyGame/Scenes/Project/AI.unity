@@ -2076,6 +2076,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -3
       objectReference: {fileID: 0}
+    - target: {fileID: 7972403020026293901, guid: e8da018baa77da1489fbab377ed884c6,
+        type: 3}
+      propertyPath: yAxis.m_MaxValue
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7972403020026293901, guid: e8da018baa77da1489fbab377ed884c6,
+        type: 3}
+      propertyPath: yAxis.m_MinValue
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 7972403020026293902, guid: e8da018baa77da1489fbab377ed884c6,
         type: 3}
       propertyPath: crosshairTarget
