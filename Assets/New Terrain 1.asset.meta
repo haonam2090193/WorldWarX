@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/FPS Character Animation Pack/Animations.meta
+guid: cceed7abae22a534f86c4fb687815c88
+folderAsset: yes
+DefaultImporter:
+========
 guid: b1fa89d8339b0854a997e9c53f07d15b
 NativeFormatImporter:
+>>>>>>>> 20230808_AI:Assets/New Terrain 1.asset.meta
   externalObjects: {}
   mainObjectFileID: 15600000
   userData: 

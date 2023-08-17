@@ -28952,13 +28952,17 @@ MonoBehaviour:
   weaponSlot: 1
   weaponName: pistol
   isFiring: 0
-  fireRate: 1
+  fireRate: 4
   bulletSpeed: 500
   bulletDrop: 50
   muzzleFlash:
   - {fileID: 8227528519844208928}
   - {fileID: 8227808573485425030}
-  spreads: []
+  spreads:
+  - 0.01
+  - -0.01
+  - 0.01
+  - -0.01
   hitEffect: {fileID: 2134995897945455150}
   tracerEffect: {fileID: 5301066863683065312, guid: cf292f0a12e0e4660b80155cdda2b3d2,
     type: 3}
