@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterLocomotion : MonoBehaviour
+public class TestCharacterLocomotion : MonoBehaviour
 {
-    public Animator rigController;
+    //public Animator rigController;
     private float jumpHeight;
     private float gravity;
     private float stepDown;
@@ -86,7 +86,7 @@ public class CharacterLocomotion : MonoBehaviour
     {
         bool isSprinting = IsSprinting();
         animator.SetBool(isSprintingParam, isSprinting);
-        rigController.SetBool(isSprintingParam, isSprinting);
+        //rigController.SetBool(isSprintingParam, isSprinting);
     }
 
     private void UpdateOnGround()
