@@ -20,11 +20,17 @@ public class AiLocomotion : MonoBehaviour
         
         if (navMeshAgent.hasPath)
         {
-            animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
+                animator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
         }
         else
         {
             animator.SetFloat("Speed", 0);
         }  
+
+        if(Input.GetMouseButton(0)) 
+            {
+            animator.SetFloat("Speed", 3.5f);
+
+        }
     }
 }
