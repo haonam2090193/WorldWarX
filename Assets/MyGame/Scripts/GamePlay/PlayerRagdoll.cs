@@ -31,6 +31,7 @@ public class PlayerRagdoll : MonoBehaviour
 
     public void ActiveRagdoll()
     {
+        
         foreach (var rigidBody in rigidBodies)
         {
             rigidBody.isKinematic = false;
