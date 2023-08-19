@@ -1,8 +1,8 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestCharacterLocomotion : MonoBehaviour
+public class CharacterLocomotion : MonoBehaviour
 {
     //public Animator rigController;
     private float jumpHeight;
@@ -89,12 +89,12 @@ public class TestCharacterLocomotion : MonoBehaviour
         //rigController.SetBool(isSprintingParam, isSprinting);
     }
 
-    private void UpdateOnGround()
-    {
-        Vector3 stepForwardAmount = rootMotion * groundSpeed;
-        Vector3 stepDownAmount = Vector3.down * stepDown;
-        characterController.Move(stepForwardAmount + stepDownAmount);
-        rootMotion = Vector3.zero;
+        private void UpdateOnGround()
+        {
+            Vector3 stepForwardAmount = rootMotion * groundSpeed;
+            Vector3 stepDownAmount = Vector3.down * stepDown;
+            characterController.Move(stepForwardAmount + stepDownAmount);
+            rootMotion = Vector3.zero;
         if (!characterController.isGrounded)
         {
             SetInAir(0);

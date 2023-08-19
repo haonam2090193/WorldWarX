@@ -27,4 +27,4 @@ public class AiLocomotion : MonoBehaviour
             animator.SetFloat("Speed", 0);
         }  
     }
-}
+}   
