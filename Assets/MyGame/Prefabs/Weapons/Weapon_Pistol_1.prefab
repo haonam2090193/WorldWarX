@@ -29463,7 +29463,7 @@ MonoBehaviour:
   magazine: {fileID: 3888786881488374503}
   ammoCount: 15
   totalAmmo: 15
-  damage: 24
+  damage: 100
   ammoPerShot: 1
 --- !u!114 &741224107654768131
 MonoBehaviour:

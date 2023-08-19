@@ -4823,7 +4823,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6554377015044330860}
-  m_LocalRotation: {x: 0, y: -0.9434977, z: 0, w: 0.33137912}
+  m_LocalRotation: {x: 0, y: 0.13917312, z: 0, w: 0.9902681}
   m_LocalPosition: {x: -4.980788, y: 0.81, z: -5.9434485}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4931,7 +4931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  initState: 2
+  initState: 0
   navMeshAgent: {fileID: 1364497880747240194}
   animator: {fileID: 0}
   ragdoll: {fileID: 8358353350948117776}

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a68931818c0244dabdbd8491998d23d, type: 3}
   m_Name: Global Config
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 100
   maxTime: 1
-  maxDistance: 1
+  maxDistance: 0
   blinkDuration: 0.1
   dieForce: 10
   maxSight: 5
-  timeDestroyAI: 3
+  timeDestroyAI: Infinity
   damage: 10.7
   jumpHeight: 3
   gravity: 20
