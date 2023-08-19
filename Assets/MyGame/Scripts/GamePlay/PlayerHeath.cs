@@ -8,7 +8,9 @@ public class PlayerHeath : MonoBehaviour
     private float maxHealth;
     public Vector3 direction;
     private PlayerRagdoll playerRagdoll;
-    private Rigidbody rigidbody;
+    //private Rigidbody rigidbody;
+    private CharacterAiming characterAiming;
+
 
     private void Awake()
     {
@@ -17,23 +19,26 @@ public class PlayerHeath : MonoBehaviour
         {
             maxHealth = DataManager.Instance.GlobalConfig.maxHealth;
         }
-        
-        rigidbody = GetComponent<Rigidbody>();
+        characterAiming = GetComponent<CharacterAiming>();
+       // rigidbody = GetComponent<Rigidbody>();
         currentHealth = maxHealth;
     }
     private void Update()
     {
         if (currentHealth <= 0)
         {
-            Debug.Log("Player Dead");
+            //Debug.Log("Player Dead");
              Die();
         }
     }
     private void Die()
     {
+        Debug.Log("Player Dead");
 
         playerRagdoll.ActiveRagdoll();
-        playerRagdoll.ApplyForce(direction, rigidbody);
-        Destroy(this.gameObject, 5);
+        //playerRagdoll.ApplyForce(direction, rigidbody);
+        Destroy(gameObject, 5);
+        characterAiming.enabled = false;
+        this.enabled = false;
     }
 }
