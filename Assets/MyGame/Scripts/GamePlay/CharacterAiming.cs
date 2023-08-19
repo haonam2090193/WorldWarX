@@ -13,6 +13,8 @@ public class CharacterAiming : MonoBehaviour
     public AxisState yAxis;
     public bool isAiming;
 
+    private float defaultAimSpeed;
+
     private Camera mainCamera;
     private Animator animator;
     private ActiveWeapon activeWeapon;
@@ -34,6 +36,7 @@ public class CharacterAiming : MonoBehaviour
             turnSpeed = DataManager.Instance.GlobalConfig.turnSpeed;
             defaultRecoil = DataManager.Instance.GlobalConfig.defaultRecoil;
             aimRecoil = DataManager.Instance.GlobalConfig.aimRecoil;
+
         }
     }
 
@@ -44,9 +47,20 @@ public class CharacterAiming : MonoBehaviour
         {
             if (activeWeapon.canFire)
             {
+                //xAxis.m_MaxSpeed = 100;
                 isAiming = Input.GetMouseButton(1);
                 animator.SetBool(isAimingParam, isAiming);
                 weapon.weaponRecoil.recoilModifier = isAiming ? aimRecoil : defaultRecoil;
+                if(isAiming)
+                {
+                    xAxis.m_MaxSpeed = 100;
+                    yAxis.m_MaxSpeed = 100;
+                }
+                else
+                {
+                    xAxis.m_MaxSpeed = 300;
+                    yAxis.m_MaxSpeed = 300;
+                }
             } 
         }
     }
