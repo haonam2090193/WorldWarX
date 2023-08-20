@@ -29441,7 +29441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSlot: 1
-  weaponName: pistol_1
+  weaponName: pistol1
   isFiring: 0
   fireRate: 6.1
   bulletSpeed: 500
