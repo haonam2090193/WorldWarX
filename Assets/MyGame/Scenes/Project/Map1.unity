@@ -6972,7 +6972,7 @@ MonoBehaviour:
   zPos: 50
   enemyCount: 0
   maxEnemy: 50
-  spawnTime: 0.1
+  spawnTime: 0.01
 --- !u!4 &755485511
 Transform:
   m_ObjectHideFlags: 0
