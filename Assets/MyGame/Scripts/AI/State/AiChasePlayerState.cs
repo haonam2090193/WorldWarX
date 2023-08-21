@@ -42,8 +42,7 @@ public class AiChasePlayerState : AiState
             aiAgent.navMeshAgent.destination = aiAgent.playerTransform.position;
         }
 
-        if (timer < 0f)
-        {
+       
             Vector3 direction = aiAgent.playerTransform.position - aiAgent.navMeshAgent.destination;
             direction.y = 0;
             if (direction.sqrMagnitude > maxDistance * maxDistance)
@@ -54,7 +53,7 @@ public class AiChasePlayerState : AiState
                 }
             }
             timer = maxTime;
-        }
+        
         if (aiAgent.health.distance <= 2f)
         {
             aiAgent.health.canAttack = true;
