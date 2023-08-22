@@ -36,9 +36,10 @@ public class PlayerHeath : MonoBehaviour
         Debug.Log("Player Dead");
 
         playerRagdoll.ActiveRagdoll();
-        Instantiate(this.gameObject);
 
-        this.gameObject.SetActive(false);
+        //Instantiate(this.gameObject);
+
+        //this.gameObject.SetActive(false,5f);
         Destroy(this.gameObject, 5);
     }
 }

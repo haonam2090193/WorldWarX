@@ -95,8 +95,6 @@ public class AiHealth : MonoBehaviour
     }
     public void DealDamage()
     {
-        Debug.Log("Total Player Health"+playerHeath.currentHealth);
-        Debug.Log("Enemy Deal Damage"+DataManager.Instance.GlobalConfig.damage);
         playerHeath.currentHealth -= DataManager.Instance.GlobalConfig.damage;
     }
 }
