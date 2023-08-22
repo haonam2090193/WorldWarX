@@ -33,10 +33,13 @@ public class AiHealth : MonoBehaviour
             timeDestroyAI = DataManager.Instance.GlobalConfig.timeDestroyAI;
         }
         currentHealth = maxHealth;
+
         if(playerHeath == null)
         {
-            playerHeath = GetComponent<PlayerHeath>();
+            Debug.Log("x");
+            playerHeath = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHeath>();
         }
+
         agent = GetComponentInParent<AiAgent>();
         animator = GetComponentInParent<Animator>();
         ragdoll = GetComponent<Ragdoll>();
@@ -91,7 +94,9 @@ public class AiHealth : MonoBehaviour
         Destroy(this.gameObject, timeDestroyAI);
     }
     public void DealDamage()
-    {   
+    {
+        Debug.Log("Total Player Health"+playerHeath.currentHealth);
+        Debug.Log("Enemy Deal Damage"+DataManager.Instance.GlobalConfig.damage);
         playerHeath.currentHealth -= DataManager.Instance.GlobalConfig.damage;
     }
 }

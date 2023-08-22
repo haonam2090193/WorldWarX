@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHeath : MonoBehaviour
 {
     public float currentHealth;
-    private float maxHealth;
+    public float maxHealth;
     public Vector3 direction;
     private PlayerRagdoll playerRagdoll;
     //private Rigidbody rigidbody;
@@ -36,9 +36,9 @@ public class PlayerHeath : MonoBehaviour
         Debug.Log("Player Dead");
 
         playerRagdoll.ActiveRagdoll();
-        //playerRagdoll.ApplyForce(direction, rigidbody);
-        Destroy(gameObject, 5);
-        characterAiming.enabled = false;
-        this.enabled = false;
+        Instantiate(this.gameObject);
+
+        this.gameObject.SetActive(false);
+        Destroy(this.gameObject, 5);
     }
 }
