@@ -24108,6 +24108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSlot: 0
+  weaponType: 2
   weaponName: smg
   isFiring: 0
   fireRate: 8

@@ -28950,6 +28950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSlot: 1
+  weaponType: 3
   weaponName: pistol
   isFiring: 0
   fireRate: 4

@@ -12,6 +12,7 @@ public class ActiveWeapon : MonoBehaviour
     public WeaponReload reload;
     public bool isChangingWeapon;
     public bool canFire;
+    private WeaponType weaponType;
 
     private RaycastWeapon[] equippedWeapons = new RaycastWeapon[2];
     private int activeWeaponIdx;
@@ -87,8 +88,10 @@ public class ActiveWeapon : MonoBehaviour
         raycastWeapon.weaponRecoil.characterAiming = characterAiming;
         raycastWeapon.weaponRecoil.rigController = rigController;
         raycastWeapon.transform.SetParent(weaponSlots[weaponSlotIndex],false);
+
         equippedWeapons[weaponSlotIndex] = raycastWeapon;
         SetActiveWeapon(newWeapon.weaponSlot);
+        Debug.Log(weaponSlotIndex);
         if (ListenerManager.HasInstance)
         {
             ListenerManager.Instance.BroadCast(ListenType.UPDATE_AMMO, raycastWeapon.ammoCount);
@@ -182,5 +185,4 @@ public class ActiveWeapon : MonoBehaviour
         }
         isChangingWeapon = false;
     }
-
 }

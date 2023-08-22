@@ -29250,9 +29250,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSlot: 0
+  weaponType: 0
   weaponName: laser
   isFiring: 0
-  fireRate: 5
+  fireRate: 8
   bulletSpeed: 1000
   bulletDrop: 100
   muzzleFlash:

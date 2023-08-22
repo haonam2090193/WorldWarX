@@ -30,3 +30,11 @@ public enum WeaponSlot
     Primary = 0,
     Secondary = 1
 }
+public enum WeaponType
+{
+    Laser = 0,
+    Shotgun = 1,
+    SMG = 2,
+    Pistol = 3,
+    Pistol1 = 4
+}
