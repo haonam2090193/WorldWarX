@@ -24107,8 +24107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b1fc630bf984287b16feb707bd85e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSlot: 0
-  weaponType: 2
+  weaponSlot: 2
   weaponName: smg
   isFiring: 0
   fireRate: 8

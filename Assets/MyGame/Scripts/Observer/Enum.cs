@@ -28,7 +28,8 @@ public enum AiStateID
 public enum WeaponSlot
 {
     Primary = 0,
-    Secondary = 1
+    Secondary = 1,
+    SMG = 2
 }
 public enum WeaponType
 {

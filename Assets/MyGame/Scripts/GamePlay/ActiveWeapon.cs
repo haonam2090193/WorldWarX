@@ -14,7 +14,7 @@ public class ActiveWeapon : MonoBehaviour
     public bool canFire;
     private WeaponType weaponType;
 
-    private RaycastWeapon[] equippedWeapons = new RaycastWeapon[2];
+    private RaycastWeapon[] equippedWeapons = new RaycastWeapon[5];
     private int activeWeaponIdx;
     private bool isHolstered = false;
 
@@ -87,7 +87,8 @@ public class ActiveWeapon : MonoBehaviour
         raycastWeapon.raycastDestination = crosshairTarget;
         raycastWeapon.weaponRecoil.characterAiming = characterAiming;
         raycastWeapon.weaponRecoil.rigController = rigController;
-        raycastWeapon.transform.SetParent(weaponSlots[weaponSlotIndex],false);
+
+        raycastWeapon.transform.SetParent(weaponSlots[0],false);
 
         equippedWeapons[weaponSlotIndex] = raycastWeapon;
         SetActiveWeapon(newWeapon.weaponSlot);
@@ -146,7 +147,8 @@ public class ActiveWeapon : MonoBehaviour
         activeWeaponIdx = activateIndex;
     }
 
-
+    //activeweaponIdx =1 
+    // newactive = 2
     private IEnumerator HolsterWeapon(int index)
     {
         isChangingWeapon = true;
@@ -177,7 +179,7 @@ public class ActiveWeapon : MonoBehaviour
             {
                 yield return new WaitForEndOfFrame();
             } while (rigController.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f);
-            isHolstered = false;
+            isHolstered = false;    
             if (ListenerManager.HasInstance)
             {
                 ListenerManager.Instance.BroadCast(ListenType.UPDATE_AMMO, weapon.ammoCount);
