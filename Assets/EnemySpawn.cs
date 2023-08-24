@@ -4,39 +4,42 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    public GameObject enemies;
-
-    public Transform spawnPoint;
-    public int enemyCount;
-    float rotationY;
-    public int maxEnemy;
+    [Tooltip("The list of enemy prefabs to spawn")]
+    public List<GameObject> enemyPrefabs; 
+    [Tooltip("The position where the enemies will spawn")]
+    public Transform spawnPoint; 
+    [Tooltip("The current number of spawned enemies")]
+    public int enemyCount; 
+    [Tooltip("The maximum number of enemies to spawn")]
+    public int maxEnemy; 
+    [Tooltip("The time interval between enemy spawns")]
     public float spawnTime;
-    IEnumerator EnemyDrop()
-    {
-        enemies.SetActive(true);
 
+
+
+    float rotationY; 
+
+    IEnumerator SpawnEnemies()
+    {
         while (enemyCount < maxEnemy)
         {
             rotationY = Random.Range(-180, 180);
-            // enemies.transform.rotation = Quaternion.Euler(0, rotationY, 0);
-
-            // xPos = Random.Range(1, 50);
-            // zPos = Random.Range(1, 30);
-            Instantiate(enemies, spawnPoint.position, Quaternion.Euler(0, rotationY, 0));
+            int randomIndex = Random.Range(0, enemyPrefabs.Count);
+            GameObject enemyPrefab = enemyPrefabs[randomIndex];
+            GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.Euler(0, rotationY, 0));
+            enemy.transform.SetParent(spawnPoint.transform);
             yield return new WaitForSeconds(spawnTime);
-            enemyCount += 1;
 
+            enemyCount++;
         }
     }
-        // Update is called once per frame
-        void Update()
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.P))
         {
-            if (Input.GetKey(KeyCode.P))
-            {
-                enemyCount = 0;
-                Debug.Log("Start Spawn");
-                StartCoroutine(EnemyDrop());
-
-            }
-        }   
+            enemyCount = 0;
+            Debug.Log("Start Spawn");
+            StartCoroutine(SpawnEnemies());
+        }
+    }
 }

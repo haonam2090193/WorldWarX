@@ -12,9 +12,7 @@ public class CharacterAiming : MonoBehaviour
     public AxisState xAxis;
     public AxisState yAxis;
     public bool isAiming;
-
-    private float defaultAimSpeed;
-
+    
     private Camera mainCamera;
     private Animator animator;
     private ActiveWeapon activeWeapon;
@@ -46,7 +44,7 @@ public class CharacterAiming : MonoBehaviour
         if (weapon)
         {
             if (activeWeapon.canFire)
-            {
+            { 
                 //xAxis.m_MaxSpeed = 100;
                 isAiming = Input.GetMouseButton(1);
                 animator.SetBool(isAimingParam, isAiming);

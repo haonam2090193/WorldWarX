@@ -1,0 +1,10 @@
+1 Gameplay
+2 Content
+3 Control
+4 Story
+5 Graphics & sound
+6 Performance
+7 Code
+8 Code Contruct
+9 UI
+10 Thuyết trình

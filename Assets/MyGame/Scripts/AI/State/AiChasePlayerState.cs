@@ -34,15 +34,10 @@ public class AiChasePlayerState : AiState
         {
             return;
         }
-
-        timer -= Time.deltaTime;
-
         if (!aiAgent.navMeshAgent.hasPath)
         {
             aiAgent.navMeshAgent.destination = aiAgent.playerTransform.position;
         }
-
-       
             Vector3 direction = aiAgent.playerTransform.position - aiAgent.navMeshAgent.destination;
             direction.y = 0;
             if (direction.sqrMagnitude > maxDistance * maxDistance)

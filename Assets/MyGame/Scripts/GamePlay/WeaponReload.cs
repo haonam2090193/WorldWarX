@@ -51,7 +51,10 @@ public class WeaponReload : MonoBehaviour
                 break;
             case "attach_magazine":
                 AttachMagazine();
-                break;  
+                break;
+            case "drop_shotgunMagazine":
+                DropMagazineShotgun();
+                break;
         }
     }
 
@@ -62,6 +65,14 @@ public class WeaponReload : MonoBehaviour
         weapon.magazine.SetActive(false);
     }
 
+    private void DropMagazineShotgun()
+    {
+        GameObject droppedMagazine = Instantiate(magazineHand, magazineHand.transform.position, magazineHand.transform.rotation);
+        droppedMagazine.transform.localScale = Vector3.one;
+        Destroy(droppedMagazine, timeDestroyDroppedMagazine);
+        magazineHand.SetActive(false);
+
+    }
     private void DropMagazine()
     {
         GameObject droppedMagazine = Instantiate(magazineHand, magazineHand.transform.position, magazineHand.transform.rotation);
