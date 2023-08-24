@@ -26,6 +26,7 @@ public class RaycastWeapon : MonoBehaviour
     public int totalAmmo;
     public float damage;
     public int ammoPerShot;
+    public bool isSingleMode;
 
     private Ray ray;
     private RaycastHit hitInfo;
@@ -102,7 +103,7 @@ public class RaycastWeapon : MonoBehaviour
         }
     }
 
-    private void FireBullet(Vector3 target)
+    public void FireBullet(Vector3 target)
     {
         if(ammoCount <= 0)
         {

@@ -21,7 +21,8 @@ public class CharacterLocomotion : MonoBehaviour
     private Vector2 userInput;
     private Vector3 rootMotion;
     private Vector3 velocity;
-    private bool isJumping;
+    [HideInInspector]
+    public bool isJumping;
 
     private int isSprintingParam = Animator.StringToHash("IsSprinting");
 

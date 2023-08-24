@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
@@ -9,17 +9,20 @@ public class ActiveWeapon : MonoBehaviour
     public Transform crosshairTarget;
     public Transform[] weaponSlots;
     public CharacterAiming characterAiming;
+    private CharacterLocomotion characterLocomotion;
     public WeaponReload reload;
     public bool isChangingWeapon;
     public bool canFire;
-    private WeaponType weaponType;
 
     private RaycastWeapon[] equippedWeapons = new RaycastWeapon[5];
     private int activeWeaponIdx;
-    private bool isHolstered = false;
+    [HideInInspector] 
+    public bool isHolstered = false;
+
 
     void Start()
     {
+        characterLocomotion = GetComponent<CharacterLocomotion>();
         reload = GetComponent<WeaponReload>();
         RaycastWeapon existWeapon = GetComponentInChildren<RaycastWeapon>();
         if (existWeapon)
@@ -37,10 +40,17 @@ public class ActiveWeapon : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1") && canFire && !raycastWeapon.isFiring)
             {
-                raycastWeapon.StartFiring();
+                if (raycastWeapon.isSingleMode)
+                {
+                    raycastWeapon.FireBullet(crosshairTarget.position);
+                }
+                else
+                {
+                    raycastWeapon.StartFiring();
+                }
             }
 
-            raycastWeapon.UpdateWeapon(Time.deltaTime, crosshairTarget.position);
+                raycastWeapon.UpdateWeapon(Time.deltaTime, crosshairTarget.position);
 
             if (Input.GetButtonUp("Fire1") || !canFire)
             {
@@ -88,7 +98,7 @@ public class ActiveWeapon : MonoBehaviour
         raycastWeapon.weaponRecoil.characterAiming = characterAiming;
         raycastWeapon.weaponRecoil.rigController = rigController;
 
-        raycastWeapon.transform.SetParent(weaponSlots[0],false);
+        raycastWeapon.transform.SetParent(weaponSlots[weaponSlotIndex],false);
 
         equippedWeapons[weaponSlotIndex] = raycastWeapon;
         SetActiveWeapon(newWeapon.weaponSlot);
@@ -151,6 +161,12 @@ public class ActiveWeapon : MonoBehaviour
     // newactive = 2
     private IEnumerator HolsterWeapon(int index)
     {
+        if (characterLocomotion.isJumping == true)
+        {
+            Debug.Log("return");
+            yield return new WaitForEndOfFrame();
+        }
+
         isChangingWeapon = true;
         isHolstered = true;
         var weapon = GetWeapon(index);
