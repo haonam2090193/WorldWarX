@@ -18,6 +18,7 @@ public class CharacterAiming : MonoBehaviour
     private ActiveWeapon activeWeapon;
     private int isAimingParam = Animator.StringToHash("IsAiming");
 
+    public Animator rigController;
     private void Awake()
     {
         mainCamera = Camera.main;
@@ -45,17 +46,18 @@ public class CharacterAiming : MonoBehaviour
         {
             if (activeWeapon.canFire)
             { 
-                //xAxis.m_MaxSpeed = 100;
                 isAiming = Input.GetMouseButton(1);
-                animator.SetBool(isAimingParam, isAiming);
+                animator.SetBool(isAimingParam, isAiming);  
                 weapon.weaponRecoil.recoilModifier = isAiming ? aimRecoil : defaultRecoil;
                 if(isAiming)
                 {
+                    rigController.Play("weapon_aim_" + weapon.weaponName);
                     xAxis.m_MaxSpeed = 100;
                     yAxis.m_MaxSpeed = 100;
                 }
                 else
                 {
+                    //rigController.SetBool("weapon_aim_" + weapon.weaponName); 
                     xAxis.m_MaxSpeed = 300;
                     yAxis.m_MaxSpeed = 300;
                 }

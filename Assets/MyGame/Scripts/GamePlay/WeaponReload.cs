@@ -9,10 +9,13 @@ public class WeaponReload : MonoBehaviour
     public ActiveWeapon activeWeapon;
     public Transform leftHand;
     public bool isReloading;
-
+    CharacterControllers characterControllers;
     private GameObject magazineHand;
     private float timeDestroyDroppedMagazine;
-
+    private void Awake()
+    {
+        characterControllers = GetComponent<CharacterControllers>();
+    }
     void Start()
     {
         animationEvents.WeaponAnimEvent.AddListener(OnAnimationEvent);
@@ -29,6 +32,7 @@ public class WeaponReload : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R) || weapon.ammoCount <=0)
             {
+                characterControllers.characterAiming.isAiming = false;
                 isReloading = true;
                 rigController.SetTrigger("reload_weapon");
             }

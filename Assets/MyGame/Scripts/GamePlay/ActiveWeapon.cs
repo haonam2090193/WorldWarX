@@ -14,10 +14,11 @@ public class ActiveWeapon : MonoBehaviour
     public bool isChangingWeapon;
     public bool canFire;
 
-    private RaycastWeapon[] equippedWeapons = new RaycastWeapon[5];
-    private int activeWeaponIdx;
-    [HideInInspector] 
+    public bool isAiming = false;
     public bool isHolstered = false;
+    private int activeWeaponIdx;
+    private RaycastWeapon[] equippedWeapons = new RaycastWeapon[5];
+    //[HideInInspector] 
 
 
     void Start()
@@ -40,7 +41,7 @@ public class ActiveWeapon : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1") && canFire && !raycastWeapon.isFiring)
             {
-                if (raycastWeapon.isSingleMode)
+                if (raycastWeapon.singleMode)
                 {
                     raycastWeapon.FireBullet(crosshairTarget.position);
                 }
@@ -71,9 +72,14 @@ public class ActiveWeapon : MonoBehaviour
             {
                 ToggleActiveWeapon();
             }
+           /* if (Input.GetMouseButton(1))
+            {
+                WeaponAiming();
+            }*/
         }
     }
 
+   
     public bool IsFiring()
     {
         RaycastWeapon currentWeapon = GetActiveWeapon();
@@ -126,7 +132,23 @@ public class ActiveWeapon : MonoBehaviour
 
         StartCoroutine(SwitchWeapon(holsterIndex, activateIndex));
     }
-
+   /* private void WeaponAiming()
+    {
+        bool isAiming = rigController.GetBool("weapon_aim");
+            
+        if (!isChangingWeapon && !reload.isReloading)
+        {
+            isAiming = !isAiming;
+        }
+        if (isAiming)
+        {
+            StartCoroutine(WeaponAim(activeWeaponIdx));
+        }
+        else
+        {
+            StartCoroutine(ActivateWeapon(activeWeaponIdx));
+        }
+    }*/
     private void ToggleActiveWeapon()
     {
         bool isHolstered = rigController.GetBool("holster_weapon");
@@ -161,11 +183,6 @@ public class ActiveWeapon : MonoBehaviour
     // newactive = 2
     private IEnumerator HolsterWeapon(int index)
     {
-        if (characterLocomotion.isJumping == true)
-        {
-            Debug.Log("return");
-            yield return new WaitForEndOfFrame();
-        }
 
         isChangingWeapon = true;
         isHolstered = true;
@@ -180,6 +197,7 @@ public class ActiveWeapon : MonoBehaviour
             } while (rigController.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f);
         }
         isChangingWeapon = false;
+        //isAiming = false;
     }
 
     private IEnumerator ActivateWeapon(int index)
@@ -202,5 +220,25 @@ public class ActiveWeapon : MonoBehaviour
             }
         }
         isChangingWeapon = false;
+       // isAiming = false;
+
     }
+   /* private IEnumerator WeaponAim(int index)
+    {
+        isAiming = true;
+        var weapon = GetWeapon(index);
+        if (weapon)
+        {
+            rigController.Play("weapon_aim_" + weapon.weaponName);
+
+            yield return new WaitForSeconds(0.1f);
+            do
+            {
+                yield return new WaitForEndOfFrame();
+            } while (rigController.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f);
+            isChangingWeapon = false;
+            isHolstered = false;
+        }
+
+    }*/
 }

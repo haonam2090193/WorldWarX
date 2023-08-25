@@ -29611,7 +29611,7 @@ MonoBehaviour:
   totalAmmo: 15
   damage: 100
   ammoPerShot: 1
-  isSingleMode: 1
+  singleMode: 1
 --- !u!114 &741224107654768131
 MonoBehaviour:
   m_ObjectHideFlags: 0

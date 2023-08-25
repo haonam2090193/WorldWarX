@@ -24107,7 +24107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b1fc630bf984287b16feb707bd85e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSlot: 2
+  weaponSlot: 0
   weaponName: smg
   isFiring: 0
   fireRate: 8
@@ -24132,6 +24132,7 @@ MonoBehaviour:
   totalAmmo: 30
   damage: 29
   ammoPerShot: 1
+  isSingleMode: 0
 --- !u!114 &3922793539073419089
 MonoBehaviour:
   m_ObjectHideFlags: 0

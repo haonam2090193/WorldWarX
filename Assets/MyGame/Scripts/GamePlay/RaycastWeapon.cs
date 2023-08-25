@@ -26,7 +26,7 @@ public class RaycastWeapon : MonoBehaviour
     public int totalAmmo;
     public float damage;
     public int ammoPerShot;
-    public bool isSingleMode;
+    public bool singleMode;
 
     private Ray ray;
     private RaycastHit hitInfo;
