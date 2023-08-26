@@ -29214,7 +29214,7 @@ GameObject:
   - component: {fileID: 7464050244559548270}
   m_Layer: 7
   m_Name: Weapon_Laser
-  m_TagString: Untagged
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29250,7 +29250,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSlot: 0
-  weaponType: 0
   weaponName: laser
   isFiring: 0
   fireRate: 8
@@ -29275,6 +29274,7 @@ MonoBehaviour:
   totalAmmo: 30
   damage: 10
   ammoPerShot: 1
+  singleMode: 0
 --- !u!114 &-1130363084662318865
 MonoBehaviour:
   m_ObjectHideFlags: 0
