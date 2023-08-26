@@ -3366,8 +3366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac73c12927059a4c948a62f3a5704ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasGroups: {fileID: 0}
-  toggle: {fileID: 0}
 --- !u!1 &2110721739
 GameObject:
   m_ObjectHideFlags: 0
