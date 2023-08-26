@@ -39,6 +39,20 @@ public class RaycastWeapon : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        if (DataManager.HasInstance)
+        {
+            fireRate = DataManager.Instance.WeaponData.fireRate;
+            bulletSpeed = DataManager.Instance.WeaponData.bulletSpeed;
+            bulletDrop = DataManager.Instance.WeaponData.bulletDrop;
+            ammoCount = DataManager.Instance.WeaponData.ammoCount;
+            totalAmmo = DataManager.Instance.WeaponData.totalAmmo;
+            damage = DataManager.Instance.WeaponData.damage;
+            ammoPerShot = DataManager.Instance.WeaponData.ammoPerShot;
+            singleMode = DataManager.Instance.WeaponData.singleMode;
+        }
+    }
     public void StartFiring()
     {
         isFiring = true;

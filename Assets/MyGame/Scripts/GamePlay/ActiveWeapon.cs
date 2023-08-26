@@ -17,7 +17,8 @@ public class ActiveWeapon : MonoBehaviour
     public bool isAiming = false;
     public bool isHolstered = false;
     private int activeWeaponIdx;
-    private RaycastWeapon[] equippedWeapons = new RaycastWeapon[5];
+    [SerializeField]
+    private RaycastWeapon[] equippedWeapons = new RaycastWeapon[2];
     //[HideInInspector] 
 
 
@@ -61,18 +62,20 @@ public class ActiveWeapon : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 SetActiveWeapon(WeaponSlot.Primary);
+                Debug.Log("alpha1");
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 SetActiveWeapon(WeaponSlot.Secondary);
+                Debug.Log("alpha2");
             }
 
             if (Input.GetKeyDown(KeyCode.X))
             {
                 ToggleActiveWeapon();
             }
-           /* if (Input.GetMouseButton(1))
+            /*if (Input.GetMouseButton(1))
             {
                 WeaponAiming();
             }*/
@@ -122,6 +125,7 @@ public class ActiveWeapon : MonoBehaviour
 
     private void SetActiveWeapon(WeaponSlot weaponSlot)
     {
+        Debug.Log("aaa");
         int holsterIndex = activeWeaponIdx;
         int activateIndex = (int)weaponSlot;
 
@@ -132,10 +136,10 @@ public class ActiveWeapon : MonoBehaviour
 
         StartCoroutine(SwitchWeapon(holsterIndex, activateIndex));
     }
-   /* private void WeaponAiming()
+/*    private void WeaponAiming()
     {
         bool isAiming = rigController.GetBool("weapon_aim");
-            
+
         if (!isChangingWeapon && !reload.isReloading)
         {
             isAiming = !isAiming;
@@ -197,7 +201,7 @@ public class ActiveWeapon : MonoBehaviour
             } while (rigController.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f);
         }
         isChangingWeapon = false;
-        //isAiming = false;
+        isAiming = false;
     }
 
     private IEnumerator ActivateWeapon(int index)
@@ -220,10 +224,10 @@ public class ActiveWeapon : MonoBehaviour
             }
         }
         isChangingWeapon = false;
-       // isAiming = false;
+       //isAiming = false;
 
     }
-   /* private IEnumerator WeaponAim(int index)
+    /*private IEnumerator WeaponAim(int index)
     {
         isAiming = true;
         var weapon = GetWeapon(index);
@@ -236,9 +240,9 @@ public class ActiveWeapon : MonoBehaviour
             {
                 yield return new WaitForEndOfFrame();
             } while (rigController.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f);
-            isChangingWeapon = false;
-            isHolstered = false;
+            //isChangingWeapon = false;
+            //isHolstered = false;
         }
-
+        isAiming = false;
     }*/
 }

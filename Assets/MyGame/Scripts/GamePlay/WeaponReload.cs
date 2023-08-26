@@ -33,6 +33,7 @@ public class WeaponReload : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R) || weapon.ammoCount <=0)
             {
                 characterControllers.characterAiming.isAiming = false;
+                rigController.Play("notAiming");
                 isReloading = true;
                 rigController.SetTrigger("reload_weapon");
             }

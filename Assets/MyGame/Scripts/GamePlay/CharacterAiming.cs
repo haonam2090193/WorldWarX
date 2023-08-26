@@ -12,18 +12,20 @@ public class CharacterAiming : MonoBehaviour
     public AxisState xAxis;
     public AxisState yAxis;
     public bool isAiming;
-    
+
     private Camera mainCamera;
     private Animator animator;
     private ActiveWeapon activeWeapon;
-    private int isAimingParam = Animator.StringToHash("IsAiming");
+    //private int isAimingParam = Animator.StringToHash("IsAiming");
 
     public Animator rigController;
+    private CharacterControllers characterControllers;
     private void Awake()
     {
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();
         activeWeapon = GetComponent<ActiveWeapon>();
+        characterControllers = GetComponent<CharacterControllers>();
     }
 
     void Start()
@@ -42,26 +44,31 @@ public class CharacterAiming : MonoBehaviour
     private void Update()
     {
         var weapon = activeWeapon.GetActiveWeapon();
+
         if (weapon)
         {
-            if (activeWeapon.canFire)
-            { 
-                isAiming = Input.GetMouseButton(1);
-                animator.SetBool(isAimingParam, isAiming);  
-                weapon.weaponRecoil.recoilModifier = isAiming ? aimRecoil : defaultRecoil;
-                if(isAiming)
-                {
-                    rigController.Play("weapon_aim_" + weapon.weaponName);
-                    xAxis.m_MaxSpeed = 100;
-                    yAxis.m_MaxSpeed = 100;
-                }
-                else
-                {
-                    //rigController.SetBool("weapon_aim_" + weapon.weaponName); 
-                    xAxis.m_MaxSpeed = 300;
-                    yAxis.m_MaxSpeed = 300;
-                }
-            } 
+
+
+            //Debug.Log(isAiming);
+
+            weapon.weaponRecoil.recoilModifier = isAiming ? aimRecoil : defaultRecoil;
+            isAiming = (Input.GetMouseButton(1) && !characterControllers.weaponReload.isReloading);
+            if (isAiming)
+            {
+                // rigController.SetBool("weapon_aim", true);
+                rigController.Play("weapon_aim_" + weapon.weaponName);
+                xAxis.m_MaxSpeed = 100;
+                yAxis.m_MaxSpeed = 100;
+                animator.SetBool("IsAiming", true);
+            }
+            else
+            {
+                animator.SetBool("IsAiming", false);
+                rigController.Play("notAiming");
+                xAxis.m_MaxSpeed = 300;
+                yAxis.m_MaxSpeed = 300;
+            }
+
         }
     }
 
