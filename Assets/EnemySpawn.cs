@@ -1,45 +1,40 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    [Tooltip("The list of enemy prefabs to spawn")]
-    public List<GameObject> enemyPrefabs; 
-    [Tooltip("The position where the enemies will spawn")]
-    public Transform spawnPoint; 
-    [Tooltip("The current number of spawned enemies")]
-    public int enemyCount; 
-    [Tooltip("The maximum number of enemies to spawn")]
-    public int maxEnemy; 
-    [Tooltip("The time interval between enemy spawns")]
-    public float spawnTime;
+    public List<GameObject> enemyPrefabs; // Danh sách Prefab enemy
+    public Transform spawnPoint; // Vị trí triệu hồi
+    public int numberOfEnemies = 5; // Số lượng enemy cần triệu hồi
+    public float summonRadius = 5f; // Bán kính triệu hồi
 
-
-
-    float rotationY; 
-
-    IEnumerator SpawnEnemies()
+    private void Update()
     {
-        while (enemyCount < maxEnemy)
+        if (Input.GetKey(KeyCode.O))
         {
-            rotationY = Random.Range(-180, 180);
-            int randomIndex = Random.Range(0, enemyPrefabs.Count);
-            GameObject enemyPrefab = enemyPrefabs[randomIndex];
-            GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.Euler(0, rotationY, 0));
-            enemy.transform.SetParent(spawnPoint.transform);
-            yield return new WaitForSeconds(spawnTime);
-
-            enemyCount++;
+            SpawnEnemies();
         }
     }
-    void Update()
+    void SpawnEnemies()
     {
-        if (Input.GetKey(KeyCode.P))
+        for (int i = 0; i <= numberOfEnemies; i++)
         {
-            enemyCount = 0;
-            Debug.Log("Start Spawn");
-            StartCoroutine(SpawnEnemies());
+            if (i <= numberOfEnemies)
+            {
+                GameObject enemyPrefab = enemyPrefabs[i];
+
+                Vector3 randomOffset = Random.insideUnitSphere * summonRadius;
+                Vector3 spawnPosition = spawnPoint.position + randomOffset;
+
+                Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            }
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(spawnPoint.position, summonRadius);
     }
 }
