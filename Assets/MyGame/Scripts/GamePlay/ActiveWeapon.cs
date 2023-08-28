@@ -9,32 +9,28 @@ public class ActiveWeapon : MonoBehaviour
     public Transform crosshairTarget;
     public Transform[] weaponSlots;
     public CharacterAiming characterAiming;
-    private CharacterLocomotion characterLocomotion;
     public WeaponReload reload;
     public bool isChangingWeapon;
     public bool canFire;
 
-    public bool isAiming = false;
     public bool isHolstered = false;
-    private int activeWeaponIdx;
+    private int activeWeaponIdx; 
+    RaycastWeapon currentWeapon;
     [SerializeField]
-    private RaycastWeapon[] equippedWeapons = new RaycastWeapon[2];
+    private RaycastWeapon[] equippedWeapons = new RaycastWeapon[3];
     //[HideInInspector] 
 
 
     void Start()
-    {
-        characterLocomotion = GetComponent<CharacterLocomotion>();
+    {   
         reload = GetComponent<WeaponReload>();
-        RaycastWeapon existWeapon = GetComponentInChildren<RaycastWeapon>();
-        if (existWeapon)
-        {
-            Equip(existWeapon);
-        }
+     
     }
 
     void Update()
     {
+        currentWeapon = GetActiveWeapon();
+
         var raycastWeapon = GetWeapon(activeWeaponIdx);
         bool isNotSprinting = rigController.GetCurrentAnimatorStateInfo(2).shortNameHash == Animator.StringToHash("notSprinting");
         canFire = !isHolstered && isNotSprinting && !reload.isReloading;
@@ -59,7 +55,7 @@ public class ActiveWeapon : MonoBehaviour
                 raycastWeapon.StopFiring();
             }
 
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+/*            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 SetActiveWeapon(WeaponSlot.Primary);
                 Debug.Log("alpha1");
@@ -69,16 +65,31 @@ public class ActiveWeapon : MonoBehaviour
             {
                 SetActiveWeapon(WeaponSlot.Secondary);
                 Debug.Log("alpha2");
-            }
+            }*/
 
             if (Input.GetKeyDown(KeyCode.X))
             {
                 ToggleActiveWeapon();
             }
-            /*if (Input.GetMouseButton(1))
+
+            if (Input.GetKeyDown(KeyCode.Tab))
             {
-                WeaponAiming();
-            }*/
+                if (currentWeapon.weaponSlot == WeaponSlot.Primary && equippedWeapons[1] != null)
+                {
+                    Debug.Log("Primary");
+                    SetActiveWeapon(WeaponSlot.Secondary);
+                }
+                else if (currentWeapon.weaponSlot == WeaponSlot.Secondary&&equippedWeapons[2] !=null)
+                {
+                    Debug.Log("Seacondary");
+                    SetActiveWeapon(WeaponSlot.Submary);
+                }
+                else if (currentWeapon.weaponSlot == WeaponSlot.Submary && equippedWeapons[0] != null)
+                {
+                    Debug.Log("Submary");
+                    SetActiveWeapon(WeaponSlot.Primary);
+                }
+            }
         }
     }
 
@@ -125,7 +136,6 @@ public class ActiveWeapon : MonoBehaviour
 
     private void SetActiveWeapon(WeaponSlot weaponSlot)
     {
-        Debug.Log("aaa");
         int holsterIndex = activeWeaponIdx;
         int activateIndex = (int)weaponSlot;
 
@@ -136,23 +146,6 @@ public class ActiveWeapon : MonoBehaviour
 
         StartCoroutine(SwitchWeapon(holsterIndex, activateIndex));
     }
-/*    private void WeaponAiming()
-    {
-        bool isAiming = rigController.GetBool("weapon_aim");
-
-        if (!isChangingWeapon && !reload.isReloading)
-        {
-            isAiming = !isAiming;
-        }
-        if (isAiming)
-        {
-            StartCoroutine(WeaponAim(activeWeaponIdx));
-        }
-        else
-        {
-            StartCoroutine(ActivateWeapon(activeWeaponIdx));
-        }
-    }*/
     private void ToggleActiveWeapon()
     {
         bool isHolstered = rigController.GetBool("holster_weapon");
@@ -183,8 +176,6 @@ public class ActiveWeapon : MonoBehaviour
         activeWeaponIdx = activateIndex;
     }
 
-    //activeweaponIdx =1 
-    // newactive = 2
     private IEnumerator HolsterWeapon(int index)
     {
 
@@ -201,7 +192,6 @@ public class ActiveWeapon : MonoBehaviour
             } while (rigController.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f);
         }
         isChangingWeapon = false;
-        isAiming = false;
     }
 
     private IEnumerator ActivateWeapon(int index)
@@ -224,25 +214,6 @@ public class ActiveWeapon : MonoBehaviour
             }
         }
         isChangingWeapon = false;
-       //isAiming = false;
 
     }
-    /*private IEnumerator WeaponAim(int index)
-    {
-        isAiming = true;
-        var weapon = GetWeapon(index);
-        if (weapon)
-        {
-            rigController.Play("weapon_aim_" + weapon.weaponName);
-
-            yield return new WaitForSeconds(0.1f);
-            do
-            {
-                yield return new WaitForEndOfFrame();
-            } while (rigController.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f);
-            //isChangingWeapon = false;
-            //isHolstered = false;
-        }
-        isAiming = false;
-    }*/
 }

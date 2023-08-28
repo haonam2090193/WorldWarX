@@ -47,12 +47,9 @@ public class CharacterAiming : MonoBehaviour
 
         if (weapon)
         {
-
-
             //Debug.Log(isAiming);
-
             weapon.weaponRecoil.recoilModifier = isAiming ? aimRecoil : defaultRecoil;
-            isAiming = (Input.GetMouseButton(1) && !characterControllers.weaponReload.isReloading);
+            isAiming = (Input.GetMouseButton(1) && !characterControllers.weaponReload.isReloading && !characterControllers.activeWeapon.isHolstered);
             if (isAiming)
             {
                 // rigController.SetBool("weapon_aim", true);
