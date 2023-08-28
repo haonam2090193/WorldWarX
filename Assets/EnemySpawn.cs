@@ -4,37 +4,30 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    public List<GameObject> enemyPrefabs; // Danh sách Prefab enemy
-    public Transform spawnPoint; // Vị trí triệu hồi
-    public int numberOfEnemies = 5; // Số lượng enemy cần triệu hồi
-    public float summonRadius = 5f; // Bán kính triệu hồi
+    public GameObject[] enemies;
+    public int maxEnemy;
+    public float spawnTime;
 
-    private void Update()
+    private int totalEnemy;
+    private void Start()                                                                                                   
     {
-        if (Input.GetKey(KeyCode.O))
+        StartCoroutine(SpawnEnemies());
+    }
+    IEnumerator SpawnEnemies()
+    {
+        while (totalEnemy <= maxEnemy)
         {
-            SpawnEnemies();
+            totalEnemy++;
+            EnemiesSpawn();
+            yield return new WaitForSeconds(spawnTime);
         }
     }
-    void SpawnEnemies()
+    void EnemiesSpawn()
     {
-        for (int i = 0; i <= numberOfEnemies; i++)
-        {
-            if (i <= numberOfEnemies)
-            {
-                GameObject enemyPrefab = enemyPrefabs[i];
-
-                Vector3 randomOffset = Random.insideUnitSphere * summonRadius;
-                Vector3 spawnPosition = spawnPoint.position + randomOffset;
-
-                Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-            }
-        }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(spawnPoint.position, summonRadius);
+        
+        float randomYPos = Random.Range(0, 360);
+        int randomEnemy = Random.Range(0, enemies.Length - 1);
+        
+        Instantiate(enemies[randomEnemy], this.transform.position, Quaternion.Euler(0,randomYPos,0));
     }
 }

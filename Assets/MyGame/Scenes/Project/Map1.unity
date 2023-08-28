@@ -1477,7 +1477,7 @@ PrefabInstance:
     - target: {fileID: 3943953595280705010, guid: e8da018baa77da1489fbab377ed884c6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.2859998
+      value: -2.73
       objectReference: {fileID: 0}
     - target: {fileID: 3943953595280705010, guid: e8da018baa77da1489fbab377ed884c6,
         type: 3}
@@ -1487,7 +1487,7 @@ PrefabInstance:
     - target: {fileID: 3943953595280705010, guid: e8da018baa77da1489fbab377ed884c6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.094
+      value: -9.79
       objectReference: {fileID: 0}
     - target: {fileID: 3943953595280705010, guid: e8da018baa77da1489fbab377ed884c6,
         type: 3}
@@ -1523,6 +1523,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4661588224922421250, guid: e8da018baa77da1489fbab377ed884c6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 6892633903520129706, guid: e8da018baa77da1489fbab377ed884c6,
         type: 3}
@@ -6733,14 +6738,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ba3f5444c96b44b94809e9b7b29d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
+  enemies:
   - {fileID: 6554377015044330860, guid: b4301aa4125cefb4c85baa4e38e3ae3b, type: 3}
   - {fileID: 6554377015044330860, guid: 7cf924de645ae3843921afc5d588b808, type: 3}
   - {fileID: 6554377015044330860, guid: 857725b93b7ab8d4799569ec9026bc13, type: 3}
   - {fileID: 6554377015044330860, guid: 85184fdbf032d5648af9fc9aa7f93d49, type: 3}
-  spawnPoint: {fileID: 755485511}
-  numberOfEnemies: 5
-  summonRadius: 5
+  totalEnemy: 0
+  maxEnemy: 30
+  spawnTime: 1
 --- !u!4 &755485511
 Transform:
   m_ObjectHideFlags: 0
@@ -14781,7 +14786,7 @@ PrefabInstance:
     - target: {fileID: 7066956721203382166, guid: 66b6bd5a526575d46ab6c2ca6d41ab7d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.7859998
+      value: -2.23
       objectReference: {fileID: 0}
     - target: {fileID: 7066956721203382166, guid: 66b6bd5a526575d46ab6c2ca6d41ab7d,
         type: 3}
@@ -14791,7 +14796,7 @@ PrefabInstance:
     - target: {fileID: 7066956721203382166, guid: 66b6bd5a526575d46ab6c2ca6d41ab7d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.094
+      value: -12.79
       objectReference: {fileID: 0}
     - target: {fileID: 7066956721203382166, guid: 66b6bd5a526575d46ab6c2ca6d41ab7d,
         type: 3}
