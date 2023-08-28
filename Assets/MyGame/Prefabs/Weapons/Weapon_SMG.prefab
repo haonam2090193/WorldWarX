@@ -24071,7 +24071,7 @@ GameObject:
   - component: {fileID: 3922793539073419088}
   m_Layer: 7
   m_Name: Weapon_SMG
-  m_TagString: Untagged
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24132,7 +24132,7 @@ MonoBehaviour:
   totalAmmo: 30
   damage: 29
   ammoPerShot: 1
-  isSingleMode: 0
+  singleMode: 0
 --- !u!114 &3922793539073419089
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -19965,7 +19965,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.96870255, b: 1, a: 1}
+      maxColor: {r: 1, g: 0.9647059, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -24847,7 +24847,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 1, b: 0.9809997, a: 1}
+      maxColor: {r: 1, g: 0.9647059, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -29551,7 +29551,7 @@ GameObject:
   - component: {fileID: 4742480419720849860}
   m_Layer: 7
   m_Name: Weapon_Pistol_1
-  m_TagString: Untagged
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29586,7 +29586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b1fc630bf984287b16feb707bd85e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSlot: 1
+  weaponSlot: 2
   weaponName: pistol1
   isFiring: 0
   fireRate: 6.1

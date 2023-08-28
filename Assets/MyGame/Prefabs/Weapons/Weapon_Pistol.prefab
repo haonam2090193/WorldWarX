@@ -28913,7 +28913,7 @@ GameObject:
   - component: {fileID: -350855139300653402}
   m_Layer: 7
   m_Name: Weapon_Pistol
-  m_TagString: Untagged
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28950,7 +28950,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSlot: 1
-  weaponType: 3
   weaponName: pistol
   isFiring: 0
   fireRate: 4
@@ -28975,6 +28974,7 @@ MonoBehaviour:
   totalAmmo: 15
   damage: 10
   ammoPerShot: 1
+  singleMode: 0
 --- !u!114 &-5712687851035014815
 MonoBehaviour:
   m_ObjectHideFlags: 0
