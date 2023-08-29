@@ -2,18 +2,35 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Skybox
-  m_Shader: {fileID: 4800000, guid: 6fc9318f5193c094c98c0d450cd61e3b, type: 3}
-  m_ShaderKeywords: _BACKGROUNDMODE_COLORS _BUILTINFOG_ON _CLOUDS_ON _ENABLECLOUDSROTATION_ON
-    _ENABLECLOUDS_ON _ENABLEPATTERN_ON _ENABLESKYPATTERNOVERLAY_ON _ENABLESTARSSUNMASK_ON
-    _ENABLESUNMASK_ON _ENABLESUNMOONMASK_ON _ENABLESUNMOON_ON _ENABLETWINKLING_ON
-    _PATTERNOVERLAY_ON _STARS_ON _SUNORMOON_ON _USECUBEMAP_ON _USEENVIRONMENTGRADIENT_ON
-    _USESKYPATTERNOVERLAY_ON _USETEXTURE_ON
+  m_Shader: {fileID: 4800000, guid: 6b473eb86b84ac5439972f473ab884bd, type: 3}
+  m_ValidKeywords:
+  - _BACKGROUNDMODE_COLORS
+  - _ENABLECLOUDS_ON
+  - _ENABLESUN_ON
+  m_InvalidKeywords:
+  - _BUILTINFOG_ON
+  - _CLOUDS_ON
+  - _ENABLECLOUDSROTATION_ON
+  - _ENABLEPATTERN_ON
+  - _ENABLESKYPATTERNOVERLAY_ON
+  - _ENABLESTARSSUNMASK_ON
+  - _ENABLESUNMASK_ON
+  - _ENABLESUNMOONMASK_ON
+  - _ENABLESUNMOON_ON
+  - _ENABLETWINKLING_ON
+  - _PATTERNOVERLAY_ON
+  - _STARS_ON
+  - _SUNORMOON_ON
+  - _USECUBEMAP_ON
+  - _USEENVIRONMENTGRADIENT_ON
+  - _USESKYPATTERNOVERLAY_ON
+  - _USETEXTURE_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -28,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CloudsCubemap:
-        m_Texture: {fileID: 8900000, guid: ac1b6b76ea3b68b41b391992d47806bd, type: 3}
+        m_Texture: {fileID: 8900000, guid: e3373d7062a4a5044ac0f0745de6c934, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MoonTexture:
@@ -44,13 +61,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SunTexture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: dd566660fc358aa4098080e42ca0db56, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TwinklingTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BackgroundCat: 1
     - _BackgroundExposure: 1
@@ -58,9 +76,10 @@ Material:
     - _Banner: 1
     - _CloudsCat: 1
     - _CloudsHeight: 0
+    - _CloudsIntensity: 1
     - _CloudsLitbySun: 0
     - _CloudsRotation: 360
-    - _CloudsRotationSpeed: 0.5
+    - _CloudsRotationSpeed: 0.1
     - _ColorsCat: 1
     - _EnableBuiltinFog: 0
     - _EnableClouds: 1
@@ -71,9 +90,9 @@ Material:
     - _EnableStars: 0
     - _EnableStarsRotation: 0
     - _EnableStarsTwinkling: 0
-    - _EnableSun: 0
-    - _EquatorHeight: 0.756
-    - _EquatorSmoothness: 0.5
+    - _EnableSun: 1
+    - _EquatorHeight: 0.4
+    - _EquatorSmoothness: 0.6
     - _FogCat: 1
     - _FogFill: 0
     - _FogHeight: 0
@@ -96,8 +115,8 @@ Material:
     - _StarsSize: 0.5
     - _StarsSunMask: 0
     - _SunCat: 1
-    - _SunIntensity: 1
-    - _SunSize: 0.5
+    - _SunIntensity: 1.14
+    - _SunSize: 0.6
     - _TITLE: 1
     - _TwinklingContrast: 1
     - _TwinklingSpeed: 0.05
@@ -105,12 +124,12 @@ Material:
     m_Colors:
     - _CloudsLightColor: {r: 1, g: 0.97559017, b: 0.9198113, a: 1}
     - _CloudsRotationAxis: {r: 0, g: 1, b: 0, a: 0}
-    - _CloudsShadowColor: {r: 0.15419187, g: 0.53798515, b: 0.9339623, a: 1}
-    - _EquatorColor: {r: 0.9150943, g: 0.71856743, b: 0.35826805, a: 1}
-    - _GroundColor: {r: 0.49803913, g: 0.49699998, b: 0, a: 1}
+    - _CloudsShadowColor: {r: 0.075649686, g: 0.35431433, b: 0.6415094, a: 1}
+    - _EquatorColor: {r: 0.9245283, g: 0.8523787, b: 0.06541473, a: 1}
+    - _GroundColor: {r: 0, g: 0, b: 0, a: 1}
     - _MoonColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SkyColor: {r: 0.11294055, g: 0.49477538, b: 0.8867924, a: 1}
+    - _SkyColor: {r: 0.246707, g: 0.57701063, b: 0.8301887, a: 1}
     - _SkyboxRotationAxis: {r: 0, g: 1, b: 0, a: 0}
     - _StarsRotationAxis: {r: 0, g: 1, b: 0, a: 0}
-    - _SunColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SunColor: {r: 0.9150943, g: 0.90839124, b: 0.7208526, a: 1}
   m_BuildTextureStacks: []
