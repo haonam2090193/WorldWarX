@@ -36,6 +36,11 @@ public class UIManager : BaseManager<UIManager>
     private List<string> rmNotifies = new List<string>();
     private List<string> rmOverlaps = new List<string>();
 
+    private void Start()
+    {
+        ShowScreen<ScreenHome>();
+    }
+
     #region Screen
 
     private BaseScreen GetNewScreen<T>() where T: BaseScreen
@@ -172,7 +177,7 @@ public class UIManager : BaseManager<UIManager>
         GameObject pfPopup = GetUIPrefab(UIType.Popup, namePopup);
         if (pfPopup == null || !pfPopup.GetComponent<BasePopup>())
         {
-            throw new MissingReferenceException("Can not found" + namePopup + "popup. !!!");
+            throw new MissingReferenceException("Can not found " + namePopup + " popup. !!!");
         }
         GameObject ob = Instantiate(pfPopup) as GameObject;
         ob.transform.SetParent(this.cPopup.transform);
@@ -238,7 +243,7 @@ public class UIManager : BaseManager<UIManager>
 
         if (curPopup != null)
         {
-            var curName = curScreen.GetType().Name;
+            var curName = curPopup.GetType().Name;
             if (curName.Equals(popupName))
             {
                 result = curPopup;

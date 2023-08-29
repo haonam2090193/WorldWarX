@@ -16,4 +16,10 @@ public class WeaponAnimationEvent : MonoBehaviour
     {
         WeaponAnimEvent.Invoke(eventName);
     }
+
+    public void SoundClip()
+    {
+        RaycastWeapon raycastWeapon = GetComponent<RaycastWeapon>();
+        raycastWeapon.PlaySound();
+    }
 }
