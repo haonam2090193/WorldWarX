@@ -34,7 +34,6 @@ public class ActiveWeapon : MonoBehaviour
         var raycastWeapon = GetWeapon(activeWeaponIdx);
         bool isNotSprinting = rigController.GetCurrentAnimatorStateInfo(2).shortNameHash == Animator.StringToHash("notSprinting");
         canFire = !isHolstered && isNotSprinting && !reload.isReloading;
-        Debug.Log(raycastWeapon);
         if (raycastWeapon)
         {
             if (Input.GetButtonDown("Fire1") && canFire && !raycastWeapon.isFiring)

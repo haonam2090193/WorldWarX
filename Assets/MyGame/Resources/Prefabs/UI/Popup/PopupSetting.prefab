@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 856119370167588366}
   - component: {fileID: 856119370167588367}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: SliderSE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +90,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -7647102871479310586}
+        m_TargetAssemblyTypeName: PopupSetting, Assembly-CSharp
+        m_MethodName: ChangeSEVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &856119370316190082
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +326,7 @@ GameObject:
   - component: {fileID: 856119370496123390}
   - component: {fileID: 856119370496123389}
   m_Layer: 5
-  m_Name: BGM Slider
+  m_Name: BGMSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -451,7 +463,7 @@ GameObject:
   - component: {fileID: 856119370517312148}
   - component: {fileID: 856119370517312149}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: SliderBGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -530,7 +542,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -7647102871479310586}
+        m_TargetAssemblyTypeName: PopupSetting, Assembly-CSharp
+        m_MethodName: ChangeBGMVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &856119370618472913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,7 +1462,7 @@ GameObject:
   - component: {fileID: 856119371998607348}
   - component: {fileID: 856119371998607347}
   m_Layer: 5
-  m_Name: Sound Slider
+  m_Name: SoundEffectSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1726,6 +1750,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd847997ea1eb0e47bb409b2040a6d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seSlider: {fileID: 856119370167588367}
+  bgmSlider: {fileID: 856119370517312149}
 --- !u!225 &1646980099518739475
 CanvasGroup:
   m_ObjectHideFlags: 0
