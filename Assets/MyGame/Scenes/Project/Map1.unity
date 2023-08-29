@@ -1451,6 +1451,11 @@ PrefabInstance:
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
       objectReference: {fileID: 7223113179623270077}
+    - target: {fileID: 1614440858670059655, guid: e8da018baa77da1489fbab377ed884c6,
+        type: 3}
+      propertyPath: m_Name
+      value: SecondaryWeaponSlotOffsetOld
+      objectReference: {fileID: 0}
     - target: {fileID: 3943953595280705010, guid: e8da018baa77da1489fbab377ed884c6,
         type: 3}
       propertyPath: m_RootOrder
@@ -1506,10 +1511,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6383517794241559560, guid: e8da018baa77da1489fbab377ed884c6,
+        type: 3}
+      propertyPath: m_Data.m_SourceObjects.m_Item1.transform
+      value: 
+      objectReference: {fileID: 1016375491}
     - target: {fileID: 6892633903520129706, guid: e8da018baa77da1489fbab377ed884c6,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760487107396630726, guid: e8da018baa77da1489fbab377ed884c6,
+        type: 3}
+      propertyPath: m_Data.m_SourceObjects.m_Item1.transform
+      value: 
+      objectReference: {fileID: 1652542309}
+    - target: {fileID: 8541289124833518605, guid: e8da018baa77da1489fbab377ed884c6,
+        type: 3}
+      propertyPath: m_Name
+      value: PrimaryWeaponSlotOffsetOld
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8da018baa77da1489fbab377ed884c6, type: 3}
@@ -2249,6 +2269,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4283621787634160, guid: f00726c5cd2a0a94b923b5088a58dcd6,
     type: 3}
   m_PrefabInstance: {fileID: 241812456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &245988336 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1047575725953869623, guid: e8da018baa77da1489fbab377ed884c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 140250814}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &252388572
 PrefabInstance:
@@ -4929,6 +4955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 3922793539073419086, guid: 982668932f8c2e44f81da1959d017575,
     type: 3}
+  player: {fileID: 0}
 --- !u!135 &504642342
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6389,6 +6416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 5341101219521534587, guid: 0f0b82e7642cd5a4e9471b7111bd2fc1,
     type: 3}
+  player: {fileID: 0}
 --- !u!135 &715380861
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7189,6 +7217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 2919704046649385986, guid: d35afda50798b564988585bb13e4df03,
     type: 3}
+  player: {fileID: 0}
 --- !u!135 &871971526
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7291,8 +7320,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878301162}
-  m_LocalRotation: {x: 0.0000450313, y: 0.82210714, z: 0.0010062826, w: 0.569332}
-  m_LocalPosition: {x: -0.017, y: -0.01, z: -0.22}
+  m_LocalRotation: {x: 0.2549799, y: 0.7306295, z: 0.07810997, w: 0.62854165}
+  m_LocalPosition: {x: 0.035872985, y: 0.019335806, z: -0.22437185}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8260,6 +8289,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a5973e326885694c8eb4a575b705591, type: 3}
+--- !u!1 &1016375490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1016375491}
+  m_Layer: 0
+  m_Name: PrimaryWeaponSlotOffset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1016375491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016375490}
+  m_LocalRotation: {x: -0.4397357, y: 0.32371807, z: -0.64359367, w: 0.53630805}
+  m_LocalPosition: {x: -0.43076718, y: -0.22412336, z: -0.2488856}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 245988336}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 5.173, z: 0}
 --- !u!1001 &1032897436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11291,6 +11351,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1652542308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1652542309}
+  m_Layer: 0
+  m_Name: SeacondaryWeaponSlotOffset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1652542309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652542308}
+  m_LocalRotation: {x: -0.25966305, y: -0.7197996, z: 0.08581946, w: -0.63804287}
+  m_LocalPosition: {x: -0.6240119, y: -0.0038932562, z: -0.13553274}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1719835762}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1664760784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11473,6 +11564,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &1719835762 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1848178408102668929, guid: e8da018baa77da1489fbab377ed884c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 140250814}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1724685963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14666,7 +14763,7 @@ PrefabInstance:
     - target: {fileID: 7066956721203382161, guid: 66b6bd5a526575d46ab6c2ca6d41ab7d,
         type: 3}
       propertyPath: far clip plane
-      value: 1000
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 7066956721203382161, guid: 66b6bd5a526575d46ab6c2ca6d41ab7d,
         type: 3}

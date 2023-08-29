@@ -34,6 +34,7 @@ public class ActiveWeapon : MonoBehaviour
         var raycastWeapon = GetWeapon(activeWeaponIdx);
         bool isNotSprinting = rigController.GetCurrentAnimatorStateInfo(2).shortNameHash == Animator.StringToHash("notSprinting");
         canFire = !isHolstered && isNotSprinting && !reload.isReloading;
+        Debug.Log(raycastWeapon);
         if (raycastWeapon)
         {
             if (Input.GetButtonDown("Fire1") && canFire && !raycastWeapon.isFiring)
@@ -55,7 +56,7 @@ public class ActiveWeapon : MonoBehaviour
                 raycastWeapon.StopFiring();
             }
 
-/*            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 SetActiveWeapon(WeaponSlot.Primary);
                 Debug.Log("alpha1");
@@ -65,8 +66,12 @@ public class ActiveWeapon : MonoBehaviour
             {
                 SetActiveWeapon(WeaponSlot.Secondary);
                 Debug.Log("alpha2");
-            }*/
-
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                SetActiveWeapon(WeaponSlot.Submary);
+                Debug.Log("alpha2");
+            }
             if (Input.GetKeyDown(KeyCode.X))
             {
                 ToggleActiveWeapon();
