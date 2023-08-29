@@ -6,7 +6,6 @@ using TMPro;
 
 public class MenuPanel : BaseScreen
 {
-
     public override void Show(object data)
     {
         base.Show(data);
@@ -16,11 +15,19 @@ public class MenuPanel : BaseScreen
     {
         base.Hide();
     }
-
-
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync("Map1");
-        //this.Hide();
+        SceneManager.LoadScene("Map1");
+        this.Hide();
+        Debug.Log("Loaded");
     }
+    
+    public void OnClickPopupSetting()
+    {
+        if (UIManager.HasInstance)
+        {
+            UIManager.Instance.ShowPopup<PopupSetting>();
+        }
+    }
+        
 }

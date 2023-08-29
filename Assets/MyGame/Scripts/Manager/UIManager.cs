@@ -172,7 +172,7 @@ public class UIManager : BaseManager<UIManager>
         GameObject pfPopup = GetUIPrefab(UIType.Popup, namePopup);
         if (pfPopup == null || !pfPopup.GetComponent<BasePopup>())
         {
-            throw new MissingReferenceException("Can not found" + namePopup + "popup. !!!");
+            throw new MissingReferenceException("Can not found " + namePopup + " popup. !!!");
         }
         GameObject ob = Instantiate(pfPopup) as GameObject;
         ob.transform.SetParent(this.cPopup.transform);

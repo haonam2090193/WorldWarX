@@ -31,7 +31,7 @@ public class NotifyLoadingGame : BaseNotify
     {
         yield return null;
 
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Main");
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Map1");
         asyncOperation.allowSceneActivation = false;
         while (!asyncOperation.isDone)
         {
@@ -41,10 +41,10 @@ public class NotifyLoadingGame : BaseNotify
             {
                 loadingSlider.value = 1f;
                 loadingPercentText.SetText($"LOADING SCENES: {loadingSlider.value * 100}%");
-                if (UIManager.HasInstance)
+               /* if (UIManager.HasInstance)
                 {
                     UIManager.Instance.ShowOverlap<OverlapFade>();
-                }
+                }*/
                 yield return new WaitForSeconds(3f);
                 asyncOperation.allowSceneActivation = true;
                 this.Hide();               
