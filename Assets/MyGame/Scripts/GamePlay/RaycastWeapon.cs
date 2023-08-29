@@ -6,6 +6,7 @@ public class RaycastWeapon : MonoBehaviour
 {
     public WeaponSlot weaponSlot;
 
+    public AudioSource audioSource;
     public string weaponName;
     public bool isFiring = false;
     public float fireRate = 25;
@@ -36,7 +37,7 @@ public class RaycastWeapon : MonoBehaviour
     private void Awake()
     {
         weaponRecoil = GetComponent<WeaponRecoil>();
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -116,7 +117,10 @@ public class RaycastWeapon : MonoBehaviour
             }
         }
     }
-
+    public void PlaySound()
+    {
+        audioSource.Play();
+    }
     public void FireBullet(Vector3 target)
     {
         if(ammoCount <= 0)

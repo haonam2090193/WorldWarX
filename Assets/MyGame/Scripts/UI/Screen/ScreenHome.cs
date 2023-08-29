@@ -10,12 +10,18 @@ public class ScreenHome : BaseScreen
     {
         base.Show(data);
     }
-
+    
     public override void Hide()
     {
         base.Hide();
     }
-
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Map1");
+        this.Hide();
+        Debug.Log("Loaded");
+    }
+    
     public void OnClickPopupSetting()
     {
         if (UIManager.HasInstance)
@@ -23,13 +29,5 @@ public class ScreenHome : BaseScreen
             UIManager.Instance.ShowPopup<PopupSetting>();
         }
     }
-
-    public void StartGame()
-    {
-        if (UIManager.HasInstance)
-        {
-            UIManager.Instance.ShowNotify<NotifyLoadingGame>();
-        }
-        this.Hide();
-    }
+        
 }
