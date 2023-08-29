@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class MenuPanel : BaseScreen
+public class ScreenHome : BaseScreen
 {
     public override void Show(object data)
     {
