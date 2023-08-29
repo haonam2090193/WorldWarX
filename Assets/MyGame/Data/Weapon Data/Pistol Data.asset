@@ -15,11 +15,11 @@ MonoBehaviour:
   fireRate: 12
   bulletSpeed: 1000
   bulletDrop: 50
-  ammoCount: 15
-  totalAmmo: 15
+  ammoCount: 100
+  totalAmmo: 100
   damage: 100
   ammoPerShot: 1
-  singleMode: 1
+  singleMode: 0
   spreads:
   - -0.1
   - -0.1
