@@ -18,7 +18,7 @@ MonoBehaviour:
   blinkDuration: 0.1
   dieForce: 10
   maxSight: 5
-  timeDestroyAI: Infinity
+  timeDestroyAI: 5
   damage: 10.7
   jumpHeight: 3
   gravity: 20
