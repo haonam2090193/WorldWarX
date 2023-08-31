@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,5 +27,23 @@ public class GameManager : BaseManager<GameManager>
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void CloseGame()
+    {
+        EditorApplication.ExitPlaymode();
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        Cursor.visible = true;
+
+    }
+
+    public void ContinueGame()
+    {
+        Time.timeScale = 1f;
+        Cursor.visible = false;
     }
 }

@@ -14,7 +14,7 @@ public class AudioManager : BaseManager<AudioManager>
     private bool isFadeOut = false;
 
     //Audio sources for BGM and SE
-    public AudioSource AttachBGMSource;
+    public AudioSource AttachBGMSource; 
     public AudioSource AttachSESource;
 
     //Keep all audio
@@ -113,6 +113,11 @@ public class AudioManager : BaseManager<AudioManager>
                 PlayBGM(nextBGMName);
             }
         }
+    }
+
+    public void StopBGMVolume()
+    {
+        AttachBGMSource.Stop();
     }
 
     public void ChangeBGMVolume(float BGMVolume)

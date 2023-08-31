@@ -16,7 +16,6 @@ public class CharacterAiming : MonoBehaviour
     private Camera mainCamera;
     private Animator animator;
     private ActiveWeapon activeWeapon;
-    //private int isAimingParam = Animator.StringToHash("IsAiming");
 
     public Animator rigController;
     private CharacterControllers characterControllers;
@@ -31,7 +30,6 @@ public class CharacterAiming : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
         if (DataManager.HasInstance)
         {
             turnSpeed = DataManager.Instance.GlobalConfig.turnSpeed;

@@ -36,11 +36,6 @@ public class UIManager : BaseManager<UIManager>
     private List<string> rmNotifies = new List<string>();
     private List<string> rmOverlaps = new List<string>();
 
-    private void Start()
-    {
-        ShowScreen<ScreenHome>();
-    }
-
     #region Screen
 
     private BaseScreen GetNewScreen<T>() where T: BaseScreen
