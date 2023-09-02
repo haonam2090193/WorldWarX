@@ -1,45 +1,33 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    [Tooltip("The list of enemy prefabs to spawn")]
-    public List<GameObject> enemyPrefabs; 
-    [Tooltip("The position where the enemies will spawn")]
-    public Transform spawnPoint; 
-    [Tooltip("The current number of spawned enemies")]
-    public int enemyCount; 
-    [Tooltip("The maximum number of enemies to spawn")]
-    public int maxEnemy; 
-    [Tooltip("The time interval between enemy spawns")]
+    public GameObject[] enemies;
+    public int maxEnemy;
     public float spawnTime;
 
-
-
-    float rotationY; 
-
+    private int totalEnemy;
+    private void Start()                                                                                                   
+    {
+        StartCoroutine(SpawnEnemies());
+    }
     IEnumerator SpawnEnemies()
     {
-        while (enemyCount < maxEnemy)
+        while (totalEnemy <= maxEnemy)
         {
-            rotationY = Random.Range(-180, 180);
-            int randomIndex = Random.Range(0, enemyPrefabs.Count);
-            GameObject enemyPrefab = enemyPrefabs[randomIndex];
-            GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.Euler(0, rotationY, 0));
-            enemy.transform.SetParent(spawnPoint.transform);
+            totalEnemy++;
+            EnemiesSpawn();
             yield return new WaitForSeconds(spawnTime);
-
-            enemyCount++;
         }
     }
-    void Update()
+    void EnemiesSpawn()
     {
-        if (Input.GetKey(KeyCode.P))
-        {
-            enemyCount = 0;
-            Debug.Log("Start Spawn");
-            StartCoroutine(SpawnEnemies());
-        }
+        
+        float randomYPos = Random.Range(0, 360);
+        int randomEnemy = Random.Range(0, enemies.Length - 1);
+        
+        Instantiate(enemies[randomEnemy], this.transform.position, Quaternion.Euler(0,randomYPos,0));
     }
 }
