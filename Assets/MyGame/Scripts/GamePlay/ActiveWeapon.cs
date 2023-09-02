@@ -8,8 +8,6 @@ public class ActiveWeapon : MonoBehaviour
     public Animator rigController;
     public Transform crosshairTarget;
     public Transform[] weaponSlots;
-    public CharacterAiming characterAiming;
-    public WeaponReload reload;
     public bool isChangingWeapon;
     public bool canFire;
 
@@ -18,12 +16,18 @@ public class ActiveWeapon : MonoBehaviour
     RaycastWeapon currentWeapon;
     [SerializeField]
     private RaycastWeapon[] equippedWeapons = new RaycastWeapon[3];
-    //[HideInInspector] 
+
+    private CharacterAiming characterAiming;
+    private WeaponReload weaponReload;
 
 
     void Start()
-    {   
-        reload = GetComponent<WeaponReload>();
+    {
+        if (PlayerManager.HasInstance)
+        {
+            this.weaponReload = PlayerManager.Instance.weaponReload;
+
+        }
      
     }
 
@@ -33,7 +37,7 @@ public class ActiveWeapon : MonoBehaviour
 
         var raycastWeapon = GetWeapon(activeWeaponIdx);
         bool isNotSprinting = rigController.GetCurrentAnimatorStateInfo(2).shortNameHash == Animator.StringToHash("notSprinting");
-        canFire = !isHolstered && isNotSprinting && !reload.isReloading;
+        canFire = !isHolstered && isNotSprinting && !this.weaponReload.isReloading;
         if (raycastWeapon)
         {
             if (Input.GetButtonDown("Fire1") && canFire && !raycastWeapon.isFiring)

@@ -5,29 +5,28 @@ using UnityEngine;
 public class PlayerHeath : MonoBehaviour
 {
     public float currentHealth;
-    public float maxHealth;
+    private float maxHealth;
     public Vector3 direction;
-    private PlayerRagdoll playerRagdoll;
-    //private Rigidbody rigidbody;
-    private CharacterAiming characterAiming;
 
-
-    private void Awake()
+    PlayerRagdoll playerRagdoll;
+    private void Start()
     {
-        playerRagdoll = GetComponent<PlayerRagdoll>();
+
         if (DataManager.HasInstance)
         {
             maxHealth = DataManager.Instance.GlobalConfig.maxHealth;
         }
-        characterAiming = GetComponent<CharacterAiming>();
-       // rigidbody = GetComponent<Rigidbody>();
         currentHealth = maxHealth;
+
+        if (PlayerManager.HasInstance)
+        {
+            playerRagdoll = PlayerManager.Instance.playerRagdoll;
+        }
     }
     private void Update()
     {
         if (currentHealth <= 0)
         {
-            //Debug.Log("Player Dead");
              Die();
         }
     }
@@ -35,11 +34,8 @@ public class PlayerHeath : MonoBehaviour
     {
         Debug.Log("Player Dead");
 
-        playerRagdoll.ActiveRagdoll();
+        this.playerRagdoll.ActiveRagdoll();
 
-        //Instantiate(this.gameObject);
-
-        //this.gameObject.SetActive(false,5f);
         Destroy(this.gameObject, 5);
     }
 }

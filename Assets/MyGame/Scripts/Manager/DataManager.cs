@@ -5,5 +5,5 @@ using UnityEngine;
 public class DataManager : BaseManager<DataManager>
 {
     public GlobalConfig GlobalConfig;
-    public WeaponData WeaponData;
+    
 }

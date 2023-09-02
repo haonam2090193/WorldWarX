@@ -7,8 +7,6 @@ public class WeaponRecoil : MonoBehaviour
 {
 
     [HideInInspector]
-    public CharacterAiming characterAiming;
-    [HideInInspector]
     public CinemachineImpulseSource cameraShake;
     [HideInInspector]
     public Animator rigController;
@@ -23,11 +21,19 @@ public class WeaponRecoil : MonoBehaviour
     private float verticalRecoil;
     private float horizontalRecoil;
 
+    public CharacterAiming characterAiming;
     private void Awake()
     {
         cameraShake = GetComponent<CinemachineImpulseSource>();
     }
+    private void Start()
+    {
+        if (PlayerManager.HasInstance)
+        {
+            this.characterAiming = PlayerManager.Instance.characterAiming;
 
+        }
+    }
     public void Reset()
     {
         index = 0;
@@ -56,8 +62,8 @@ public class WeaponRecoil : MonoBehaviour
     {
         if (time > 0)
         {
-            characterAiming.yAxis.Value -= (((verticalRecoil / 10) * Time.deltaTime) / duration * recoilModifier);
-            characterAiming.xAxis.Value -= (((horizontalRecoil / 10) * Time.deltaTime) / duration * recoilModifier);
+            this.characterAiming.yAxis.Value -= (((verticalRecoil / 10) * Time.deltaTime) / duration * recoilModifier);
+            this.characterAiming.xAxis.Value -= (((horizontalRecoil / 10) * Time.deltaTime) / duration * recoilModifier);
             time -= Time.deltaTime;
         }
     }

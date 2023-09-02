@@ -15,16 +15,13 @@ public class CharacterAiming : MonoBehaviour
 
     private Camera mainCamera;
     private Animator animator;
-    private ActiveWeapon activeWeapon;
-
     public Animator rigController;
-    private CharacterControllers characterControllers;
+
+    private ActiveWeapon activeWeapon;
     private void Awake()
     {
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();
-        activeWeapon = GetComponent<ActiveWeapon>();
-        characterControllers = GetComponent<CharacterControllers>();
     }
 
     void Start()
@@ -35,7 +32,10 @@ public class CharacterAiming : MonoBehaviour
             turnSpeed = DataManager.Instance.GlobalConfig.turnSpeed;
             defaultRecoil = DataManager.Instance.GlobalConfig.defaultRecoil;
             aimRecoil = DataManager.Instance.GlobalConfig.aimRecoil;
-
+        }
+        if (PlayerManager.HasInstance)
+        {
+            this.activeWeapon = PlayerManager.Instance.activeWeapon;
         }
     }
 
@@ -47,7 +47,8 @@ public class CharacterAiming : MonoBehaviour
         {
             //Debug.Log(isAiming);
             weapon.weaponRecoil.recoilModifier = isAiming ? aimRecoil : defaultRecoil;
-            isAiming = (Input.GetMouseButton(1) && !characterControllers.weaponReload.isReloading && !characterControllers.activeWeapon.isHolstered);
+            isAiming = (Input.GetMouseButton(1) && !PlayerManager.Instance.weaponReload.isReloading && !this.activeWeapon.isHolstered);
+
             if (isAiming)
             {
                 // rigController.SetBool("weapon_aim", true);

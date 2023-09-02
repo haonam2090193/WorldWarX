@@ -8,6 +8,7 @@ public class PlayerRagdoll : MonoBehaviour
     private Animator animator;
     private Rigidbody[] rigidBodies;
     private CharacterController characterController;
+
     void Start()
     {
         animator = GetComponent<Animator>();

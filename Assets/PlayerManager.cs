@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterControllers : MonoBehaviour
+public class PlayerManager : BaseManager<PlayerManager>
 {
+    
     [HideInInspector]
     public CharacterAiming characterAiming;
     [HideInInspector]
@@ -16,12 +17,14 @@ public class CharacterControllers : MonoBehaviour
     public PlayerRagdoll playerRagdoll;
     [HideInInspector]
     public CharacterLocomotion characterLocomotion;
-    private void Awake()
+
+    private void Start()
     {
-        characterAiming = GetComponent<CharacterAiming>();
-        activeWeapon = GetComponent<ActiveWeapon>();
-        weaponReload = GetComponent<WeaponReload>();
-        playerHeath = GetComponent<PlayerHeath>();
-        characterLocomotion = GetComponent<CharacterLocomotion>();
+            characterAiming = GetComponent<CharacterAiming>();
+            activeWeapon = GetComponent<ActiveWeapon>();
+            weaponReload = GetComponent<WeaponReload>();
+            playerHeath = GetComponent<PlayerHeath>();
+            playerRagdoll = GetComponent<PlayerRagdoll>();
+            characterLocomotion = GetComponent<CharacterLocomotion>();
     }
 }

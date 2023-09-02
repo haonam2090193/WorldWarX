@@ -9,12 +9,12 @@ public class WeaponReload : MonoBehaviour
     public ActiveWeapon activeWeapon;
     public Transform leftHand;
     public bool isReloading;
-    CharacterControllers characterControllers;
+    PlayerManager characterControllers;
     private GameObject magazineHand;
     private float timeDestroyDroppedMagazine;
     private void Awake()
     {
-        characterControllers = GetComponent<CharacterControllers>();
+        characterControllers = GetComponent<PlayerManager>();
     }
     void Start()
     {
