@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,8 +7,14 @@ public class PopupSetting : BasePopup
 {
     private float bgmVolume;
     private float effectVolume;
+    private float xVolume;
+    private float yVolume;
+
     public Slider sliderBGM;
     public Slider sliderEffect;
+    public Slider sliderXAxis;
+    public Slider sliderYAxis;
+
 
     public override void Init()
     {
@@ -22,6 +28,15 @@ public class PopupSetting : BasePopup
             sliderBGM.value = bgmVolume;
             sliderEffect.value = effectVolume;
         }
+        if (PlayerManager.HasInstance)
+        {
+            xVolume = PlayerManager.Instance.characterAiming.xAxis.m_MaxSpeed;
+            yVolume = PlayerManager.Instance.characterAiming.yAxis.m_MaxSpeed;
+
+            sliderXAxis.value = xVolume;
+            sliderYAxis.value = yVolume;
+        }
+
     }
 
     public override void Show(object data)
@@ -34,6 +49,14 @@ public class PopupSetting : BasePopup
 
             sliderBGM.value = bgmVolume;
             sliderEffect.value = effectVolume;
+        }
+        if (PlayerManager.HasInstance)
+        {
+            xVolume = PlayerManager.Instance.characterAiming.xAxis.m_MaxSpeed;
+            yVolume = PlayerManager.Instance.characterAiming.yAxis.m_MaxSpeed;
+
+            sliderXAxis.value = xVolume;
+            sliderYAxis.value = yVolume;
         }
     }
 
@@ -55,6 +78,16 @@ public class PopupSetting : BasePopup
     public void OnEffectValueChange(float v)
     {
         effectVolume = v;
+    }
+
+    public void OnXAxisValueChange(float v)
+    {
+        xVolume = v;
+    }
+
+    public void OnYAxisValueChange(float v)
+    {
+        yVolume = v;
     }
 
     public void OnApplySetting()

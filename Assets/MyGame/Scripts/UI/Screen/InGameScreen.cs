@@ -7,7 +7,7 @@ public class InGameScreen : BaseScreen
 {
     private void Update()
     {
-        OnSettingClick();
+        OnMenuScreenClick();
     }
     public override void Hide()
     {
@@ -22,12 +22,14 @@ public class InGameScreen : BaseScreen
         base.Show(data);
     }
     
-    public void OnSettingClick()
+    public void OnMenuScreenClick()
     {
         if(Input.GetKeyDown(KeyCode.Escape)) 
         { 
-            UIManager.Instance.ShowPopup<PopupSetting>();
-
+            
+            UIManager.Instance.ShowPopup<InGameMenu>();
+            GameManager.Instance.PauseGame();
         }
     }
+
 }

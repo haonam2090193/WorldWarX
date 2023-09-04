@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -31,19 +31,20 @@ public class GameManager : BaseManager<GameManager>
 
     public void CloseGame()
     {
-        EditorApplication.ExitPlaymode();
+        Application.Quit();
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0;
         Cursor.visible = true;
-
+        Cursor.lockState = CursorLockMode.Confined; 
     }
 
     public void ContinueGame()
     {
         Time.timeScale = 1f;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked; 
+        //1 : tự động bắn khi tiếp tục game
     }
 }

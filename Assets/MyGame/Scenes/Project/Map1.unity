@@ -1267,6 +1267,11 @@ PrefabInstance:
       propertyPath: crosshairTarget
       value: 
       objectReference: {fileID: 1249880290}
+    - target: {fileID: 1199659152023368958, guid: e8da018baa77da1489fbab377ed884c6,
+        type: 3}
+      propertyPath: m_Data.m_SourceObjects.m_Item0.transform
+      value: 
+      objectReference: {fileID: 1850608704}
     - target: {fileID: 3943953595280705010, guid: e8da018baa77da1489fbab377ed884c6,
         type: 3}
       propertyPath: m_RootOrder
@@ -6499,11 +6504,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ba3f5444c96b44b94809e9b7b29d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 6554377015044330860, guid: b4301aa4125cefb4c85baa4e38e3ae3b, type: 3}
-  - {fileID: 6554377015044330860, guid: 7cf924de645ae3843921afc5d588b808, type: 3}
-  - {fileID: 6554377015044330860, guid: 857725b93b7ab8d4799569ec9026bc13, type: 3}
-  - {fileID: 6554377015044330860, guid: 85184fdbf032d5648af9fc9aa7f93d49, type: 3}
+  enemyPrefabs: []
+  spawnPoint: {fileID: 755485511}
+  enemyCount: 0
   maxEnemy: 2
   spawnTime: 0.01
 --- !u!4 &755485511
@@ -12112,6 +12115,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4276584366140610, guid: 8a5973e326885694c8eb4a575b705591,
     type: 3}
   m_PrefabInstance: {fileID: 1011424864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1850608704 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7066956721927473788, guid: 66b6bd5a526575d46ab6c2ca6d41ab7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2054174018}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1854410081
 PrefabInstance:

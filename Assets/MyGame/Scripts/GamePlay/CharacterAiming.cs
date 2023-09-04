@@ -27,6 +27,8 @@ public class CharacterAiming : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         if (DataManager.HasInstance)
         {
             turnSpeed = DataManager.Instance.GlobalConfig.turnSpeed;
