@@ -24112,7 +24112,7 @@ MonoBehaviour:
   audioSource: {fileID: 2754170315093299564}
   weaponName: smg
   isFiring: 0
-  fireRate: 8
+  fireRate: 12.7
   bulletSpeed: 800
   bulletDrop: 100
   muzzleFlash:
@@ -24147,7 +24147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facb0bee4711649299e6249eb7950519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterAiming: {fileID: 0}
   cameraShake: {fileID: 0}
   rigController: {fileID: 0}
   recoilModifier: 1
@@ -24183,6 +24182,7 @@ MonoBehaviour:
   - {x: -0.8, y: 4}
   - {x: 2, y: 4}
   duration: 0.1
+  characterAiming: {fileID: 0}
 --- !u!114 &3922793539073419088
 MonoBehaviour:
   m_ObjectHideFlags: 0

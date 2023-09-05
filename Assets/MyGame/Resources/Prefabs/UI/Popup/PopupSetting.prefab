@@ -2446,8 +2446,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sliderBGM: {fileID: 856119370517312149}
   sliderEffect: {fileID: 856119370167588367}
-  sliderXAxis: {fileID: 0}
-  sliderYAxis: {fileID: 0}
+  sliderXAxis: {fileID: 8759260903278800849}
+  sliderYAxis: {fileID: 4039555904813580090}
 --- !u!225 &1646980099518739475
 CanvasGroup:
   m_ObjectHideFlags: 0

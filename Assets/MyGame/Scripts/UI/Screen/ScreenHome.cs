@@ -8,14 +8,12 @@ using UnityEngine.Video;
 
 public class ScreenHome : BaseScreen
 {
-    public Toggle pauseVideoToggle;
-    public VideoPlayer BGMvideoPlayer;
     public override void Init()
     {
         base.Init();
         if (AudioManager.HasInstance)
         {
-            AudioManager.Instance.PlayBGM(AUDIO.BGM_BGM_001);
+            AudioManager.Instance.PlayBGM(AUDIO.BGM_001);
         }
     }
     public override void Show(object data)
@@ -30,6 +28,11 @@ public class ScreenHome : BaseScreen
     }
     public void StartGame()
     {
+        if (AudioManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySE(AUDIO.SE_CLICK);
+        }
+
         SceneManager.LoadScene("Map1");
         this.Hide();
         if(AudioManager.HasInstance)
@@ -41,22 +44,13 @@ public class ScreenHome : BaseScreen
     
     public void OnClickPopupSetting()
     {
+        if (AudioManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySE(AUDIO.SE_CLICK);
+        }
         if (UIManager.HasInstance)
         {
             UIManager.Instance.ShowPopup<PopupSetting>();
         }
     }
-    
-    public void OnPauseVideoToggle(bool toggle)
-    {
-        if(pauseVideoToggle.isOn)
-        {
-            BGMvideoPlayer.Pause();
-        }
-        else
-        {
-            BGMvideoPlayer.Play();
-        }
-    }
-
 }

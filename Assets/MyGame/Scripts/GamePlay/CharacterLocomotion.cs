@@ -170,4 +170,34 @@ public class CharacterLocomotion : MonoBehaviour
         // Apply the push
         body.velocity = pushDir * pushPower;
     }
+
+    public void FootStep01()
+    {
+        if (AudioManager.HasInstance)
+            AudioManager.Instance.PlaySE(AUDIO.SE_FOOTSTEP_001);
+    }
+    public void FootStep02()
+    {
+        if (AudioManager.HasInstance)
+            AudioManager.Instance.PlaySE(AUDIO.SE_FOOTSTEP_002);
+    }
+    public void FootStep03()
+    {
+        if (AudioManager.HasInstance)
+            AudioManager.Instance.PlaySE(AUDIO.SE_FOOTSTEP_003);
+    }
+    public void FootStep04()
+    {
+        if (AudioManager.HasInstance)
+            AudioManager.Instance.PlaySE(AUDIO.SE_FOOTSTEP_004);
+    }
+    public void FootStep05()
+    {
+        if (AudioManager.HasInstance)
+            AudioManager.Instance.PlaySE(AUDIO.SE_FOOTSTEP_005);
+    } public void RunningSE()
+    {
+        if (AudioManager.HasInstance)
+            AudioManager.Instance.PlaySE(AUDIO.SE_LOOP_RUNNING);
+    }
 }
