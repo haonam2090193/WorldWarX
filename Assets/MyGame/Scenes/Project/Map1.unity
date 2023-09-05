@@ -1269,6 +1269,11 @@ PrefabInstance:
       objectReference: {fileID: 1249880290}
     - target: {fileID: 1199659152023368958, guid: e8da018baa77da1489fbab377ed884c6,
         type: 3}
+      propertyPath: m_Weight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1199659152023368958, guid: e8da018baa77da1489fbab377ed884c6,
+        type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
       objectReference: {fileID: 1850608704}
@@ -6504,9 +6509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ba3f5444c96b44b94809e9b7b29d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs: []
-  spawnPoint: {fileID: 755485511}
-  enemyCount: 0
+  enemies: []
   maxEnemy: 2
   spawnTime: 0.01
 --- !u!4 &755485511
