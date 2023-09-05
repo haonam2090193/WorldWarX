@@ -142,12 +142,13 @@ public class ActiveWeapon : MonoBehaviour
         return GetWeapon(activeWeaponIdx);
     }
 
+
     private void SetActiveWeapon(WeaponSlot weaponSlot)
     {
         int holsterIndex = activeWeaponIdx;
         int activateIndex = (int)weaponSlot;
 
-        if(holsterIndex == activateIndex)
+        if (holsterIndex == activateIndex)
         {
             holsterIndex = -1;
         }

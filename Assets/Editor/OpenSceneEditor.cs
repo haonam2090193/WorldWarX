@@ -13,11 +13,11 @@ public class OpenSceneEditor : EditorWindow {
          (string.Format(_scenePath, "Loading"), OpenSceneMode.Single);
    }
 
-   [MenuItem("OpenScene/Main", false, 1)]
+   [MenuItem("OpenScene/Map 1", false, 1)]
    public static void Level1()
    {
       EditorSceneManager.SaveScene(SceneManager.GetActiveScene()); 
       EditorSceneManager.OpenScene
-         (string.Format(_scenePath, "Main"), OpenSceneMode.Single);
+         (string.Format(_scenePath, "Map1"), OpenSceneMode.Single);
    }
 }

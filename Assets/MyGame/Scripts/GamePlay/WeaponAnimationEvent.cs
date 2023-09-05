@@ -22,4 +22,26 @@ public class WeaponAnimationEvent : MonoBehaviour
         RaycastWeapon raycastWeapon = GetComponent<RaycastWeapon>();
         raycastWeapon.PlaySound();
     }
+
+    public void PistolShoot()
+    {
+        if (UIManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySE(AUDIO.SE_PISTOL_FIRE);
+        }
+    }
+    public void SMGShoot()
+    {
+        if (UIManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySE(AUDIO.SE_SMG_FIRE);
+        }
+    }
+    public void ShotgunShoot()
+    {
+        if (UIManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySE(AUDIO.SE_SHOTGUN_FIRE);
+        }
+    }
 }
