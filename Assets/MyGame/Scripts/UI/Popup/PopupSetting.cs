@@ -67,7 +67,12 @@ public class PopupSetting : BasePopup
 
     public void OnClickCloseButton()
     {
+        if (AudioManager.HasInstance)
+        {
+            AudioManager.Instance.PlaySE(AUDIO.SE_CLICK);
+        }
         this.Hide();
+
     }
 
     public void OnBGMValueChange(float v)
@@ -94,6 +99,8 @@ public class PopupSetting : BasePopup
     {
         if (AudioManager.HasInstance)
         {
+            AudioManager.Instance.PlaySE(AUDIO.SE_CLICK);
+
             if (bgmVolume != AudioManager.Instance.AttachBGMSource.volume)
             {
                 AudioManager.Instance.ChangeBGMVolume(bgmVolume);
@@ -109,10 +116,7 @@ public class PopupSetting : BasePopup
 
     public void OnClosingGameSetting()
     {
-        if (GameManager.HasInstance)
-        {
-            GameManager.Instance.CloseGame();
-        }
+        this.Hide();
     }
 
 }

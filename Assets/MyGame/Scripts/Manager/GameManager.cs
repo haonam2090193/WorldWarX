@@ -38,13 +38,14 @@ public class GameManager : BaseManager<GameManager>
     {
         Time.timeScale = 0;
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined; 
+        Cursor.lockState = CursorLockMode.Confined;
+       
     }
 
     public void ContinueGame()
     {
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked; 
-        //1 : tự động bắn khi tiếp tục game
+        
     }
 }

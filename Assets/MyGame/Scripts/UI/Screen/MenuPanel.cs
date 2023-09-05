@@ -17,6 +17,7 @@ public class MenuPanel : BaseScreen
     }   
     public void StartGame()
     {
+      
         SceneManager.LoadScene("Map1");
         this.Hide();
         Debug.Log("Loaded");
@@ -24,6 +25,7 @@ public class MenuPanel : BaseScreen
     
     public void OnClickPopupSetting()
     {
+        
         if (UIManager.HasInstance)
         {
             UIManager.Instance.ShowPopup<PopupSetting>();
