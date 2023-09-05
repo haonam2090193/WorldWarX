@@ -20,4 +20,11 @@ public class OpenSceneEditor : EditorWindow {
       EditorSceneManager.OpenScene
          (string.Format(_scenePath, "Map1"), OpenSceneMode.Single);
    }
+    [MenuItem("OpenScene/Map 2", false, 1)]
+    public static void Level2()
+    {
+        EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
+        EditorSceneManager.OpenScene
+           (string.Format(_scenePath, "Map2"), OpenSceneMode.Single);
+    }
 }
