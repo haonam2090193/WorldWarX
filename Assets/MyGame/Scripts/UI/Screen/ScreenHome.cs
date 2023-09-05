@@ -31,15 +31,15 @@ public class ScreenHome : BaseScreen
         if (AudioManager.HasInstance)
         {
             AudioManager.Instance.PlaySE(AUDIO.SE_CLICK);
-        }
-
-        SceneManager.LoadScene("Map1");
-        this.Hide();
-        if(AudioManager.HasInstance)
-        {
             AudioManager.Instance.StopBGMVolume();
+
         }
-        UIManager.Instance.ShowScreen<InGameScreen>();
+        this.Hide();
+        if (UIManager.HasInstance)
+        {
+            UIManager.Instance.ShowNotify<LoadingGame>();
+        }
+        //UIManager.Instance.ShowScreen<InGameScreen>();
     }
     
     public void OnClickPopupSetting()
@@ -51,6 +51,14 @@ public class ScreenHome : BaseScreen
         if (UIManager.HasInstance)
         {
             UIManager.Instance.ShowPopup<PopupSetting>();
+        }
+    }
+
+    public void OnClosingGameSetting()
+    {
+        if (GameManager.HasInstance)
+        {
+            GameManager.Instance.CloseGame();
         }
     }
 }

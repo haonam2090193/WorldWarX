@@ -116,10 +116,7 @@ public class PopupSetting : BasePopup
 
     public void OnClosingGameSetting()
     {
-        if (GameManager.HasInstance)
-        {
-            GameManager.Instance.CloseGame();
-        }
+        this.Hide();
     }
 
 }
