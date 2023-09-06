@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Rajdhani-SemiBold SDF
+  m_Name: Rajdhani-SemiBold SDF Glowed
   m_EditorClassIdentifier: 
-  hashCode: -1730533160
+  hashCode: -1600256918
   material: {fileID: 21082280118058838}
-  materialHashCode: -1204029960
+  materialHashCode: -1533795190
   m_Version: 1.1.0
   m_SourceFontFileGUID: 28b6d07166d6d8947a6671e5480cbf66
   m_SourceFontFile_EditorRef: {fileID: 0}
@@ -2903,7 +2903,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Rajdhani-SemiBold SDF Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - GLOW_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -2952,7 +2953,7 @@ Material:
     - _FaceUVSpeedY: 0
     - _GlowInner: 0.05
     - _GlowOffset: 0
-    - _GlowOuter: 0.5
+    - _GlowOuter: 0.3
     - _GlowPower: 0.75
     - _GradientScale: 6
     - _LightAngle: 3.1416

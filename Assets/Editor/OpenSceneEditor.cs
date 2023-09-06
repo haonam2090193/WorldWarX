@@ -27,4 +27,12 @@ public class OpenSceneEditor : EditorWindow {
         EditorSceneManager.OpenScene
            (string.Format(_scenePath, "Map2"), OpenSceneMode.Single);
     }
+
+    [MenuItem("OpenScene/Test UI", false, 1)]
+
+    public static void TestUI()
+    {
+        EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
+        EditorSceneManager.OpenScene(string.Format(_scenePath, "UITest"), OpenSceneMode.Single);
+    }
 }
