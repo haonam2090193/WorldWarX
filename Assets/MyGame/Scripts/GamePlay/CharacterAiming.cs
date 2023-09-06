@@ -72,6 +72,8 @@ public class CharacterAiming : MonoBehaviour
 
     void FixedUpdate()
     {
+        
+
         xAxis.Update(Time.fixedDeltaTime);
         yAxis.Update(Time.fixedDeltaTime);
 

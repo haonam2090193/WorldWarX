@@ -33,6 +33,13 @@ public class ActiveWeapon : MonoBehaviour
 
     void Update()
     {
+        if (crosshairTarget == null)
+        {
+            GameObject.Find("CrossHairTarget");
+
+            //are fixing
+        }
+
         currentWeapon = GetActiveWeapon();
 
         var raycastWeapon = GetWeapon(activeWeaponIdx);
