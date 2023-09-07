@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
 using UnityEngine.SceneManagement;
 
 public class LoadingMap1 : BaseNotify
@@ -49,7 +49,11 @@ public class LoadingMap1 : BaseNotify
                 asyncOperation.allowSceneActivation = true;
 
                 this.Hide();
-                UIManager.Instance.ShowScreen<InGameScreen>();
+                DOVirtual.DelayedCall(0.5f, () =>
+                {
+                    UIManager.Instance.ShowScreen<InGameScreen>();
+
+                });
             }
             yield return null;
         }

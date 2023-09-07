@@ -25,25 +25,20 @@ public class ButtonControl : MonoBehaviour
     return false; 
     }
 
-    private void Update()
+    void Update()
     {
+        // Kiểm tra và thực hiện hành động nếu animation "Selected" đang phát cho Button 1
         if (IsSelectedAnimationPlaying(soundButtonAnimator))
         {
-            Debug.Log("sound button");
-            soundButton.interactable = false;
-            mouseButton.interactable = true; // Khi soundButton được chọn, bật tương tác cho mouseButton
+            // Đã phát animation "Selected" cho Button 1, thực hiện hành động của bạn ở đây
+            Debug.Log("Animation 'Selected' is playing for Button 1.");
         }
-        else if (IsSelectedAnimationPlaying(mouseButtonAnimator))
+
+        // Kiểm tra và thực hiện hành động nếu animation "Selected" đang phát cho Button 2
+        if (IsSelectedAnimationPlaying(mouseButtonAnimator))
         {
-            Debug.Log("mouse button");
-            soundButton.interactable = true;
-            mouseButton.interactable = false; // Khi mouseButton được chọn, bật tương tác cho soundButton
-        }
-        else
-        {
-            // Nếu cả hai Animator đều không phát "Selected", bật tương tác cho cả hai Button
-            soundButton.interactable = true;
-            mouseButton.interactable = true;
+            // Đã phát animation "Selected" cho Button 2, thực hiện hành động của bạn ở đây
+            Debug.Log("Animation 'Selected' is playing for Button 2.");
         }
     }
 }
