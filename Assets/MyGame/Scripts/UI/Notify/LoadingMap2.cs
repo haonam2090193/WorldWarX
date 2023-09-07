@@ -1,12 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 using UnityEngine.SceneManagement;
 
-public class LoadingGame : BaseNotify
+public class LoadingMap2 : BaseNotify
 {
     public TextMeshProUGUI loadingPercentText;
     public Slider loadingSlider;
@@ -31,7 +30,7 @@ public class LoadingGame : BaseNotify
     {
         yield return null;
 
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Map1");
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Map2");
         asyncOperation.allowSceneActivation = false;
         while (!asyncOperation.isDone)
         {
@@ -55,3 +54,4 @@ public class LoadingGame : BaseNotify
         }
     }
 }
+    

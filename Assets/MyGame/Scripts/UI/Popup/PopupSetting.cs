@@ -77,6 +77,7 @@ public class PopupSetting : BasePopup
 
     public void OnBGMValueChange(float v)
     {
+        Debug.Log("AAAA");
         bgmVolume = v;
     }
 

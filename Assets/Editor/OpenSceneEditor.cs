@@ -35,4 +35,12 @@ public class OpenSceneEditor : EditorWindow {
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
         EditorSceneManager.OpenScene(string.Format(_scenePath, "UITest"), OpenSceneMode.Single);
     }
+
+    [MenuItem("OpenScene/Test Scene", false, 1)]
+
+    public static void TestScene()
+    {
+        EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
+        EditorSceneManager.OpenScene(string.Format(_scenePath, "Demo_01"), OpenSceneMode.Single);
+    }
 }
