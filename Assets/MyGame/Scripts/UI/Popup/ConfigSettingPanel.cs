@@ -1,9 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PopupSetting : BasePopup
+public class ConfigSettingPanel : BasePopup
 {
     private float bgmVolume;
     private float effectVolume;
@@ -14,8 +14,6 @@ public class PopupSetting : BasePopup
     public Slider sliderEffect;
     public Slider sliderXAxis;
     public Slider sliderYAxis;
-
-
     public override void Init()
     {
         base.Init();
@@ -60,63 +58,11 @@ public class PopupSetting : BasePopup
         }
     }
 
-    public override void Hide()
+    public void OnSoundSettingClick()
     {
-        base.Hide();
-    }
-
-    public void OnClickCloseButton()
-    {
-        if (AudioManager.HasInstance)
+        if (UIManager.HasInstance)
         {
-            AudioManager.Instance.PlaySE(AUDIO.SE_CLICK);
+            UIManager.Instance.ShowPopup<SoundSetting>();
         }
-        this.Hide();
-
     }
-
-    public void OnBGMValueChange(float v)
-    {
-        bgmVolume = v;
-    }
-
-    public void OnEffectValueChange(float v)
-    {
-        effectVolume = v;
-    }
-
-    public void OnXAxisValueChange(float v)
-    {
-        xVolume = v;
-    }
-
-    public void OnYAxisValueChange(float v)
-    {
-        yVolume = v;
-    }
-
-    public void OnApplySetting()
-    {
-        if (AudioManager.HasInstance)
-        {
-            AudioManager.Instance.PlaySE(AUDIO.SE_CLICK);
-
-            if (bgmVolume != AudioManager.Instance.AttachBGMSource.volume)
-            {
-                AudioManager.Instance.ChangeBGMVolume(bgmVolume);
-            }
-
-            if (effectVolume != AudioManager.Instance.AttachSESource.volume)
-            {
-                AudioManager.Instance.ChangeSEVolume(effectVolume);
-            }
-        }
-        this.Hide();
-    }
-
-    public void OnClosingGameSetting()
-    {
-        this.Hide();
-    }
-
 }

@@ -31,7 +31,7 @@ namespace Michsky.UI.Shift
         string buttonFadeOut = "Pressed to Dissolve";
         string buttonFadeNormal = "Pressed to Normal";
 
-        bool firstTime = true;
+        bool firstTime = true; 
 
         [System.Serializable]
         public class PanelItem

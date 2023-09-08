@@ -1,44 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ButtonControl : MonoBehaviour
+public class ButtonControl : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    public Button soundButton;
-    public Button mouseButton;
+    public Animator buttonAnimator;
+    private bool isHighlighted = false;
 
-    public Animator soundButtonAnimator;
-    public Animator mouseButtonAnimator;
-
-    bool IsSelectedAnimationPlaying(Animator animator)
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        if (animator != null)
-        {
-            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-
-            if (stateInfo.IsName("Selected"))
-            {
-                return true; 
-            }
-        }   
-    return false; 
+        if (!isHighlighted)
+            buttonAnimator.Play("Normal To Hightlight");
     }
 
-    void Update()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        // Kiểm tra và thực hiện hành động nếu animation "Selected" đang phát cho Button 1
-        if (IsSelectedAnimationPlaying(soundButtonAnimator))
-        {
-            // Đã phát animation "Selected" cho Button 1, thực hiện hành động của bạn ở đây
-            Debug.Log("Animation 'Selected' is playing for Button 1.");
-        }
+        if (!isHighlighted)
+            buttonAnimator.Play("Hightlight To Normal");
+    }
 
-        // Kiểm tra và thực hiện hành động nếu animation "Selected" đang phát cho Button 2
-        if (IsSelectedAnimationPlaying(mouseButtonAnimator))
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (isHighlighted)
         {
-            // Đã phát animation "Selected" cho Button 2, thực hiện hành động của bạn ở đây
-            Debug.Log("Animation 'Selected' is playing for Button 2.");
+            buttonAnimator.Play("Pressed To Normal");
+            isHighlighted = false;
+        }
+        else
+        {
+            buttonAnimator.Play("Hightlight To Pressed");
+            isHighlighted = true;
         }
     }
 }
