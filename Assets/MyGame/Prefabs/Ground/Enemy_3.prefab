@@ -4931,7 +4931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  initState: 2
+  initState: 0
   navMeshAgent: {fileID: 1364497880747240194}
   animator: {fileID: 0}
   ragdoll: {fileID: 8358353350948117776}

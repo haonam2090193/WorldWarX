@@ -1,45 +1,38 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    [Tooltip("The list of enemy prefabs to spawn")]
-    public List<GameObject> enemyPrefabs; 
-    [Tooltip("The position where the enemies will spawn")]
-    public Transform spawnPoint; 
-    [Tooltip("The current number of spawned enemies")]
-    public int enemyCount; 
-    [Tooltip("The maximum number of enemies to spawn")]
-    public int maxEnemy; 
-    [Tooltip("The time interval between enemy spawns")]
+    public List<GameObject> enemyPrefabs;
+    public List<Transform> spawnPoints; // Danh sách các spawn point
+    public int enemyCount;
+    public int maxEnemy;
     public float spawnTime;
 
+    float rotationY;
 
-
-    float rotationY; 
-
-    IEnumerator SpawnEnemies()
+    private void SpawnEnemies()
     {
         while (enemyCount < maxEnemy)
         {
             rotationY = Random.Range(-180, 180);
-            int randomIndex = Random.Range(0, enemyPrefabs.Count);
-            GameObject enemyPrefab = enemyPrefabs[randomIndex];
-            GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.Euler(0, rotationY, 0));
-            enemy.transform.SetParent(spawnPoint.transform);
-            yield return new WaitForSeconds(spawnTime);
-
+            int randomSpawnPointIndex = Random.Range(0, spawnPoints.Count); // Chọn một spawn point ngẫu nhiên
+            int randomEnemyIndex = Random.Range(0, enemyPrefabs.Count); // Chọn một enemy prefab ngẫu nhiên
+            Transform randomSpawnPoint = spawnPoints[randomSpawnPointIndex];
+            GameObject enemyPrefab = enemyPrefabs[randomEnemyIndex];
+            GameObject enemy = Instantiate(enemyPrefab, randomSpawnPoint.position, Quaternion.Euler(0, rotationY, 0));
             enemyCount++;
+            if (enemyCount == maxEnemy)
+            {
+                Destroy(gameObject);
+            }
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("PlayerIn");
-            StartCoroutine(SpawnEnemies());
-        }
-
+        Debug.Log("Aaa");
+        SpawnEnemies();
     }
 }
