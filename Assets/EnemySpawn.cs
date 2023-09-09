@@ -33,13 +33,13 @@ public class EnemySpawn : MonoBehaviour
             enemyCount++;
         }
     }
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (Input.GetKey(KeyCode.P))
+        if (other.gameObject.CompareTag("Player"))
         {
-            enemyCount = 0;
-            Debug.Log("Start Spawn");
+            Debug.Log("PlayerIn");
             StartCoroutine(SpawnEnemies());
         }
+
     }
 }

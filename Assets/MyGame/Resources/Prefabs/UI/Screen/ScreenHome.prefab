@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 799161906834422660}
   - component: {fileID: 691144574023911920}
   - component: {fileID: 691065145350781398}
-  - component: {fileID: 801594649984584811}
+  - component: {fileID: 7594375902443897802}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -119,7 +119,7 @@ MonoBehaviour:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
-    m_SelectedTrigger: Highlighted
+    m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 691144574023911920}
@@ -138,7 +138,7 @@ MonoBehaviour:
           m_StringArgument: Settings
           m_BoolArgument: 0
         m_CallState: 2
---- !u!95 &801594649984584811
+--- !u!95 &7594375902443897802
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ Animator:
   m_GameObject: {fileID: 577642667044349040}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b51b447461c843041b55f41cb5f61ed5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4f8acbe6c57a11c4a994826593d6bcb5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -659,7 +659,7 @@ Animator:
   m_GameObject: {fileID: 1464256703616399947}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b51b447461c843041b55f41cb5f61ed5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4f8acbe6c57a11c4a994826593d6bcb5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1090,7 +1090,7 @@ Animator:
   m_GameObject: {fileID: 2295112455794716879}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b51b447461c843041b55f41cb5f61ed5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4f8acbe6c57a11c4a994826593d6bcb5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
