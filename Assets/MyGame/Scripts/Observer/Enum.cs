@@ -5,7 +5,8 @@ public enum ListenType
     ON_ENEMY_DEATH,
     UPDATE_COUNT_TEXT,
     UPDATE_USER_INFO,
-    UPDATE_AMMO
+    UPDATE_AMMO,
+    UPDATE_HP
 }
 
 public enum UIType
@@ -30,12 +31,4 @@ public enum WeaponSlot
     Primary = 0,
     Secondary = 1,
     Submary = 2,
-}
-public enum WeaponType
-{
-    Laser = 0,
-    Shotgun = 1,
-    SMG = 2,
-    Pistol = 3,
-    Pistol1 = 4
 }

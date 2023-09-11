@@ -29473,13 +29473,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facb0bee4711649299e6249eb7950519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterAiming: {fileID: 0}
   cameraShake: {fileID: 0}
   rigController: {fileID: 0}
   recoilModifier: 1
   recoilPattern:
   - {x: 0, y: 0}
   duration: 0.1
+  characterAiming: {fileID: 0}
 --- !u!114 &2919704046649385986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29493,6 +29493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSlot: 1
+  audioSource: {fileID: 0}
   weaponName: shotgun
   isFiring: 0
   fireRate: 4
@@ -29513,6 +29514,7 @@ MonoBehaviour:
   raycastDestination: {fileID: 0}
   weaponRecoil: {fileID: 0}
   magazine: {fileID: 3401614851582151994}
+  weaponforce: 5
   ammoCount: 8
   totalAmmo: 8
   damage: 10

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerHeath : MonoBehaviour
 {
-    public float currentHealth;
-    private float maxHealth;
+    public int currentHealth;
+    private int maxHealth;
     public Vector3 direction;
 
     PlayerRagdoll playerRagdoll;
@@ -17,7 +17,10 @@ public class PlayerHeath : MonoBehaviour
             maxHealth = DataManager.Instance.GlobalConfig.maxHealth;
         }
         currentHealth = maxHealth;
-
+        if (ListenerManager.HasInstance)
+        {
+            ListenerManager.Instance.BroadCast(ListenType.UPDATE_HP, currentHealth);
+        }
         if (PlayerManager.HasInstance)
         {
             playerRagdoll = PlayerManager.Instance.playerRagdoll;
@@ -25,6 +28,10 @@ public class PlayerHeath : MonoBehaviour
     }
     private void Update()
     {
+        if (ListenerManager.HasInstance)
+        {
+            ListenerManager.Instance.BroadCast(ListenType.UPDATE_HP, currentHealth);
+        }
         if (currentHealth <= 0)
         {
              Die();

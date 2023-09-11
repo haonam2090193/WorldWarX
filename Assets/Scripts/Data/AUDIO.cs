@@ -2,6 +2,7 @@
 {
 	  public const string BGM_001 = "001";
 	  public const string BGM_002 = "002";
+	  public const string BGM_003 = "003";
 	  public const string BGM_BGM_001 = "bgm_001";
 	
 	  public const string SE_AIM_IN = "Aim_In";

@@ -29587,6 +29587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSlot: 2
+  audioSource: {fileID: 0}
   weaponName: pistol1
   isFiring: 0
   fireRate: 6.1
@@ -29607,6 +29608,7 @@ MonoBehaviour:
   raycastDestination: {fileID: 0}
   weaponRecoil: {fileID: 0}
   magazine: {fileID: 4975427183048530650}
+  weaponforce: 5
   ammoCount: 15
   totalAmmo: 15
   damage: 100
@@ -29624,13 +29626,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facb0bee4711649299e6249eb7950519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterAiming: {fileID: 0}
   cameraShake: {fileID: 0}
   rigController: {fileID: 0}
   recoilModifier: 1
   recoilPattern:
   - {x: 0, y: 10}
   duration: 0
+  characterAiming: {fileID: 0}
 --- !u!114 &4742480419720849860
 MonoBehaviour:
   m_ObjectHideFlags: 0

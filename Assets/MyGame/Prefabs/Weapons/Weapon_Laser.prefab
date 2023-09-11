@@ -28933,7 +28933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facb0bee4711649299e6249eb7950519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterAiming: {fileID: 0}
   cameraShake: {fileID: 0}
   rigController: {fileID: 0}
   recoilModifier: 1
@@ -28969,6 +28968,7 @@ MonoBehaviour:
   - {x: -0.8, y: 4}
   - {x: 2, y: 4}
   duration: 0.1
+  characterAiming: {fileID: 0}
 --- !u!1 &8136448358373452620
 GameObject:
   m_ObjectHideFlags: 0
@@ -29250,6 +29250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSlot: 0
+  audioSource: {fileID: 0}
   weaponName: laser
   isFiring: 0
   fireRate: 8
@@ -29270,6 +29271,7 @@ MonoBehaviour:
   raycastDestination: {fileID: 0}
   weaponRecoil: {fileID: 0}
   magazine: {fileID: 9189178538709055479}
+  weaponforce: 5
   ammoCount: 30
   totalAmmo: 30
   damage: 10
@@ -29287,7 +29289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facb0bee4711649299e6249eb7950519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterAiming: {fileID: 0}
   cameraShake: {fileID: 0}
   rigController: {fileID: 0}
   recoilModifier: 1
@@ -29323,6 +29324,7 @@ MonoBehaviour:
   - {x: -0.8, y: 4}
   - {x: 2, y: 4}
   duration: 0.1
+  characterAiming: {fileID: 0}
 --- !u!114 &7464050244559548270
 MonoBehaviour:
   m_ObjectHideFlags: 0

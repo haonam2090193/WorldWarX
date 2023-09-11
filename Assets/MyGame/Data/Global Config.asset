@@ -19,7 +19,7 @@ MonoBehaviour:
   dieForce: 10
   maxSight: 5
   timeDestroyAI: 5
-  damage: 10.7
+  damage: 8
   jumpHeight: 3
   gravity: 20
   stepDown: 0.1

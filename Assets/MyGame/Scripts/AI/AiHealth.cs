@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class AiHealth : MonoBehaviour
 {
-    [Header("AI")]
     public float maxHealth;
     private float blinkDuration;
     public float currentHealth;
     public float distance;
     public Animator animator;
 
+    private int damage;
     private AiHealth health;
     private AiAgent agent;
     private Ragdoll ragdoll;
@@ -20,14 +20,14 @@ public class AiHealth : MonoBehaviour
 
     public bool canAttack = false;
     
-    [Header("Player")]
-    public PlayerHeath playerHeath;
+    private PlayerHeath playerHeath;
 
 
     void Start()
     {
         if (DataManager.HasInstance)
         {
+            damage = DataManager.Instance.GlobalConfig.damage;
             maxHealth = DataManager.Instance.GlobalConfig.maxHealth;
             blinkDuration = DataManager.Instance.GlobalConfig.blinkDuration;
             timeDestroyAI = DataManager.Instance.GlobalConfig.timeDestroyAI;
@@ -95,6 +95,10 @@ public class AiHealth : MonoBehaviour
     }
     public void DealDamage()
     {
-        playerHeath.currentHealth -= DataManager.Instance.GlobalConfig.damage;
+        playerHeath.currentHealth -= damage;
+        if (ListenerManager.HasInstance)
+        {
+            ListenerManager.Instance.BroadCast(ListenType.UPDATE_HP, currentHealth);
+        }
     }
 }

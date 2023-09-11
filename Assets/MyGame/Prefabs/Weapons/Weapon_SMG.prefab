@@ -24130,6 +24130,7 @@ MonoBehaviour:
   raycastDestination: {fileID: 0}
   weaponRecoil: {fileID: 0}
   magazine: {fileID: 2732699989194806281}
+  weaponforce: 5
   ammoCount: 30
   totalAmmo: 30
   damage: 29

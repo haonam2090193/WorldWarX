@@ -23,6 +23,7 @@ public class GameManager : BaseManager<GameManager>
                 });
             }
         }
+
     }
 
     public void LoadScene(string sceneName)
