@@ -13,7 +13,7 @@ public class CharacterAiming : MonoBehaviour
     public AxisState yAxis;
     public bool isAiming;
 
-    private Camera mainCamera;
+    public Camera mainCamera;
     private Animator animator;
     public Animator rigController;
 
