@@ -30,7 +30,6 @@ public class Map1ToMenu : BaseNotify
     private IEnumerator LoadScene()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-
         Destroy(player);
         if (GameManager.HasInstance)
         {
@@ -52,15 +51,17 @@ public class Map1ToMenu : BaseNotify
                 if (UIManager.HasInstance)
                 {
                     
-                    //UIManager.Instance.ShowOverlap<OverlapFade>();
-                    UIManager.Instance.GetExistScreen<ScreenHome>();
+                    UIManager.Instance.ShowOverlap<OverlapFade>();
                 }
                 yield return new WaitForSeconds(3f);
                 asyncOperation.allowSceneActivation = true;
+                UIManager.Instance.HideAllScreens();
+                UIManager.Instance.HideAllPopups();
 
+                UIManager.Instance.ShowScreen<ScreenHome>();
                 this.Hide();
-
             }
+
             yield return null;
              }
         }

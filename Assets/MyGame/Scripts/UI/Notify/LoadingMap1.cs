@@ -40,16 +40,16 @@ public class LoadingMap1 : BaseNotify
             {
                 loadingSlider.value = 1f;
                 loadingPercentText.SetText($"LOADING SCENES: {loadingSlider.value * 100}%");
+                if (UIManager.HasInstance)
+                {
+                    UIManager.Instance.ShowOverlap<OverlapFade>();
+                }
                 yield return new WaitForSeconds(3f);
                 asyncOperation.allowSceneActivation = true;
 
                 this.Hide();
             }
-            if (UIManager.HasInstance)
-            {
-                UIManager.Instance.ShowOverlap<OverlapFade>();
-                UIManager.Instance.ShowScreen<InGameScreen>();
-            }
+            UIManager.Instance.ShowScreen<InGameScreen>();
             yield return null;
         }
     }
