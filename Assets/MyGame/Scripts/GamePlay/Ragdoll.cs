@@ -16,7 +16,7 @@ public class Ragdoll : MonoBehaviour
         ragdollColliders = GetComponentsInChildren<Collider>();
         Physics.gravity = new Vector3(0f, gravity, 0f);
 
-        Physics.IgnoreLayerCollision(gameObject.layer, 9);
+        //Physics.IgnoreLayerCollision(gameObject.layer, 9);
 
         DeactiveRagdoll();
     }
