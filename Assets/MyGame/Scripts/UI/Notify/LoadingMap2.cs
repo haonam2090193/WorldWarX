@@ -49,8 +49,10 @@ public class LoadingMap2 : BaseNotify
 
                 this.Hide();
                 UIManager.Instance.ShowScreen<InGameScreen>();
-
-                PlayerManager.Instance.characterAiming.mainCamera.transform.SetParent(null);
+                if (PlayerManager.HasInstance)
+                {
+                    PlayerManager.Instance.characterAiming.mainCamera.transform.SetParent(null);
+                }
             }
             yield return null;
         }
