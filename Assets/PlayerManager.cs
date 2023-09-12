@@ -52,7 +52,6 @@ public class PlayerManager : BaseManager<PlayerManager>
             weaponReload.enabled = false;
             playerHeath.enabled = false;
             characterLocomotion.enabled = false;
-            playerRagdoll.enabled = false;
 
             Transform spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
             
@@ -66,7 +65,6 @@ public class PlayerManager : BaseManager<PlayerManager>
                 weaponReload.enabled = true;
                 playerHeath.enabled = true;
                 characterLocomotion.enabled = true;
-                playerRagdoll.enabled = true;
             });
 
         }

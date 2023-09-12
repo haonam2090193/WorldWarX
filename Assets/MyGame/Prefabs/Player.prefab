@@ -6613,7 +6613,7 @@ GameObject:
   - component: {fileID: 2602333473387474698}
   m_Layer: 0
   m_Name: ------------RigLayer----------
-  m_TagString: Untagged
+  m_TagString: Rig
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10378,8 +10378,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7066956721203382161, guid: 66b6bd5a526575d46ab6c2ca6d41ab7d,
         type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066956721203382161, guid: 66b6bd5a526575d46ab6c2ca6d41ab7d,
+        type: 3}
       propertyPath: far clip plane
       value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066956721203382161, guid: 66b6bd5a526575d46ab6c2ca6d41ab7d,
+        type: 3}
+      propertyPath: near clip plane
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066956721203382161, guid: 66b6bd5a526575d46ab6c2ca6d41ab7d,
+        type: 3}
+      propertyPath: orthographic size
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7066956721203382166, guid: 66b6bd5a526575d46ab6c2ca6d41ab7d,
         type: 3}

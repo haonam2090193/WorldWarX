@@ -32,6 +32,7 @@ public class LoadingMap1 : BaseNotify
         yield return null;
 
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Map1");
+
         asyncOperation.allowSceneActivation = false;
         while (!asyncOperation.isDone)
         {
@@ -49,9 +50,9 @@ public class LoadingMap1 : BaseNotify
                 asyncOperation.allowSceneActivation = true;
 
                 this.Hide();
-             
+
             }
             yield return null;
+             }
         }
     }
-}

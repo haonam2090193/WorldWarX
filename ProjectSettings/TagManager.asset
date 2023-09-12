@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Gun
   - SpawnPoint
+  - Rig
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Player
   - Gun
   - Enemy
-  - 
+  - Rig
   - 
   - 
   - 
