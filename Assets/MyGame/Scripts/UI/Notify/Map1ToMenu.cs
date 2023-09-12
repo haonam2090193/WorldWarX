@@ -29,6 +29,13 @@ public class Map1ToMenu : BaseNotify
 
     private IEnumerator LoadScene()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        Destroy(player);
+        if (GameManager.HasInstance)
+        {
+            GameManager.Instance.ContinueGame();
+        }
         yield return null;
 
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Menu");
@@ -44,7 +51,9 @@ public class Map1ToMenu : BaseNotify
                 loadingPercentText.SetText($"LOADING SCENES: {loadingSlider.value * 100}%");
                 if (UIManager.HasInstance)
                 {
-                    UIManager.Instance.ShowOverlap<OverlapFade>();
+                    
+                    //UIManager.Instance.ShowOverlap<OverlapFade>();
+                    UIManager.Instance.GetExistScreen<ScreenHome>();
                 }
                 yield return new WaitForSeconds(3f);
                 asyncOperation.allowSceneActivation = true;

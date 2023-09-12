@@ -86,6 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6594886742715073398}
   - component: {fileID: 4307582451634099578}
+  - component: {fileID: 1009471937259750892}
   m_Layer: 0
   m_Name: OverlapFade1
   m_TagString: Untagged
@@ -128,3 +129,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imgFade: {fileID: 4647988475630291791}
   fadeColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!225 &1009471937259750892
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6594886742715073399}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
