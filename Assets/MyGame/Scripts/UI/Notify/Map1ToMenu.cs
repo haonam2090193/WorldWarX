@@ -1,11 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using DG.Tweening;
 using UnityEngine.SceneManagement;
 
-public class LoadingMap1 : BaseNotify
+public class Map1ToMenu : BaseNotify
 {
     public TextMeshProUGUI loadingPercentText;
     public Slider loadingSlider;
@@ -30,7 +31,8 @@ public class LoadingMap1 : BaseNotify
     {
         yield return null;
 
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Map1");
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Menu");
+
         asyncOperation.allowSceneActivation = false;
         while (!asyncOperation.isDone)
         {
@@ -40,18 +42,17 @@ public class LoadingMap1 : BaseNotify
             {
                 loadingSlider.value = 1f;
                 loadingPercentText.SetText($"LOADING SCENES: {loadingSlider.value * 100}%");
-                /* if (UIManager.HasInstance)
-                 {
-                     UIManager.Instance.ShowOverlap<OverlapFade>();
-                 }*/
+                if (UIManager.HasInstance)
+                {
+                    UIManager.Instance.ShowOverlap<OverlapFade>();
+                }
                 yield return new WaitForSeconds(3f);
                 asyncOperation.allowSceneActivation = true;
 
                 this.Hide();
-                UIManager.Instance.ShowScreen<InGameScreen>();
+
             }
             yield return null;
+             }
         }
     }
-}
-    

@@ -7,6 +7,7 @@ public class InGameMenu : BasePopup
 {
     private float defaultBullet;
     private GameObject player;
+    private Animator animator;
 
     //Default Index :
     public Transform spawnPoisition;
@@ -17,6 +18,7 @@ public class InGameMenu : BasePopup
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         spawnPoisition = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
         player = GameObject.FindGameObjectWithTag("Player");
         this.playerTransform = player.transform;
@@ -59,15 +61,30 @@ public class InGameMenu : BasePopup
 
     public void OnReturnMenuClick()
     {
-        SceneManager.LoadScene("Menu");
+        if (UIManager.HasInstance)
+        {
+            UIManager.Instance.ShowNotify<Map1ToMenu>();
+        }
         this.Hide();
 
         // 2. : cách về Menu
     }
 
+  /*  IEnumerator FadeIn()
+    {
+        animator.Play("FadeIn");
+
+        yield return new WaitForSeconds(2f);
+    }
+    IEnumerator FadeOut()
+    {
+        animator.Play("FadeOut");
+
+        yield return new WaitForSeconds(2f);
+    }*/
     private void DefaultIndex()
     {
-       
+       // animator.Play("FadeIn");
         spawnPoisition = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
 
         rigController.Play("weapon_unarmed");
@@ -86,5 +103,7 @@ public class InGameMenu : BasePopup
         {
             this.characterController.enabled = true;
         });
+        //  animator.Play("FadeOut");
+
     }
 }

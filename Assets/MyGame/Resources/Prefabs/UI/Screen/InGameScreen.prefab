@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 260017759039137978}
   - component: {fileID: 260017759039137979}
   - component: {fileID: 81356069919267235}
+  - component: {fileID: 5194451509325775633}
   m_Layer: 0
   m_Name: InGameScreen
   m_TagString: Untagged
@@ -283,6 +284,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260017759039137977}
   m_CullTransparentMesh: 1
+--- !u!95 &5194451509325775633
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260017759039137977}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &260017759091006157
 GameObject:
   m_ObjectHideFlags: 0
