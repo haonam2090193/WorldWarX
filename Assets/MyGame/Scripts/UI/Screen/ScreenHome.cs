@@ -37,7 +37,7 @@ public class ScreenHome : BaseScreen
         this.Hide();
         if (UIManager.HasInstance)
         {
-            UIManager.Instance.ShowNotify<LoadingGame>();
+            UIManager.Instance.ShowNotify<LoadingMap1>();
         }
         //UIManager.Instance.ShowScreen<InGameScreen>();
     }
@@ -49,7 +49,7 @@ public class ScreenHome : BaseScreen
             AudioManager.Instance.PlaySE(AUDIO.SE_CLICK);
         }
         if (UIManager.HasInstance)
-        {
+        {   
             UIManager.Instance.ShowPopup<PopupSetting>();
         }
     }

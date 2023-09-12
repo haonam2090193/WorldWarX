@@ -5,9 +5,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : BaseManager<GameManager>
-{
+{ 
     private void Start()
     {
+     
+        SetFPSInGame();
         if (UIManager.HasInstance)
         {
             UIManager.Instance.ShowNotify<NotifyLoading>();
@@ -22,6 +24,7 @@ public class GameManager : BaseManager<GameManager>
                 });
             }
         }
+
     }
 
     public void LoadScene(string sceneName)
@@ -47,5 +50,15 @@ public class GameManager : BaseManager<GameManager>
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked; 
         
+    }
+
+    public void SetFPSInGame()
+    {
+        Application.targetFrameRate = 60;
+    }
+
+    public void RestartGame()
+    {
+       // ResetPoint.DefaultIndex();
     }
 }

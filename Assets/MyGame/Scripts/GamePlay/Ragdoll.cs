@@ -6,15 +6,25 @@ public class Ragdoll : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody[] rigidBodies;
+    private Collider[] ragdollColliders;
+    public float gravity =-10;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         rigidBodies = GetComponentsInChildren<Rigidbody>();
-       
+        ragdollColliders = GetComponentsInChildren<Collider>();
+        Physics.gravity = new Vector3(0f, gravity, 0f);
+
+        Physics.IgnoreLayerCollision(gameObject.layer, 9);
+
         DeactiveRagdoll();
     }
 
+    private void Update()
+    {
+        
+    }
     public void DeactiveRagdoll()
     {
         foreach (var rigidBody in rigidBodies)
@@ -30,7 +40,9 @@ public class Ragdoll : MonoBehaviour
         foreach (var rigidBody in rigidBodies)
         {
             rigidBody.isKinematic = false;
+            
         }
+        gameObject.layer = 9;
 
         animator.enabled = false;
     }

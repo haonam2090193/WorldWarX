@@ -4,30 +4,35 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    public GameObject[] enemies;
+    public List<GameObject> enemyPrefabs;
+    public List<Transform> spawnPoints; // Danh sách các spawn point
+    public int enemyCount;
     public int maxEnemy;
     public float spawnTime;
 
-    private int totalEnemy;
-    private void Start()                                                                                                   
+    float rotationY;
+
+    private void SpawnEnemies()
     {
-        StartCoroutine(SpawnEnemies());
-    }
-    IEnumerator SpawnEnemies()
-    {
-        while (totalEnemy <= maxEnemy)
+        while (enemyCount < maxEnemy)
         {
-            totalEnemy++;
-            EnemiesSpawn();
-            yield return new WaitForSeconds(spawnTime);
+            rotationY = Random.Range(-180, 180);
+            int randomSpawnPointIndex = Random.Range(0, spawnPoints.Count); // Chọn một spawn point ngẫu nhiên
+            int randomEnemyIndex = Random.Range(0, enemyPrefabs.Count); // Chọn một enemy prefab ngẫu nhiên
+            Transform randomSpawnPoint = spawnPoints[randomSpawnPointIndex];
+            GameObject enemyPrefab = enemyPrefabs[randomEnemyIndex];
+            GameObject enemy = Instantiate(enemyPrefab, randomSpawnPoint.position, Quaternion.Euler(0, rotationY, 0));
+            enemyCount++;
+            if (enemyCount == maxEnemy)
+            {
+                Destroy(gameObject);
+            }
         }
     }
-    void EnemiesSpawn()
+
+    private void OnTriggerEnter(Collider other)
     {
-        
-        float randomYPos = Random.Range(0, 360);
-        int randomEnemy = Random.Range(0, enemies.Length - 1);
-        
-        Instantiate(enemies[randomEnemy], this.transform.position, Quaternion.Euler(0,randomYPos,0));
+        Debug.Log("Aaa");
+        SpawnEnemies();
     }
 }

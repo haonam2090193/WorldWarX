@@ -22,6 +22,7 @@ public class RaycastWeapon : MonoBehaviour
     public Transform raycastDestination;
     public WeaponRecoil weaponRecoil;
     public GameObject magazine;
+    public float weaponforce;
 
     public int ammoCount;
     public int totalAmmo;
@@ -165,7 +166,7 @@ public class RaycastWeapon : MonoBehaviour
             var rigidbody = hitInfo.collider.GetComponent<Rigidbody>();
             if (rigidbody)
             {
-                rigidbody.AddForceAtPosition(ray.direction * 10, hitInfo.point, ForceMode.Impulse);
+                rigidbody.AddForceAtPosition(ray.direction * weaponforce, hitInfo.point, ForceMode.Impulse);
             }
 
             var hitBox = hitInfo.collider.GetComponent<HitBox>();

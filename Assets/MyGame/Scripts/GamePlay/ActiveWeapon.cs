@@ -15,7 +15,7 @@ public class ActiveWeapon : MonoBehaviour
     private int activeWeaponIdx; 
     RaycastWeapon currentWeapon;
     [SerializeField]
-    private RaycastWeapon[] equippedWeapons = new RaycastWeapon[3];
+    public RaycastWeapon[] equippedWeapons = new RaycastWeapon[3];
 
     private CharacterAiming characterAiming;
     private WeaponReload weaponReload;
@@ -33,6 +33,13 @@ public class ActiveWeapon : MonoBehaviour
 
     void Update()
     {
+        if (crosshairTarget == null)
+        {
+            GameObject.Find("CrossHairTarget");
+
+            //are fixing
+        }
+
         currentWeapon = GetActiveWeapon();
 
         var raycastWeapon = GetWeapon(activeWeaponIdx);
@@ -42,14 +49,14 @@ public class ActiveWeapon : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1") && canFire && !raycastWeapon.isFiring)
             {
-                if (raycastWeapon.singleMode)
+/*                if (raycastWeapon.singleMode)
                 {
                     raycastWeapon.FireBullet(crosshairTarget.position);
                 }
                 else
-                {
+                {*/
                     raycastWeapon.StartFiring();
-                }
+                //}
             }
 
                 raycastWeapon.UpdateWeapon(Time.deltaTime, crosshairTarget.position);

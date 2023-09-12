@@ -7,7 +7,7 @@ public class GlobalConfig : ScriptableObject
 {
 
     [Header("Global")]
-    public float maxHealth = 10f;
+    public int maxHealth = 100;
 
     [Header("AI")]
     public float maxTime = 1f;
@@ -16,8 +16,7 @@ public class GlobalConfig : ScriptableObject
     public float dieForce = 10f;
     public float maxSight = 5f;
     public float timeDestroyAI = 3f;
-    public float damage = 10.7f;
-    public int maxEnemyPoolSize = 30;
+    public int damage = 8;
 
     [Header("Player")]
     public float jumpHeight = 3f;
@@ -33,6 +32,7 @@ public class GlobalConfig : ScriptableObject
     public float timeDestroyDroppedMagazine = 5f;
     public float maxCroissHairTargetDistance = 100f;
     public int maxBulletPoolSize = 30;
+    public int maxEnemyPoolSize = 30;
 
     [Header("UI")]
     public float loadingOverLapTime = 1f;
