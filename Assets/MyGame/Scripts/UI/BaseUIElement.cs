@@ -43,6 +43,7 @@ public class BaseUIElement : MonoBehaviour
         if(CanvasGroup != null)
         {
             CanvasGroup.blocksRaycasts = isActive;
+            CanvasGroup.interactable = isActive;
             CanvasGroup.alpha = isActive ? 1 : 0;
         }
     }

@@ -19,7 +19,16 @@ public class ActiveWeapon : MonoBehaviour
 
     private CharacterAiming characterAiming;
     private WeaponReload weaponReload;
+    private void Awake()
+    {
+        if (crosshairTarget == null)
+        {
+            crosshairTarget = GameObject.Find("CrossHairTarget").transform;
 
+            //are fixing
+        }
+
+    }
 
     void Start()
     {
@@ -33,13 +42,7 @@ public class ActiveWeapon : MonoBehaviour
 
     void Update()
     {
-        if (crosshairTarget == null)
-        {
-            GameObject.Find("CrossHairTarget");
-
-            //are fixing
-        }
-
+       
         currentWeapon = GetActiveWeapon();
 
         var raycastWeapon = GetWeapon(activeWeaponIdx);

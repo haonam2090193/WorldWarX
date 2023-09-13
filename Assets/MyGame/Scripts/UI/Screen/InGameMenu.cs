@@ -24,6 +24,11 @@ public class InGameMenu : BasePopup
 
         this.rigController = GameObject.FindGameObjectWithTag("Rig").GetComponent<Animator>();
     }
+
+    public override void Init()
+    {
+        base.Init();
+    }
     public override void Hide()
     {
         base.Hide();
@@ -63,10 +68,15 @@ public class InGameMenu : BasePopup
             UIManager.Instance.ShowNotify<Map1ToMenu>();
         }
         this.Hide();
+        DOVirtual.DelayedCall(1f, () =>
+        {
+            Destroy(this.gameObject);
+        });
+        Cursor.lockState = CursorLockMode.Confined;
 
     }
 
- 
+
     private void DefaultIndex()
     {
        // animator.Play("FadeIn");
