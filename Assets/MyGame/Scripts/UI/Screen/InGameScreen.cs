@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class InGameScreen : BaseScreen
 {
-    [SerializeField] private TextMeshProUGUI ammoText;
-    [SerializeField] private TextMeshProUGUI hpText;
+    [SerializeField]  TextMeshProUGUI ammoText;
+    [SerializeField]  TextMeshProUGUI hpText;
     [SerializeField] Slider HPSlider;
-
-    private float playerValue ;
+    public int playerScore;
+    private float playerValue;
     private void Start()
     {
         if (PlayerManager.HasInstance)
@@ -50,6 +50,15 @@ public class InGameScreen : BaseScreen
     {
         base.Show(data);
     }
+    private void OnDestroy()
+    {
+        if (ListenerManager.HasInstance)
+        {
+            ListenerManager.Instance.Unregister(ListenType.UPDATE_AMMO, OnUpdateAmmo);
+            ListenerManager.Instance.Unregister(ListenType.UPDATE_HP, OnUpdateHP);
+
+        }
+    }
     
     public void OnMenuScreenClick()
     {
@@ -58,18 +67,6 @@ public class InGameScreen : BaseScreen
             
             UIManager.Instance.ShowPopup<InGameMenu>();
             GameManager.Instance.PauseGame();
-        }
-    }
-
-
-
-    private void OnDestroy()
-    {
-        if (ListenerManager.HasInstance)
-        {
-            ListenerManager.Instance.Unregister(ListenType.UPDATE_AMMO, OnUpdateAmmo);
-            ListenerManager.Instance.Unregister(ListenType.UPDATE_HP, OnUpdateHP);
-
         }
     }
 

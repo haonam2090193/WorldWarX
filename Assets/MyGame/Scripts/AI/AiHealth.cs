@@ -11,7 +11,6 @@ public class AiHealth : MonoBehaviour
     public Animator animator;
 
     private int damage;
-    private AiHealth health;
     private AiAgent agent;
     private Ragdoll ragdoll;
     private SkinnedMeshRenderer skinnedMeshRenderer;
@@ -22,6 +21,10 @@ public class AiHealth : MonoBehaviour
     
     private PlayerHeath playerHeath;
 
+    private void Awake()
+    {
+        playerHeath = GameObject.Find("Player").GetComponent<PlayerHeath>();
+    }
 
     void Start()
     {
@@ -33,12 +36,6 @@ public class AiHealth : MonoBehaviour
             timeDestroyAI = DataManager.Instance.GlobalConfig.timeDestroyAI;
         }
         currentHealth = maxHealth;
-
-        if(playerHeath == null)
-        {
-            Debug.Log("x");
-            playerHeath = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHeath>();
-        }
 
         agent = GetComponentInParent<AiAgent>();
         animator = GetComponentInParent<Animator>();
@@ -83,6 +80,8 @@ public class AiHealth : MonoBehaviour
 
     private void Die(Vector3 direction , Rigidbody rigidbody)
     {
+        ScoreSystem.playerScore += 1;
+        Debug.Log(ScoreSystem.playerScore);
         AiDeathState deathState = aiAgent.stateMachine.GetState(AiStateID.Death) as AiDeathState;
         deathState.direction = direction;
         deathState.rigidbody = rigidbody;
@@ -95,10 +94,12 @@ public class AiHealth : MonoBehaviour
     }
     public void DealDamage()
     {
+        
         playerHeath.currentHealth -= damage;
-        if (ListenerManager.HasInstance)
-        {
-            ListenerManager.Instance.BroadCast(ListenType.UPDATE_HP, currentHealth);
-        }
+        Debug.Log("-" + damage);
+        //if (ListenerManager.HasInstance)
+        //{
+        //    ListenerManager.Instance.BroadCast(ListenType.UPDATE_HP, currentHealth);
+        //}
     }
 }

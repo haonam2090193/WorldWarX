@@ -12,6 +12,10 @@ public class AiDeathState : AiState
     {
         return AiStateID.Death;
     }
+    public void Update()
+    {
+
+    }
 
     public void Enter(AiAgent agent)
     {
@@ -34,8 +38,4 @@ public class AiDeathState : AiState
         
     }
 
-    public void Update()
-    {
-        
-    }
 }

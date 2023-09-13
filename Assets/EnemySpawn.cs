@@ -32,7 +32,10 @@ public class EnemySpawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Aaa");
-        SpawnEnemies();
+        if (other.gameObject.CompareTag("Player"))
+        {
+            SpawnEnemies();
+        }
+
     }
 }

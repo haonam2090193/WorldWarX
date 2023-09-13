@@ -7,7 +7,7 @@ public class AiLocomotion : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
     private Animator animator;
-
+    public int score = 1;
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();

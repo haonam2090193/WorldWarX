@@ -117,7 +117,7 @@ public class CharacterLocomotion : MonoBehaviour
         this.velocity.y -= gravity * Time.fixedDeltaTime;
         Vector3 airDisplacement = velocity * Time.fixedDeltaTime;
         airDisplacement += CalculateAircontrol();
-        this.characterController.Move(airDisplacement);
+        this.characterController.Move(airDisplacement); 
         isJumping = !this.characterController.isGrounded;
         rootMotion = Vector3.zero;
         this.animator.SetBool("IsJumping", isJumping);

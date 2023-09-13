@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+using UnityEngine.SceneManagement;
 public class CharacterAiming : MonoBehaviour
 {
     private float turnSpeed;
@@ -39,6 +39,7 @@ public class CharacterAiming : MonoBehaviour
         {
             this.activeWeapon = PlayerManager.Instance.activeWeapon;
         }
+        //if(SceneManager.GetActiveScene(2))
     }
 
     private void Update()

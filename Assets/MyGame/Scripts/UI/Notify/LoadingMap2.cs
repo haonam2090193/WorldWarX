@@ -36,7 +36,7 @@ public class LoadingMap2 : BaseNotify
         {
             loadingSlider.value = asyncOperation.progress;
             loadingPercentText.SetText($"LOADING SCENES: {asyncOperation.progress * 100}%");
-            if (asyncOperation.progress >= 0.9f)
+            if (asyncOperation.progress >= 0.99f)
             {
                 loadingSlider.value = 1f;
                 loadingPercentText.SetText($"LOADING SCENES: {loadingSlider.value * 100}%");
@@ -48,7 +48,7 @@ public class LoadingMap2 : BaseNotify
                 asyncOperation.allowSceneActivation = true;
 
                 this.Hide();
-                UIManager.Instance.ShowScreen<InGameScreen>();
+                //UIManager.Instance.ShowScreen<InGameScreen>();
 
                 PlayerManager.Instance.characterAiming.mainCamera.transform.SetParent(null);
             }

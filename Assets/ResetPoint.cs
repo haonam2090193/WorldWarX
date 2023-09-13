@@ -33,8 +33,8 @@ public class ResetPoint : MonoBehaviour
     }
     public void DefaultIndex()
     {
-        
-        rigController.Play("weapon_unarmed");
+        rigController.Rebind();
+        //rigController.Play("weapon_unarmed");
        
         foreach(Transform guns in activeWeapon.weaponSlots)
         {

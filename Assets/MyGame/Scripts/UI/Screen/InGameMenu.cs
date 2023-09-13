@@ -67,21 +67,9 @@ public class InGameMenu : BasePopup
         }
         this.Hide();
 
-        // 2. : cách về Menu
     }
 
-  /*  IEnumerator FadeIn()
-    {
-        animator.Play("FadeIn");
-
-        yield return new WaitForSeconds(2f);
-    }
-    IEnumerator FadeOut()
-    {
-        animator.Play("FadeOut");
-
-        yield return new WaitForSeconds(2f);
-    }*/
+ 
     private void DefaultIndex()
     {
        // animator.Play("FadeIn");
