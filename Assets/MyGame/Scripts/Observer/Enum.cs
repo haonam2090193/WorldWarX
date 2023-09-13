@@ -6,7 +6,8 @@ public enum ListenType
     UPDATE_COUNT_TEXT,
     UPDATE_USER_INFO,
     UPDATE_AMMO,
-    UPDATE_HP
+    UPDATE_HP,
+    UPDATE_SCORE
 }
 
 public enum UIType

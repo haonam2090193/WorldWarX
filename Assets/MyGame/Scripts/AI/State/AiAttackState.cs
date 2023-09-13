@@ -19,10 +19,6 @@ public class AiAttackState : AiState
     }
     public void Update()
     {
-        if(aiAgent.health.currentHealth <= 0)
-        {
-            return;
-        }
         aiAgent.transform.LookAt(new Vector3( aiAgent.playerTransform.position.x , aiAgent.transform.position.y, aiAgent.playerTransform.position.z));
         aiAgent.animator.SetBool("IsAttack", true);
 

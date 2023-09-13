@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -36,7 +36,9 @@ public class AiChasePlayerState : AiState
         }
         if (!aiAgent.navMeshAgent.hasPath)
         {
-            aiAgent.navMeshAgent.destination = aiAgent.playerTransform.position;
+            {
+               aiAgent.navMeshAgent.destination = aiAgent.playerTransform.position;
+            }
         }
             Vector3 direction = aiAgent.playerTransform.position - aiAgent.navMeshAgent.destination;
             direction.y = 0;
@@ -53,11 +55,7 @@ public class AiChasePlayerState : AiState
         {
             aiAgent.health.canAttack = true;
             aiAgent.stateMachine.ChangeState(AiStateID.Attack);
-        }
-       /* else
-        {
-            agent.stateMachine.ChangeState(AiStateID.ChasePlayer);
-        }*/
+        }      
     }
     public void Exit()
     {

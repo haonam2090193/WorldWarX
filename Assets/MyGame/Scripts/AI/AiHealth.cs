@@ -80,8 +80,11 @@ public class AiHealth : MonoBehaviour
 
     private void Die(Vector3 direction , Rigidbody rigidbody)
     {
-        ScoreSystem.playerScore += 1;
-        Debug.Log(ScoreSystem.playerScore);
+        ScoreSystem.playerScore += Random.Range(1, 3);
+        if (ListenerManager.HasInstance)
+        {
+            ListenerManager.Instance.BroadCast(ListenType.UPDATE_SCORE, ScoreSystem.playerScore);
+        }
         AiDeathState deathState = aiAgent.stateMachine.GetState(AiStateID.Death) as AiDeathState;
         deathState.direction = direction;
         deathState.rigidbody = rigidbody;
@@ -97,9 +100,9 @@ public class AiHealth : MonoBehaviour
         
         playerHeath.currentHealth -= damage;
         Debug.Log("-" + damage);
-        //if (ListenerManager.HasInstance)
-        //{
-        //    ListenerManager.Instance.BroadCast(ListenType.UPDATE_HP, currentHealth);
-        //}
+        if (ListenerManager.HasInstance)
+        {
+            ListenerManager.Instance.BroadCast(ListenType.UPDATE_HP, currentHealth);
+        }
     }
 }

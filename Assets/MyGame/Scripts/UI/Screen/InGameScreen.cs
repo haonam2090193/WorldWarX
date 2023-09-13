@@ -8,6 +8,8 @@ public class InGameScreen : BaseScreen
 {
     [SerializeField]  TextMeshProUGUI ammoText;
     [SerializeField]  TextMeshProUGUI hpText;
+    [SerializeField] TextMeshProUGUI scoreText;
+
     [SerializeField] Slider HPSlider;
     public int playerScore;
     private float playerValue;
@@ -23,6 +25,7 @@ public class InGameScreen : BaseScreen
         {
             ListenerManager.Instance.Register(ListenType.UPDATE_AMMO, OnUpdateAmmo);
             ListenerManager.Instance.Register(ListenType.UPDATE_HP, OnUpdateHP);
+            ListenerManager.Instance.Register(ListenType.UPDATE_SCORE, OnUpdateScore);
         }
 
 
@@ -56,6 +59,7 @@ public class InGameScreen : BaseScreen
         {
             ListenerManager.Instance.Unregister(ListenType.UPDATE_AMMO, OnUpdateAmmo);
             ListenerManager.Instance.Unregister(ListenType.UPDATE_HP, OnUpdateHP);
+            ListenerManager.Instance.Unregister(ListenType.UPDATE_SCORE, OnUpdateScore);
 
         }
     }
@@ -86,5 +90,11 @@ public class InGameScreen : BaseScreen
         }
     }
 
-
+    private void OnUpdateScore(object value)
+    {
+        if(value is int score)
+        {
+            scoreText.text = score.ToString();
+        }
+    }
 }

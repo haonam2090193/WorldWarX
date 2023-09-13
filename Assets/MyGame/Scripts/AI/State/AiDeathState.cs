@@ -20,7 +20,7 @@ public class AiDeathState : AiState
     public void Enter(AiAgent agent)
     {
         aiAgent = agent;
-
+        aiAgent.navMeshAgent.enabled = false;
         Debug.Log("DeathState");
 
         if (DataManager.HasInstance)

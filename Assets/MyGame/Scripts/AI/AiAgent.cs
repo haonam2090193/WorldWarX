@@ -26,7 +26,7 @@ public class AiAgent : MonoBehaviour
     {
         if (playerTransform == null)
         {
-            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+            playerTransform = GameObject.Find("Player").transform;
         }
         navMeshAgent = GetComponent<NavMeshAgent>();
         health = GetComponent<AiHealth>();

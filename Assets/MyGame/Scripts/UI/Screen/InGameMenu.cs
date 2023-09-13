@@ -5,9 +5,7 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 public class InGameMenu : BasePopup
 {
-    private float defaultBullet;
     private GameObject player;
-    private Animator animator;
 
     //Default Index :
     public Transform spawnPoisition;
@@ -18,7 +16,6 @@ public class InGameMenu : BasePopup
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
         spawnPoisition = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
         player = GameObject.FindGameObjectWithTag("Player");
         this.playerTransform = player.transform;
