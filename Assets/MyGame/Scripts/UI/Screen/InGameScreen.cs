@@ -10,17 +10,10 @@ public class InGameScreen : BaseScreen
     [SerializeField]  TextMeshProUGUI hpText;
     [SerializeField] TextMeshProUGUI scoreText;
 
-    [SerializeField] Slider HPSlider;
     public int playerScore;
-    private float playerValue;
     private void Start()
     {
-        if (PlayerManager.HasInstance)
-        {
-            playerValue = PlayerManager.Instance.playerHeath.currentHealth;
-            
-        }
-        
+       
         if (ListenerManager.HasInstance)
         {
             ListenerManager.Instance.Register(ListenType.UPDATE_AMMO, OnUpdateAmmo);
@@ -33,11 +26,7 @@ public class InGameScreen : BaseScreen
 
     private void Update()
     {
-        playerValue /= 100;
-        if (PlayerManager.HasInstance)
-        {
-            HPSlider.value = playerValue;
-        }
+        
 
         OnMenuScreenClick();
     }
