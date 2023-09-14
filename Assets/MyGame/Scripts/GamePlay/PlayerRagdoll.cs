@@ -39,6 +39,11 @@ public class PlayerRagdoll : MonoBehaviour
         }
         characterController.enabled = false;
         animator.enabled = false;
+        if (PlayerManager.HasInstance)
+        {
+            PlayerManager.Instance.characterAiming.enabled = false;
+            PlayerManager.Instance.activeWeapon.enabled = false;
+        }
     }
     public void ApplyForce(Vector3 force, Rigidbody rigidbody)
     {

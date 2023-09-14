@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AiAttackState : AiState
 {
-    private float damage;
     AiAgent aiAgent;
    
     public AiStateID GetID()
@@ -14,11 +13,17 @@ public class AiAttackState : AiState
     public void Enter(AiAgent agent)
     {
         aiAgent = agent;
-        Debug.Log("Attack");
-        damage = DataManager.Instance.GlobalConfig.damage;
     }
     public void Update()
     {
+        if (PlayerManager.HasInstance)
+        {
+            if(PlayerManager.Instance.playerHeath.currentHealth <= 0)
+            {
+                aiAgent.stateMachine.ChangeState(AiStateID.Idle);
+                return;
+            }
+        }
         aiAgent.transform.LookAt(new Vector3( aiAgent.playerTransform.position.x , aiAgent.transform.position.y, aiAgent.playerTransform.position.z));
         aiAgent.animator.SetBool("IsAttack", true);
 

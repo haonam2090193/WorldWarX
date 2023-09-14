@@ -46,7 +46,13 @@ public class AiHealth : MonoBehaviour
     }
     private void Update()
     {
-        distance = Vector3.Distance(agent.transform.position, agent.playerTransform.position);  
+        if (PlayerManager.HasInstance)
+        {
+            if (PlayerManager.Instance.playerHeath.currentHealth >0)
+            {
+                distance = Vector3.Distance(agent.transform.position, agent.playerTransform.position);
+            }
+        }
     }
 
     public void TakeDamage(float amount, Vector3 direction, Rigidbody rigidbody)

@@ -68,7 +68,7 @@ public class InGameScreen : BaseScreen
     {
         if(Input.GetKeyDown(KeyCode.Escape)) 
         { 
-            
+       
             UIManager.Instance.ShowPopup<InGameMenu>();
             GameManager.Instance.PauseGame();
         }

@@ -8,7 +8,6 @@ public class GameManager : BaseManager<GameManager>
 { 
     private void Start()
     {
-     
         SetFPSInGame();
         if (UIManager.HasInstance)
         {
@@ -19,6 +18,7 @@ public class GameManager : BaseManager<GameManager>
                 scr.AnimationLoaddingText();
                 scr.DoAnimationLoadingProgress(2, () =>
                 {
+                    SceneManager.LoadSceneAsync("Menu");
                     UIManager.Instance.ShowScreen<ScreenHome>();
                     scr.Hide();
                 });
@@ -34,6 +34,7 @@ public class GameManager : BaseManager<GameManager>
 
     public void CloseGame()
     {
+        Debug.Log("Exit game");
         Application.Quit();
     }
 
@@ -55,10 +56,5 @@ public class GameManager : BaseManager<GameManager>
     public void SetFPSInGame()
     {
         Application.targetFrameRate = 60;
-    }
-
-    public void RestartGame()
-    {
-       // ResetPoint.DefaultIndex();
     }
 }

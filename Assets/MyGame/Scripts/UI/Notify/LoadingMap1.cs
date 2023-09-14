@@ -4,18 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class LoadingMap1 : BaseNotify
 {
     public TextMeshProUGUI loadingPercentText;
     public Slider loadingSlider;
 
+    
     public override void Init()
     {
         base.Init();
-        StartCoroutine(LoadScene());
+        LoadScenes();
     }
-
+    
     public override void Show(object data)
     {
         base.Show(data);
@@ -26,11 +28,17 @@ public class LoadingMap1 : BaseNotify
         base.Hide();
     }
 
-    private IEnumerator LoadScene()
+    public void LoadScenes()
     {
+        StartCoroutine(LoadScene("Map1"));
+    }
+
+    private IEnumerator LoadScene(string screneName)
+    {
+        Debug.Log("AAAAA");
         yield return null;
 
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Map1");
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(screneName);
         asyncOperation.allowSceneActivation = false;
         while (!asyncOperation.isDone)
         {
@@ -49,9 +57,9 @@ public class LoadingMap1 : BaseNotify
 
                 this.Hide();
             }
-            UIManager.Instance.ShowScreen<InGameScreen>();
+          
             yield return null;
         }
-    }
+    }    
 }
     

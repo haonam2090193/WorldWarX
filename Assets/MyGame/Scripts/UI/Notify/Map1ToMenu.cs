@@ -10,11 +10,23 @@ public class Map1ToMenu : BaseNotify
 {
     public TextMeshProUGUI loadingPercentText;
     public Slider loadingSlider;
-
+    private GameObject[] enemies;
     public override void Init()
     {
         base.Init();
         StartCoroutine(LoadScene());
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+        GameObject player = GameObject.Find("Player");
+        Destroy(player);
+        if (GameManager.HasInstance)
+        {
+            GameManager.Instance.ContinueGame();
+        }
+        
     }
 
     public override void Show(object data)
@@ -28,13 +40,7 @@ public class Map1ToMenu : BaseNotify
     }
 
     private IEnumerator LoadScene()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Destroy(player);
-        if (GameManager.HasInstance)
-        {
-            GameManager.Instance.ContinueGame();
-        }
+    {      
         yield return null;
 
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Menu");
@@ -49,15 +55,15 @@ public class Map1ToMenu : BaseNotify
                 loadingSlider.value = 1f;
                 loadingPercentText.SetText($"LOADING SCENES: {loadingSlider.value * 100}%");
                 if (UIManager.HasInstance)
-                {
-                    
-                    UIManager.Instance.ShowOverlap<OverlapFade>();
+                {     
+                    UIManager.Instance.ShowOverlap<OverlapFade2>();
+                    GameObject overlapFade = GameObject.Find("OVERLAP_OverlapFade");
+                    Destroy(overlapFade);
                 }
                 yield return new WaitForSeconds(3f);
                 asyncOperation.allowSceneActivation = true;
                 UIManager.Instance.HideAllScreens();
                 UIManager.Instance.HideAllPopups();
-
                 UIManager.Instance.ShowScreen<ScreenHome>();
                 this.Hide();
             }
@@ -65,4 +71,6 @@ public class Map1ToMenu : BaseNotify
             yield return null;
              }
         }
-    }
+ 
+
+}

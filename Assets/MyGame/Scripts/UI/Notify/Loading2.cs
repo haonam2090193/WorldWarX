@@ -16,40 +16,13 @@ public class Loading2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-                Transform spawnPoint = GameObject.FindWithTag("SpawnLocation").transform;
-          /*  if (PlayerManager.HasInstance)
-            {*/
-                PlayerManager.Instance.GetComponent<CharacterController>().enabled = false;
-                PlayerManager.Instance.activeWeapon.enabled = false;
-                PlayerManager.Instance.characterAiming.enabled = false;
-                PlayerManager.Instance.weaponReload.enabled = false;
-                PlayerManager.Instance.playerHeath.enabled = false;
-                PlayerManager.Instance.characterLocomotion.enabled = false;
-            
-            player.transform.position = spawnPoint.position;
-            player.transform.rotation = spawnPoint.rotation;
-
-            DOVirtual.DelayedCall(1.5f, () =>
-            {   
-               /* if (PlayerManager.HasInstance)
-                {*/
-                    PlayerManager.Instance.GetComponent<CharacterController>().enabled = true;
-
-                    PlayerManager.Instance.activeWeapon.enabled = true;
-                    PlayerManager.Instance.characterAiming.enabled = true;
-                    PlayerManager.Instance.weaponReload.enabled = true;
-                    PlayerManager.Instance.playerHeath.enabled = true;
-                    PlayerManager.Instance.characterLocomotion.enabled = true;
-
-                
-            });
+            LoadSceneLogic();
         }
-        
     }
-/*    private void LoadSceneLogic()
+    private void LoadSceneLogic()
     {
 
-       *//* if (UIManager.HasInstance)
+        if (UIManager.HasInstance)
         {
             UIManager.Instance.ShowNotify<NotifyLoading>();
             NotifyLoading scr = UIManager.Instance.GetExistNotify<NotifyLoading>();
@@ -57,10 +30,13 @@ public class Loading2 : MonoBehaviour
             {
                 scr.AnimationLoaddingText();
                 scr.DoAnimationLoadingProgress(5, () =>
-                {*//*
+                {
                     if (PlayerManager.HasInstance)
                     {
                         PlayerManager.Instance.GetComponent<CharacterController>().enabled = false;
+                        Transform spawnPoint = GameObject.FindWithTag("SpawnLocation").transform;
+                        player.transform.position = spawnPoint.position;
+                        player.transform.rotation = spawnPoint.rotation;
                         PlayerManager.Instance.activeWeapon.enabled = false;
                         PlayerManager.Instance.characterAiming.enabled = false;
                         PlayerManager.Instance.weaponReload.enabled = false;
@@ -68,31 +44,28 @@ public class Loading2 : MonoBehaviour
                         PlayerManager.Instance.characterLocomotion.enabled = false;
                     }
 
-                    Transform spawnPoint = GameObject.FindWithTag("SpawnLocation").transform;
 
-                    player.transform.position = spawnPoint.position;
-                    player.transform.rotation = spawnPoint.rotation;
-        DOVirtual.DelayedCall(1.5f, () =>
-        {
-            if (PlayerManager.HasInstance)
-            {
-                PlayerManager.Instance.GetComponent<CharacterController>().enabled = true;
+                    DOVirtual.DelayedCall(1f, () =>
+                    {
+                        if (PlayerManager.HasInstance)
+                        {
+                            PlayerManager.Instance.GetComponent<CharacterController>().enabled = true;
 
-                PlayerManager.Instance.activeWeapon.enabled = true;
-                PlayerManager.Instance.characterAiming.enabled = true;
-                PlayerManager.Instance.weaponReload.enabled = true;
-                PlayerManager.Instance.playerHeath.enabled = true;
-                PlayerManager.Instance.characterLocomotion.enabled = true;
+                            PlayerManager.Instance.activeWeapon.enabled = true;
+                            PlayerManager.Instance.characterAiming.enabled = true;
+                            PlayerManager.Instance.weaponReload.enabled = true;
+                            PlayerManager.Instance.playerHeath.enabled = true;
+                            PlayerManager.Instance.characterLocomotion.enabled = true;
 
-            }
-        });
- *//*       scr.Hide();
-    });
+                        }
+                    });
+                    scr.Hide();
+                });
             }
             else
-{
-    Debug.Log("Null");
-}
-        }*//*
-    }*/
+            {
+                Debug.Log("Null");
+            }
+        }
+    }
 }

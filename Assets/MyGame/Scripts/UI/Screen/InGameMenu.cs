@@ -5,26 +5,26 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 public class InGameMenu : BasePopup
 {
-    private GameObject player;
+    public GameObject loseCondition;
+    public GameObject resume;
+    public GameObject winCondition;
 
-    //Default Index :
-    public Transform spawnPoisition;
-    private Transform playerTransform;
-    private CharacterController characterController;
-    private Animator rigController;
-    ActiveWeapon activeWeapon;
-
-    private void Awake()
+    public bool isWinning;
+    private void Update()
     {
-        spawnPoisition = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
-        player = GameObject.FindGameObjectWithTag("Player");
-        this.playerTransform = player.transform;
-        this.activeWeapon = player.GetComponent<ActiveWeapon>();
-        this.characterController = player.GetComponent<CharacterController>();
-
-        this.rigController = GameObject.FindGameObjectWithTag("Rig").GetComponent<Animator>();
+        if (PlayerManager.HasInstance)
+        {
+            if(PlayerManager.Instance.playerHeath.currentHealth < 0)
+            {
+                LoseCondition();
+            }
+            else if(PlayerManager.Instance.playerHeath.winPoint >= 1)
+            {
+                WinCondition();
+            }
+           
+        }
     }
-
     public override void Init()
     {
         base.Init();
@@ -53,52 +53,31 @@ public class InGameMenu : BasePopup
         }
     }
 
-    public void OnRestartClick()
-    {
-        string currentSceneName = SceneManager.GetActiveScene().name;
-
-        SceneManager.LoadScene(currentSceneName);
-        DefaultIndex();
-    }
-
     public void OnReturnMenuClick()
     {
-        if (UIManager.HasInstance)
-        {
-            UIManager.Instance.ShowNotify<Map1ToMenu>();
-        }
-        this.Hide();
-        DOVirtual.DelayedCall(1f, () =>
-        {
-            Destroy(this.gameObject);
-        });
-        Cursor.lockState = CursorLockMode.Confined;
+
+        Application.Quit();
 
     }
 
-
-    private void DefaultIndex()
+    public void LoseCondition()
     {
-       // animator.Play("FadeIn");
-        spawnPoisition = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
-
-        rigController.Play("weapon_unarmed");
-
-        foreach (Transform guns in activeWeapon.weaponSlots)
+        if (GameManager.HasInstance)
         {
-            foreach (Transform childs in guns)
-            {
-                Destroy(childs.gameObject);
-            }
+            GameManager.Instance.PauseGame();
         }
-        this.activeWeapon.equippedWeapons = new RaycastWeapon[3];
-        this.characterController.enabled = false;
-        this.playerTransform.position = spawnPoisition.position;
-        DOVirtual.DelayedCall(0.1f, () =>
+        loseCondition.SetActive(true);
+        resume.SetActive(false);
+    }
+    public void WinCondition()
+    {
+        if (GameManager.HasInstance)
         {
-            this.characterController.enabled = true;
-        });
-        //  animator.Play("FadeOut");
+            GameManager.Instance.PauseGame();
+        }
+        winCondition.SetActive(true);
+        resume.SetActive(false);
 
     }
+
 }
